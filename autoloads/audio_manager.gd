@@ -11,13 +11,13 @@ var _music_player: AudioStreamPlayer
 const ALARM_MUSIC_PITCH := 2.0
 var _alarm_count := 0
 
-var s_portal: AudioStream
-var s_advance: AudioStream
-var s_back: AudioStream
-var s_run: AudioStream
-var s_dash: AudioStream
-var s_alarm: AudioStream
-var s_music: AudioStream
+const S_ALARM = preload("uid://dnosrnjr4ejm7")
+const S_BACK = preload("uid://dm6ayxlhy4sqi")
+const S_ADVANCE = preload("uid://cri6ohel3020k")
+const S_RUN = preload("uid://cctg67vvkk15n")
+const S_DASH = preload("uid://b1rlutl30sopg")
+const S_MUSIC = preload("uid://dd26642jn0lna")
+const S_PORTAL = preload("uid://sd4adlodp52g")
 
 
 func _ready() -> void:
@@ -25,20 +25,8 @@ func _ready() -> void:
 
 	_ensure_buses()
 
-	s_portal = load("res://audio/portal.wav")
-	s_advance = load("res://audio/boton_avanzar_en_menu.wav")
-	s_back = load("res://audio/boton_atras_en_menu.wav")
-	s_run = load("res://audio/correr.mp3")
-	s_dash = load("res://audio/dash.wav")
-	s_alarm = load("res://audio/alarm.wav")
-	s_music = load("res://audio/musica.mp3")
-
-	# Loop the music track (mp3 defaults to no loop).
-	if s_music is AudioStreamMP3:
-		s_music.loop = true
-
 	_music_player = AudioStreamPlayer.new()
-	_music_player.stream = s_music
+	_music_player.stream = S_MUSIC
 	_music_player.bus = "Music"
 	add_child(_music_player)
 	_music_player.play()
@@ -71,27 +59,27 @@ func _sfx(stream: AudioStream) -> void:
 
 # --- Named effects ------------------------------------------------------
 func portal() -> void:
-	_sfx(s_portal)
+	_sfx(S_PORTAL)
 
 
 func advance() -> void:
-	_sfx(s_advance)
+	_sfx(S_ADVANCE)
 
 
 func back() -> void:
-	_sfx(s_back)
+	_sfx(S_BACK)
 
 
 func run() -> void:
-	_sfx(s_run)
+	_sfx(S_RUN)
 
 
 func dash() -> void:
-	_sfx(s_dash)
+	_sfx(S_DASH)
 
 
 func alarm_siren() -> void:
-	_sfx(s_alarm)
+	_sfx(S_ALARM)
 
 
 # --- Music tempo (alarm zones) -----------------------------------------

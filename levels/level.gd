@@ -19,8 +19,7 @@ func _ready() -> void:
 	var text := rule_announcement
 	if text == "":
 		text = _auto_rule_text()
-	if text != "":
-		SceneManager.show_toast(text)
+	SceneManager.show_toast(text)
 
 
 func _auto_rule_text() -> String:

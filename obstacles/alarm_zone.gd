@@ -26,6 +26,9 @@ func _process(_delta: float) -> void:
 		return
 
 	Events.update_alarm(alarm_timer.time_left)
+	if player.is_dashing:
+		alarm_timer.stop()
+		_on_alarm_timer_timeout()
 
 
 func _get_configuration_warnings():

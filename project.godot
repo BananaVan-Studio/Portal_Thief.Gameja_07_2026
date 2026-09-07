@@ -35,6 +35,17 @@ window/stretch/aspect="expand"
 
 enabled=PackedStringArray("res://addons/simple_gdscript_formatter/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://UI/": "orange",
+"res://autoloads/": "red",
+"res://levels/": "yellow",
+"res://menu/": "green",
+"res://obstacles/": "purple",
+"res://player/": "blue"
+}
+
 [global_group]
 
 Player=""

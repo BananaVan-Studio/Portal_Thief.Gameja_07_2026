@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://byque4w54oowj"]
+[gd_scene format=3 uid="uid://byque4w54oowj"]
 
 [ext_resource type="Script" uid="uid://batafhm05bnuw" path="res://player/player.gd" id="1_oul6g"]
-[ext_resource type="AudioStream" path="res://audio/caida.wav" id="2_rkbax"]
+[ext_resource type="AudioStream" uid="uid://bd8jo3ckdl0cs" path="res://audio/caida.ogg" id="2_rkbax"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqu6x"]
 
@@ -249,41 +249,38 @@ _data = {
 &"spawn_player": SubResource("Animation_yw30f")
 }
 
-[node name="Player" type="CharacterBody2D" groups=["Player"]]
+[node name="Player" type="CharacterBody2D" unique_id=19935492 groups=["Player"]]
 motion_mode = 1
 script = ExtResource("1_oul6g")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1817341185]
 offset_left = -10.0
 offset_top = -10.0
 offset_right = 10.0
 offset_bottom = 10.0
 pivot_offset = Vector2(10, 10)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=446983901]
 shape = SubResource("CircleShape2D_kqu6x")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=574507129]
 zoom = Vector2(1.5, 1.5)
 limit_enabled = false
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 
-[node name="DashTimer" type="Timer" parent="."]
+[node name="DashTimer" type="Timer" parent="." unique_id=465214526]
 wait_time = 0.15
 one_shot = true
 
-[node name="DashWaitTime" type="Timer" parent="." groups=["Player"]]
+[node name="DashWaitTime" type="Timer" parent="." unique_id=1992353530 groups=["Player"]]
 wait_time = 0.4
 one_shot = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_g1dw6")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=839680686]
+libraries/ = SubResource("AnimationLibrary_g1dw6")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2055262427]
 stream = ExtResource("2_rkbax")
-bus = &"SFX"
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
