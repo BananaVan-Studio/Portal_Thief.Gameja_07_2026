@@ -4,7 +4,8 @@ extends Area2D
 @export var caught_margin: float = 100:
 	set(value):
 		caught_margin = value
-		alarm_timer.wait_time = value
+		if is_instance_valid(alarm_timer):
+			alarm_timer.wait_time = value
 		update_configuration_warnings()
 
 var player: MainCharacter = null
@@ -28,7 +29,7 @@ func _process(_delta: float) -> void:
 
 
 func _get_configuration_warnings():
-	if alarm_timer.wait_time == 100:
+	if caught_margin == 100:
 		return ["Alarm time hasn't been set."]
 	else:
 		return []
@@ -41,6 +42,7 @@ func _on_body_entered(body: Node2D) -> void:
 	print("ENTERED")
 	alarm_timer.start()
 	player = body
+	AudioManager.alarm_enter()
 
 
 func _on_body_exited(body: Node2D) -> void:
@@ -50,7 +52,9 @@ func _on_body_exited(body: Node2D) -> void:
 	alarm_timer.stop()
 	player = null
 	Events.stop_alarm()
+	AudioManager.alarm_exit()
 
 
 func _on_alarm_timer_timeout() -> void:
+	AudioManager.alarm_siren()
 	player.take_player_control("caught_alarm")

@@ -1,0 +1,96 @@
+[gd_scene load_steps=7 format=3 uid="uid://dyu0kf830k441"]
+
+[ext_resource type="Script" uid="uid://bf4hw2p10w3gu" path="res://levels/boss.gd" id="1_boss"]
+[ext_resource type="PackedScene" uid="uid://c0qoh0n6qv8q0" path="res://levels/starting_position.tscn" id="2_start"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_side"]
+size = Vector2(40, 1020)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_top"]
+size = Vector2(600, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_boss"]
+size = Vector2(56, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fall"]
+size = Vector2(600, 140)
+
+[node name="BossLevel" type="Node2D"]
+script = ExtResource("1_boss")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_top = -40.0
+offset_right = 600.0
+offset_bottom = 1040.0
+color = Color(0.24, 0.18, 0.34, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(300, 110)
+zoom = Vector2(1.1, 1.1)
+
+[node name="Arena" type="StaticBody2D" parent="."]
+
+[node name="LeftWallVisual" type="ColorRect" parent="Arena"]
+offset_right = 40.0
+offset_bottom = 1020.0
+color = Color(0.32, 0.32, 0.32, 1)
+
+[node name="RightWallVisual" type="ColorRect" parent="Arena"]
+offset_left = 560.0
+offset_right = 600.0
+offset_bottom = 1020.0
+color = Color(0.32, 0.32, 0.32, 1)
+
+[node name="TopWallVisual" type="ColorRect" parent="Arena"]
+offset_top = -30.0
+offset_right = 600.0
+offset_bottom = 10.0
+color = Color(0.32, 0.32, 0.32, 1)
+
+[node name="LeftWall" type="CollisionShape2D" parent="Arena"]
+position = Vector2(20, 510)
+shape = SubResource("RectangleShape2D_side")
+
+[node name="RightWall" type="CollisionShape2D" parent="Arena"]
+position = Vector2(580, 510)
+shape = SubResource("RectangleShape2D_side")
+
+[node name="TopWall" type="CollisionShape2D" parent="Arena"]
+position = Vector2(300, -10)
+shape = SubResource("RectangleShape2D_top")
+
+[node name="BossCore" type="Area2D" parent="."]
+position = Vector2(300, 60)
+
+[node name="Visual" type="ColorRect" parent="BossCore"]
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+color = Color(0.85, 0.12, 0.12, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossCore"]
+shape = SubResource("RectangleShape2D_boss")
+
+[node name="FallZone" type="Area2D" parent="."]
+
+[node name="Visual" type="ColorRect" parent="FallZone"]
+offset_top = 860.0
+offset_right = 600.0
+offset_bottom = 1000.0
+color = Color(0.05, 0.05, 0.07, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FallZone"]
+position = Vector2(300, 930)
+shape = SubResource("RectangleShape2D_fall")
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="SpawnTimer" type="Timer" parent="."]
+
+[node name="RuleTimer" type="Timer" parent="."]
+
+[node name="StartingPosition" parent="." instance=ExtResource("2_start")]
+position = Vector2(300, 800)
+intro_enabled = false
+swap_to_player_camera = false

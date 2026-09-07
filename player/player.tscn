@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://byque4w54oowj"]
 
 [ext_resource type="Script" uid="uid://batafhm05bnuw" path="res://player/player.gd" id="1_oul6g"]
-[ext_resource type="AudioStream" uid="uid://b6ke54cvtmv2u" path="res://player/Fall-sound.ogg" id="2_rkbax"]
+[ext_resource type="AudioStream" path="res://audio/caida.wav" id="2_rkbax"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqu6x"]
 
@@ -284,5 +284,6 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_rkbax")
+bus = &"SFX"
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

@@ -18,7 +18,8 @@ func _on_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("Player"):
 		return
 
-	load("res://levels/level_" + str(next_level) + ".tscn")
+	AudioManager.portal()
+	SceneManager.go_to_level(next_level)
 
 
 func _get_configuration_warnings():

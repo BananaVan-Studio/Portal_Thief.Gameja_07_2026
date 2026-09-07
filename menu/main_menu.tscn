@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmainmenu00001"]
+
+[ext_resource type="Script" path="res://menu/main_menu.gd" id="1_main"]
+[ext_resource type="Texture2D" path="res://assets/portal_thief_bg.jpg" id="2_bg"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_main")
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Menu" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 72
+theme_override_constants/margin_bottom = 60
+
+[node name="VBox" type="VBoxContainer" parent="Menu"]
+layout_mode = 2
+theme_override_constants/separation = 14
+alignment = 2
+
+[node name="PlayButton" type="Button" parent="Menu/VBox"]
+custom_minimum_size = Vector2(260, 54)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 32
+text = "Play"
+
+[node name="TutorialButton" type="Button" parent="Menu/VBox"]
+custom_minimum_size = Vector2(260, 54)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 32
+text = "Tutorial"
+
+[node name="SettingsButton" type="Button" parent="Menu/VBox"]
+custom_minimum_size = Vector2(260, 54)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 32
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="Menu/VBox"]
+custom_minimum_size = Vector2(260, 54)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 32
+text = "Quit"

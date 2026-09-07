@@ -10,6 +10,11 @@ extends CharacterBody2D
 var is_dashing := false
 var dash_direction := Vector2.ZERO
 
+## Extra velocity applied by outside forces (the boss walls). Set from outside
+## each physics frame; added into the player's own velocity so the shove reads
+## as smooth wind rather than a positional jolt.
+var external_push := Vector2.ZERO
+
 @onready var dash_timer: Timer = $DashTimer
 @onready var dash_wait_time: Timer = $DashWaitTime
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
@@ -21,13 +26,20 @@ func _ready() -> void:
 	set_physics_process(false)
 
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if is_dashing:
 		velocity = dash_direction * DASH_SPEED
 		move_and_slide()
+		# Wall shove still applies mid-dash, so a dash can't punch through a wall.
+		if external_push != Vector2.ZERO:
+			move_and_collide(external_push * delta)
 		return
 
-	var speed := SPRINT_SPEED if Input.is_action_pressed("Sprint") else SPEED
+	var wants_sprint := Game.allow_sprint and Input.is_action_pressed("Sprint")
+	var speed := SPRINT_SPEED if wants_sprint else SPEED
+
+	if Game.allow_sprint and Input.is_action_just_pressed("Sprint"):
+		AudioManager.run()
 
 	var direction := Input.get_vector(
 		"Left",
@@ -46,11 +58,16 @@ func _physics_process(_delta: float) -> void:
 	elif direction.y >= 0.7:
 		camera_2d.drag_vertical_offset = 1
 
-	if Input.is_action_just_pressed("Dash") and dash_wait_time.is_stopped():
+	if Game.allow_dash and Input.is_action_just_pressed("Dash") and dash_wait_time.is_stopped():
 		dash_wait_time.start()
 		start_dash()
 
 	move_and_slide()
+
+	# Outside forces (boss walls) move the body directly, never through velocity,
+	# so the shove can't build up frame over frame (that caused the fly-away).
+	if external_push != Vector2.ZERO:
+		move_and_collide(external_push * delta)
 
 
 func start_dash() -> void:
@@ -66,6 +83,7 @@ func start_dash() -> void:
 
 	dash_direction = direction.normalized()
 	is_dashing = true
+	AudioManager.dash()
 
 	dash_timer.start()
 
@@ -85,9 +103,9 @@ func take_player_control(animation: String) -> void:
 
 
 func game_over() -> void:
-	Events.fade_in()
-	await get_tree().create_timer(1).timeout
-	queue_free()
+	# Death animations call this at their end. Restart the current house so
+	# the player can try the puzzle again (also what the "R" key does).
+	SceneManager.reload_level()
 
 
 func _on_dash_timer_timeout() -> void:
