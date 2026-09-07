@@ -26,9 +26,11 @@ func _process(_delta: float) -> void:
 		return
 
 	Events.update_alarm(alarm_timer.time_left)
+
 	if player.is_dashing:
-		alarm_timer.stop()
+		player._on_dash_timer_timeout()
 		_on_alarm_timer_timeout()
+		alarm_timer.stop()
 
 
 func _get_configuration_warnings():
@@ -42,7 +44,6 @@ func _on_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("Player"):
 		return
 
-	print("ENTERED")
 	alarm_timer.start()
 	player = body
 	AudioManager.alarm_enter()

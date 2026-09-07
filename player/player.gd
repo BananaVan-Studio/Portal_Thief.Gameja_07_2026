@@ -19,6 +19,7 @@ var external_push := Vector2.ZERO
 @onready var dash_wait_time: Timer = $DashWaitTime
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var camera_2d: Camera2D = $Camera2D
+@onready var UI: UserInterface = $UI
 
 
 func _ready() -> void:
@@ -103,8 +104,7 @@ func take_player_control(animation: String) -> void:
 
 
 func game_over() -> void:
-	# Death animations call this at their end. Restart the current house so
-	# the player can try the puzzle again (also what the "R" key does).
+	await UI.game_over_popup()
 	SceneManager.reload_level()
 
 

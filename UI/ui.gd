@@ -1,20 +1,34 @@
+class_name UserInterface
 extends CanvasLayer
 
-var tween: Tween
+var time_tween: Tween
 
-@onready var alarm_pop_up: RichTextLabel = $AlarmPopUp
+@onready var alarm_popup: RichTextLabel = $AlarmPopUp
 @onready var black_fade: ColorRect = $BlackFade
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
+@onready var death_label: RichTextLabel = $DeathLabel
 
 
 func _ready() -> void:
+	black_fade.modulate = Color.TRANSPARENT
 	black_fade.visible = true
-	black_fade.modulate.a = 0
-	alarm_pop_up.modulate.a = 0
+	alarm_popup.modulate = Color.TRANSPARENT
+	alarm_popup.visible = true
+	death_label.modulate = Color.TRANSPARENT
+	death_label.visible = true
+
 	Events.connect("updating_alarm", _updating_alarm)
 	Events.connect("stopping_alarm", _stopping_alarm)
 	Events.connect("fading_out", _fading_out)
 	Events.connect("fading_in", _fading_in)
+
+
+func game_over_popup() -> void:
+	alarm_popup.visible = false
+	var tween = create_tween()
+	tween.tween_property(black_fade, "modulate", Color(1, 1, 1, 0.6), 0.5)
+	tween.tween_property(death_label, "modulate", Color.WHITE, 1)
+	await get_tree().create_timer(2.5).timeout
 
 
 func _fading_out() -> void:
@@ -26,14 +40,13 @@ func _fading_in() -> void:
 
 
 func _updating_alarm(value: float) -> void:
-	if tween != null and tween.is_running():
-		tween.stop()
-	alarm_pop_up.modulate.a = 1
-	alarm_pop_up.text = "Alarm triggers in " + str(snapped(value, 0.1)) + " seconds."
+	if time_tween:
+		time_tween.kill()
+	alarm_popup.modulate = Color.WHITE
+	alarm_popup.text = "Alarm triggers in " + str(snapped(value, 0.1)) + " seconds."
 
 
 func _stopping_alarm() -> void:
-	alarm_pop_up.text = "The alarm went down."
-	tween = create_tween()
-	tween.tween_property(alarm_pop_up, "modulate:a", 0.0, 1.0)
-	await tween.finished
+	alarm_popup.text = "The alarm went down."
+	time_tween = create_tween()
+	time_tween.tween_property(alarm_popup, "modulate", Color.TRANSPARENT, 1.0)

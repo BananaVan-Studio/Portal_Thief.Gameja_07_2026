@@ -1,15 +1,7 @@
 extends Node
 
-## Central audio. Plays the looping background music (menu + all levels, one
-## continuous track) and one-shot sound effects. Everything runs on the Master
-## bus, so the settings volume slider controls it all. As an autoload it
-## survives scene changes, so the music never stops or restarts between screens.
-
-var _music_player: AudioStreamPlayer
-
 ## Music speeds up while inside alarm zones. Counter handles overlapping zones.
-const ALARM_MUSIC_PITCH := 2.0
-var _alarm_count := 0
+const ALARM_MUSIC_PITCH := 1.5
 
 const S_ALARM = preload("uid://dnosrnjr4ejm7")
 const S_BACK = preload("uid://dm6ayxlhy4sqi")
@@ -19,9 +11,17 @@ const S_DASH = preload("uid://b1rlutl30sopg")
 const S_MUSIC = preload("uid://dd26642jn0lna")
 const S_PORTAL = preload("uid://sd4adlodp52g")
 
+## Central audio. Plays the looping background music (menu + all levels, one
+## continuous track) and one-shot sound effects. Everything runs on the Master
+## bus, so the settings volume slider controls it all. As an autoload it
+## survives scene changes, so the music never stops or restarts between screens.
+
+var _music_player: AudioStreamPlayer
+var _alarm_count := 0
+
 
 func _ready() -> void:
-	process_mode = Node.PROCESS_MODE_ALWAYS  # keep sound while the game is paused
+	process_mode = Node.PROCESS_MODE_ALWAYS # keep sound while the game is paused
 
 	_ensure_buses()
 
@@ -34,27 +34,6 @@ func _ready() -> void:
 	# Buses exist now, so push the saved Music/SFX volumes onto them.
 	Game.set_music_volume(Game.music_volume)
 	Game.set_sfx_volume(Game.sfx_volume)
-
-
-func _ensure_buses() -> void:
-	# Music and SFX are sub-buses that route into Master.
-	for bus_name in ["Music", "SFX"]:
-		if AudioServer.get_bus_index(bus_name) == -1:
-			AudioServer.add_bus()
-			var idx := AudioServer.bus_count - 1
-			AudioServer.set_bus_name(idx, bus_name)
-			AudioServer.set_bus_send(idx, "Master")
-
-
-func _sfx(stream: AudioStream) -> void:
-	if stream == null:
-		return
-	var p := AudioStreamPlayer.new()
-	p.stream = stream
-	p.bus = "SFX"
-	add_child(p)
-	p.finished.connect(p.queue_free)
-	p.play()
 
 
 # --- Named effects ------------------------------------------------------
@@ -79,7 +58,7 @@ func dash() -> void:
 
 
 func alarm_siren() -> void:
-	_sfx(S_ALARM)
+	_sfx(S_ALARM, -25)
 
 
 # --- Music tempo (alarm zones) -----------------------------------------
@@ -98,6 +77,29 @@ func alarm_exit() -> void:
 func reset_music_speed() -> void:
 	_alarm_count = 0
 	_apply_music_pitch()
+
+
+func _ensure_buses() -> void:
+	# Music and SFX are sub-buses that route into Master.
+	for bus_name in ["Music", "SFX"]:
+		if AudioServer.get_bus_index(bus_name) == -1:
+			AudioServer.add_bus()
+			var idx := AudioServer.bus_count - 1
+			AudioServer.set_bus_name(idx, bus_name)
+			AudioServer.set_bus_send(idx, "Master")
+
+
+func _sfx(stream: AudioStream, intensity: float = 0) -> void:
+	if stream == null:
+		return
+	var p := AudioStreamPlayer.new()
+	if intensity:
+		p.volume_db = intensity
+	p.stream = stream
+	p.bus = "SFX"
+	add_child(p)
+	p.finished.connect(p.queue_free)
+	p.play()
 
 
 func _apply_music_pitch() -> void:

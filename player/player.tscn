@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://batafhm05bnuw" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="AudioStream" uid="uid://bd8jo3ckdl0cs" path="res://audio/caida.ogg" id="2_rkbax"]
+[ext_resource type="PackedScene" uid="uid://bysxmuso7bk8d" path="res://UI/ui.tscn" id="3_g1dw6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqu6x"]
 
@@ -282,5 +283,7 @@ libraries/ = SubResource("AnimationLibrary_g1dw6")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2055262427]
 stream = ExtResource("2_rkbax")
+
+[node name="UI" parent="." unique_id=2038278792 instance=ExtResource("3_g1dw6")]
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

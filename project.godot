@@ -15,6 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Portal Thief"
+config/tags=PackedStringArray("bananavan_games", "gameja", "github", "group")
 run/main_scene="res://menu/main_menu.tscn"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
@@ -101,4 +102,4 @@ Pause={
 
 [rendering]
 
-environment/defaults/default_clear_color=Color(0.64, 0.55, 0.82, 1)
+environment/defaults/default_clear_color=Color(0.0047813477, 0, 0.1665228, 1)

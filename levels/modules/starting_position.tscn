@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c0qoh0n6qv8q0"]
+
+[ext_resource type="Script" uid="uid://devvfr5v22jax" path="res://levels/modules/starting_position.gd" id="1_au568"]
+[ext_resource type="PackedScene" uid="uid://byque4w54oowj" path="res://player/player.tscn" id="2_wcys4"]
+
+[node name="StartPosition" type="Marker2D" unique_id=44959152]
+script = ExtResource("1_au568")
+
+[node name="Teleporter" type="ColorRect" parent="." unique_id=1555446387]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+pivot_offset = Vector2(10, 10)
+color = Color(0, 1, 1, 1)
+
+[node name="Player" parent="." unique_id=604163544 instance=ExtResource("2_wcys4")]
