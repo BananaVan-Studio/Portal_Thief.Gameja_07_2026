@@ -18,8 +18,9 @@ var external_push := Vector2.ZERO
 @onready var dash_timer: Timer = $DashTimer
 @onready var dash_wait_time: Timer = $DashWaitTime
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
-@onready var camera_2d: Camera2D = $Camera2D
+@onready var camera_2d: Camera2D = $PlayerCam
 @onready var UI: UserInterface = $UI
+@onready var sprite: ColorRect = $ColorRect
 
 
 func _ready() -> void:
@@ -61,7 +62,7 @@ func _physics_process(delta: float) -> void:
 
 	if Game.allow_dash and Input.is_action_just_pressed("Dash") and dash_wait_time.is_stopped():
 		dash_wait_time.start()
-		start_dash()
+		start_dash(direction)
 
 	move_and_slide()
 
@@ -71,16 +72,17 @@ func _physics_process(delta: float) -> void:
 		move_and_collide(external_push * delta)
 
 
-func start_dash() -> void:
-	var direction := Input.get_vector(
-		"Left",
-		"Right",
-		"Up",
-		"Down"
-	)
-
+func start_dash(direction: Vector2) -> void:
 	if direction == Vector2.ZERO:
 		return
+
+	if direction.x:
+		sprite.scale = Vector2(1.3, 0.7)
+	else:
+		sprite.scale = Vector2(0.7, 1.3)
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_BOUNCE)
+	tween.tween_property(sprite, "scale", Vector2.ONE, 0.1)
 
 	dash_direction = direction.normalized()
 	is_dashing = true

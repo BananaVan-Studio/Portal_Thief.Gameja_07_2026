@@ -4,7 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://2t08tbg78lrw" path="res://obstacles/alarm_zone.tscn" id="2_gwceb"]
 [ext_resource type="Texture2D" uid="uid://vfjevfr4ln1y" path="res://levels/assets/tilesheet_complete.png" id="3_l53as"]
 [ext_resource type="PackedScene" uid="uid://dk0pwi3g46lvl" path="res://levels/modules/base.tscn" id="4_v5uil"]
-[ext_resource type="Script" uid="uid://dde04ifuosoc0" path="res://levels/modules/level.gd" id="7_level"]
+[ext_resource type="PackedScene" uid="uid://c0qoh0n6qv8q0" path="res://levels/modules/starting_position.tscn" id="6_ep78u"]
+[ext_resource type="PackedScene" uid="uid://b3yihcwholdbg" path="res://levels/modules/finish_area.tscn" id="7_dfjjl"]
+[ext_resource type="Script" uid="uid://dde04ifuosoc0" path="res://levels/level.gd" id="7_level"]
+[ext_resource type="PackedScene" uid="uid://byque4w54oowj" path="res://player/player.tscn" id="8_dfjjl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aerfg"]
 size = Vector2(31, 76)
@@ -14,9 +17,6 @@ size = Vector2(31, 174)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_betor"]
 size = Vector2(31, 106)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjtdm"]
-size = Vector2(544, 385)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5722l"]
 texture = ExtResource("3_l53as")
@@ -901,6 +901,7 @@ sources/1 = SubResource("TileSetAtlasSource_5722l")
 [node name="Level2" type="Node2D" unique_id=2008740827]
 script = ExtResource("7_level")
 allow_dash = false
+next_level = 3
 
 [node name="Pits" type="Node2D" parent="." unique_id=1496571643]
 
@@ -908,38 +909,38 @@ allow_dash = false
 position = Vector2(1121, 450)
 rotation = 1.5707964
 
-[node name="ColorRect" parent="Pits/Pit" index="0"]
+[node name="ColorRect" parent="Pits/Pit" index="0" unique_id=1789141283]
 offset_left = -25.0
 offset_top = -37.0
 offset_right = 24.0
 offset_bottom = 35.0
 
-[node name="CollisionShape2D" parent="Pits/Pit" index="1"]
+[node name="CollisionShape2D" parent="Pits/Pit" index="1" unique_id=1875047140]
 shape = SubResource("RectangleShape2D_aerfg")
 
 [node name="Pit2" parent="Pits" unique_id=1240598473 instance=ExtResource("1_btoec")]
 position = Vector2(866, 385)
 
-[node name="ColorRect" parent="Pits/Pit2" index="0"]
+[node name="ColorRect" parent="Pits/Pit2" index="0" unique_id=1789141283]
 offset_left = -25.0
 offset_top = -37.0
 offset_right = 24.0
 offset_bottom = 35.0
 
-[node name="CollisionShape2D" parent="Pits/Pit2" index="1"]
+[node name="CollisionShape2D" parent="Pits/Pit2" index="1" unique_id=1875047140]
 shape = SubResource("RectangleShape2D_aerfg")
 
 [node name="Pit3" parent="Pits" unique_id=1167732797 instance=ExtResource("1_btoec")]
 position = Vector2(699, 323)
 rotation = 1.5707964
 
-[node name="ColorRect" parent="Pits/Pit3" index="0"]
+[node name="ColorRect" parent="Pits/Pit3" index="0" unique_id=1789141283]
 offset_left = -25.0
 offset_top = -138.086
 offset_right = 24.0
 offset_bottom = 35.0
 
-[node name="CollisionShape2D" parent="Pits/Pit3" index="1"]
+[node name="CollisionShape2D" parent="Pits/Pit3" index="1" unique_id=1875047140]
 position = Vector2(0, -49)
 shape = SubResource("RectangleShape2D_nmsli")
 
@@ -947,13 +948,13 @@ shape = SubResource("RectangleShape2D_nmsli")
 position = Vector2(575, 323)
 rotation = 1.5707964
 
-[node name="ColorRect" parent="Pits/Pit8" index="0"]
+[node name="ColorRect" parent="Pits/Pit8" index="0" unique_id=1789141283]
 offset_left = -25.0
 offset_top = -138.086
 offset_right = 24.0
 offset_bottom = 35.0
 
-[node name="CollisionShape2D" parent="Pits/Pit8" index="1"]
+[node name="CollisionShape2D" parent="Pits/Pit8" index="1" unique_id=1875047140]
 position = Vector2(0, -49)
 shape = SubResource("RectangleShape2D_nmsli")
 
@@ -962,13 +963,13 @@ position = Vector2(558.00006, 547)
 rotation = 1.5707964
 scale = Vector2(1.2054666, 0.60243475)
 
-[node name="ColorRect" parent="Pits/Pit6" index="0"]
+[node name="ColorRect" parent="Pits/Pit6" index="0" unique_id=1789141283]
 offset_left = -25.0
 offset_top = -138.086
 offset_right = 24.0
 offset_bottom = 35.0
 
-[node name="CollisionShape2D" parent="Pits/Pit6" index="1"]
+[node name="CollisionShape2D" parent="Pits/Pit6" index="1" unique_id=1875047140]
 position = Vector2(0, -49)
 shape = SubResource("RectangleShape2D_nmsli")
 
@@ -977,38 +978,38 @@ position = Vector2(558.00006, 546)
 rotation = 1.5707964
 scale = Vector2(1.2054666, 0.60243475)
 
-[node name="ColorRect" parent="Pits/Pit7" index="0"]
+[node name="ColorRect" parent="Pits/Pit7" index="0" unique_id=1789141283]
 offset_left = -25.0
 offset_top = -138.086
 offset_right = 24.0
 offset_bottom = 35.0
 
-[node name="CollisionShape2D" parent="Pits/Pit7" index="1"]
+[node name="CollisionShape2D" parent="Pits/Pit7" index="1" unique_id=1875047140]
 position = Vector2(0, -49)
 shape = SubResource("RectangleShape2D_nmsli")
 
 [node name="Pit4" parent="Pits" unique_id=33229230 instance=ExtResource("1_btoec")]
 position = Vector2(869, 166)
 
-[node name="ColorRect" parent="Pits/Pit4" index="0"]
+[node name="ColorRect" parent="Pits/Pit4" index="0" unique_id=1789141283]
 offset_left = -25.0
 offset_top = -37.0
 offset_right = 24.0
 offset_bottom = 35.0
 
-[node name="CollisionShape2D" parent="Pits/Pit4" index="1"]
+[node name="CollisionShape2D" parent="Pits/Pit4" index="1" unique_id=1875047140]
 shape = SubResource("RectangleShape2D_aerfg")
 
 [node name="Pit5" parent="Pits" unique_id=1364720259 instance=ExtResource("1_btoec")]
 position = Vector2(868, 52)
 
-[node name="ColorRect" parent="Pits/Pit5" index="0"]
+[node name="ColorRect" parent="Pits/Pit5" index="0" unique_id=1789141283]
 offset_left = -25.0
 offset_top = -53.0
 offset_right = 24.0
 offset_bottom = 46.0
 
-[node name="CollisionShape2D" parent="Pits/Pit5" index="1"]
+[node name="CollisionShape2D" parent="Pits/Pit5" index="1" unique_id=1875047140]
 shape = SubResource("RectangleShape2D_betor")
 
 [node name="Alarms" type="Node2D" parent="." unique_id=1059556997]
@@ -1017,28 +1018,24 @@ shape = SubResource("RectangleShape2D_betor")
 position = Vector2(360, 539)
 caught_margin = 3.0
 
-[node name="CollisionShape2D" parent="Alarms/AlarmZone" index="0" unique_id=14966428]
-position = Vector2(-104, -76.5)
-shape = SubResource("RectangleShape2D_vjtdm")
-
-[node name="ColorRect" parent="Alarms/AlarmZone" index="1" unique_id=228056451]
-offset_left = -376.0
-offset_top = -269.0
-offset_right = 168.0
-offset_bottom = 116.0
-metadata/_edit_use_anchors_ = true
-
 [node name="AlarmTimer" parent="Alarms/AlarmZone" index="2" unique_id=534087450]
 wait_time = 3.0
 
 [node name="Base" parent="." unique_id=1947313494 instance=ExtResource("4_v5uil")]
-next_level = 3
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1360982824]
+[node name="ExtraObstacles" type="TileMapLayer" parent="." unique_id=1360982824]
 texture_filter = 1
 scale = Vector2(0.5, 0.5)
 tile_map_data = PackedByteArray("AAD//woAAQAFAAYAAAD//wkAAQAFAAYAAAD//wgAAQAAAAYAAAD//wcAAQAGAAYAAAD//wYAAQAGAAYAAAD//wUAAQAGAAYAAAD//wQAAQAGAAYAAAD//wMAAQAAAAcAAAD//wIAAQAFAAYAAAD//wEAAQAFAAYAAAD//wAAAQAFAAYAAAD/////AQAAAAYAAAAAAP//AQAFAAcAAAABAP//AQAFAAcAAAACAP//AQAFAAcAAAADAP//AQAFAAcAAAAEAP//AQAFAAcAAAAFAP//AQAFAAcAAAAGAP//AQAFAAcAAAAHAP//AQAFAAcAAAAKAP//AQAFAAcAAAALAP//AQAFAAcAAAAPAP//AQAFAAcAAAAJAP//AQAFAAcAAAAIAP//AQAFAAcAAAAUAP//AQACAAkAAAAVAP//AQAFAAcAAAAWAP//AQAFAAcAAAAXAP//AQAFAAcAAAAYAP//AQAFAAcAAAD//w0AAQAFAAYAAAD//wwAAQAFAAYAAAD//wsAAQAFAAYAAAD//w4AAQAFAAYAAAD//w8AAQAFAAYAAAD//xAAAQAFAAYAAAD//xEAAQAFAAYAAAD//xIAAQAFAAYAAAD//xMAAQAFAAYAAAD//xQAAQAAAAcAAAAAABQAAQAEAAcAAAABABQAAQAEAAcAAAACABQAAQAEAAcAAAADABQAAQAEAAcAAAAEABQAAQAEAAcAAAAFABQAAQAEAAcAAAAGABQAAQAEAAcAAAAHABQAAQAEAAcAAAAIABQAAQAEAAcAAAAJABQAAQAEAAcAAAAKABQAAQAEAAcAAAALABQAAQAEAAcAAAAMABQAAQAEAAcAAAANABQAAQAEAAcAAAAOABQAAQAEAAcAAAAPABQAAQAEAAcAAAAQABQAAQAIAAQAAAAUABQAAQAHAAQAAAAVABQAAQAEAAcAAAAWABQAAQAEAAcAAAAXABQAAQAEAAcAAAAYABQAAQAEAAcAAAAZABQAAQAEAAcAAAAaABQAAQAEAAcAAAAbABQAAQAEAAcAAAAcABQAAQAEAAcAAAAdABQAAQAEAAcAAAAeABQAAQAEAAcAAAAfABQAAQAEAAcAAAAgABQAAQAEAAcAAAAhABQAAQAEAAcAAAAiABQAAQAEAAcAAAAjABQAAQAEAAcAAAAkABQAAQABAAcAAAAkABMAAQAEAAYAAAAkABIAAQAEAAYAAAAkABEAAQAEAAYAAAAZAP//AQAFAAcAAAAaAP//AQAFAAcAAAAbAP//AQAFAAcAAAAcAP//AQAFAAcAAAAdAP//AQAFAAcAAAAeAP//AQAFAAcAAAAfAP//AQAFAAcAAAAgAP//AQAFAAcAAAAhAP//AQAFAAcAAAAiAP//AQAFAAcAAAAjAP//AQAFAAcAAAAkAP//AQABAAYAAAAkAAAAAQAEAAYAAAAkAAEAAQAEAAYAAAAkAAIAAQAEAAYAAAAkAAMAAQAEAAYAAAAkAAQAAQAEAAYAAAAkAAUAAQAEAAYAAAAkAAYAAQAEAAYAAAAkAAcAAQAEAAYAAAAkAAgAAQAEAAYAAAAkAAkAAQAEAAYAAAAkAAoAAQAEAAYAAAAkAAsAAQAEAAYAAAAkAAwAAQAEAAYAAAAkAA0AAQAEAAYAAAAkAA4AAQAEAAYAAAAkAA8AAQAEAAYAAAAkABAAAQAEAAYAAAAOAP//AQAFAAcAAAANAP//AQAFAAcAAAAMAP//AQAFAAcAAAAQAAAAAQACAAUAAAAQAAYAAQAFAAUAAAAQAAcAAQACAAUAAAAQAAgAAQAEAAUAAAAQAAkAAQACAAUAAAAQAAoAAQAGAAQAAAAQAA0AAQAFAAUAAAAQAA4AAQACAAUAAAAQAA8AAQACAAUAAAAQABAAAQADAAgAAAAQABEAAQAIAAUAAAAQAP//AQADAAkAAAAQAAEAAQACAAUAAAAQAAIAAQACAAUAAAALAAIAAQAFAAUAAAALAAMAAQACAAUAAAALAAQAAQACAAUAAAAAAAMAAQAIAAQAAAAAAAQAAQAFAAYAAAAAAAUAAQAFAAYAAAAAAAYAAQAFAAYAAAAAAAcAAQAFAAYAAAADAAMAAQAFAAUAAAADAAQAAQACAAUAAAADAAUAAQACAAUAAAADAAYAAQACAAUAAAADAAcAAQACAAUAAAAPABEAAQAFAAcAAAAOABEAAQAFAAcAAAANABEAAQAFAAcAAAAMABEAAQAFAAcAAAALABEAAQAFAAcAAAALABAAAQAEAAcAAAAKABAAAQAEAAcAAAAJABAAAQAEAAgAAAAIABAAAQACAAQAAAAHABAAAQACAAQAAAAGABAAAQACAAQAAAAFABAAAQACAAQAAAAEABAAAQACAAQAAAADABAAAQACAAQAAAACABAAAQAAAAQAAAACABEAAQAGAAQAAAAMABAAAQAEAAcAAAANABAAAQAEAAcAAAAOABAAAQAEAAcAAAAPABAAAQAEAAcAAAAKABEAAQAFAAcAAAAJABEAAQAHAAUAAAAQAAMAAQAGAAQAAAAUAAYAAQAAAAQAAAAVAAYAAQACAAQAAAAWAAYAAQACAAQAAAAXAAYAAQACAAQAAAAYAAYAAQACAAQAAAAZAAYAAQACAAQAAAAUAAMAAQAAAAUAAAAVAAMAAQACAAQAAAAWAAMAAQACAAQAAAAXAAMAAQACAAQAAAAZAAMAAQACAAQAAAAYAAMAAQACAAQAAAAhAAYAAQAIAAUAAAAhAAUAAQAFAAYAAAAhAAQAAQAFAAYAAAAhAAMAAQAIAAQAAAAgAAMAAQAEAAcAAAAfAAMAAQAEAAcAAAAeAAMAAQAHAAQAAAAUABEAAQAAAAUAAAAVABEAAQACAAQAAAAWABEAAQACAAQAAAAXABEAAQACAAQAAAAYABEAAQACAAQAAAAZABEAAQACAAQAAAAAAAgAAQAIAAUAAAADAAgAAQAAAAUAAAAEAAgAAQACAAQAAAAFAAgAAQACAAQAAAAGAAgAAQACAAQAAAAHAAgAAQACAAQAAAAIAAgAAQACAAQAAAAJAAgAAQACAAQAAAAKAAgAAQACAAQAAAALAAgAAQACAAQAAAAMAAgAAQACAAQAAAANAAgAAQACAAQAAAAOAAgAAQACAAQAAAAPAAgAAQACAAQAAAALAAUAAQAGAAQAAAAeAAQAAQAEAAYAAAAeAAUAAQAEAAYAAAAfAAUAAQAGAAYAAAAgAAUAAQAGAAYAAAAgAAQAAQAGAAYAAAAfAAQAAQAGAAYAAAAfAAYAAQAFAAcAAAAeAAYAAQAHAAUAAAAgAAYAAQAFAAcAAAAUAAAAAQACAAUAAAAUAAEAAQACAAUAAAAUAAIAAQACAAUAAAAUAAcAAQACAAUAAAAUAAgAAQACAAUAAAAUAAkAAQACAAUAAAAUAAoAAQAGAAQAAAAUAA0AAQAFAAUAAAAUAA4AAQACAAUAAAAUAA8AAQACAAUAAAAUABAAAQACAAUAAAAaAAYAAQAEAAgAAAAaAAcAAQAEAAYAAAAaAAgAAQAEAAYAAAAaAAkAAQAEAAYAAAAaAAoAAQAHAAUAAAAaAAMAAQACAAQAAAAaAA0AAQAHAAQAAAAaAA4AAQAHAAUAAAAbAA0AAQAEAAcAAAAcAA0AAQAEAAcAAAAdAA0AAQAEAAcAAAAeAA0AAQAEAAcAAAAfAA0AAQAEAAcAAAAgAA0AAQAEAAcAAAAhAA0AAQAIAAQAAAAbAA4AAQAFAAcAAAAcAA4AAQAFAAcAAAAdAA4AAQAFAAcAAAAeAA4AAQAFAAcAAAAfAA4AAQAFAAcAAAAgAA4AAQAFAAcAAAAhAA4AAQAIAAUAAAAbAAYAAQAIAAQAAAAbAAcAAQAFAAYAAAAbAAgAAQAFAAYAAAAbAAkAAQAFAAYAAAAbAAoAAQAIAAUAAAAbAAMAAQAFAAQAAAAaABEAAQACAAQAAAAbABEAAQAFAAQAAAAQAP7/AQAFAAgAAAARAP7/AQACAAQAAAASAP7/AQACAAQAAAATAP7/AQACAAQAAAAUAP7/AQAEAAgAAAAQABUAAQAFAAkAAAARABUAAQACAAQAAAASABUAAQACAAQAAAATABUAAQACAAQAAAAUABUAAQAEAAkAAAAPABUAAQAFAAcAAAAOABUAAQAFAAcAAAANABUAAQAFAAcAAAAMABUAAQAFAAcAAAALABUAAQAFAAcAAAAKABUAAQAFAAcAAAAJABUAAQAFAAcAAAAIABUAAQAFAAcAAAAHABUAAQAFAAcAAAAGABUAAQAFAAcAAAAFABUAAQAFAAcAAAAEABUAAQAFAAcAAAADABUAAQAFAAcAAAACABUAAQAFAAcAAAABABUAAQAFAAcAAAAAABUAAQAFAAcAAAD//xUAAQAFAAcAAAAVABUAAQAFAAcAAAAWABUAAQAFAAcAAAAXABUAAQAFAAcAAAAYABUAAQAFAAcAAAAZABUAAQAFAAcAAAAaABUAAQAFAAcAAAAbABUAAQAFAAcAAAAcABUAAQAFAAcAAAAdABUAAQAFAAcAAAAeABUAAQAFAAcAAAAfABUAAQAFAAcAAAAgABUAAQAFAAcAAAAhABUAAQAFAAcAAAAiABUAAQAFAAcAAAAjABUAAQAFAAcAAAAkABUAAQAFAAcAAAAPAP7/AQAEAAcAAAAOAP7/AQAEAAcAAAANAP7/AQAEAAcAAAAMAP7/AQAEAAcAAAALAP7/AQAEAAcAAAAKAP7/AQAEAAcAAAAJAP7/AQAEAAcAAAAIAP7/AQAEAAcAAAAHAP7/AQAEAAcAAAAGAP7/AQAEAAcAAAAFAP7/AQAEAAcAAAAEAP7/AQAEAAcAAAADAP7/AQAEAAcAAAACAP7/AQAEAAcAAAABAP7/AQAEAAcAAAAAAP7/AQAEAAcAAAD///7/AQAEAAcAAAD+//7/AQAHAAQAAAD+////AQAEAAYAAAD+/wAAAQAEAAYAAAD+/wEAAQAEAAYAAAD+/wIAAQAEAAYAAAD+/wMAAQAEAAYAAAD+/wQAAQAEAAYAAAD+/wUAAQAEAAYAAAD+/wYAAQAEAAYAAAD+/wcAAQAEAAYAAAD+/wgAAQAEAAYAAAD+/wkAAQAEAAYAAAD+/woAAQAEAAYAAAD+/wsAAQAEAAYAAAD+/wwAAQAEAAYAAAD+/w0AAQAEAAYAAAD+/w4AAQAEAAYAAAD+/w8AAQAEAAYAAAD+/xAAAQAEAAYAAAD+/xEAAQAEAAYAAAD+/xIAAQAEAAYAAAD+/xMAAQAEAAYAAAD+/xQAAQAEAAYAAAD+/xUAAQAHAAUAAAAVAP7/AQAEAAcAAAAWAP7/AQAEAAcAAAAXAP7/AQAEAAcAAAAYAP7/AQAEAAcAAAAZAP7/AQAEAAcAAAAaAP7/AQAEAAcAAAAbAP7/AQAEAAcAAAAcAP7/AQAEAAcAAAAdAP7/AQAEAAcAAAAeAP7/AQAEAAcAAAAfAP7/AQAEAAcAAAAgAP7/AQAEAAcAAAAhAP7/AQAEAAcAAAAiAP7/AQAEAAcAAAAjAP7/AQAEAAcAAAAkAP7/AQAEAAcAAAAlAP7/AQAIAAQAAAAlAP//AQAFAAYAAAAlAAAAAQAFAAYAAAAlAAEAAQAFAAYAAAAlAAIAAQAFAAYAAAAlAAMAAQAFAAYAAAAlAAQAAQAFAAYAAAAlAAUAAQAFAAYAAAAlAAYAAQAFAAYAAAAlAAcAAQAFAAYAAAAlAAgAAQAFAAYAAAAlAAkAAQAFAAYAAAAlAAoAAQAFAAYAAAAlAAsAAQAFAAYAAAAlAAwAAQAFAAYAAAAlAA0AAQAFAAYAAAAlAA4AAQAFAAYAAAAlAA8AAQAFAAYAAAAlABAAAQAFAAYAAAAlABQAAQAFAAYAAAAlABUAAQAIAAUAAAAlABMAAQAFAAYAAAAlABIAAQAFAAYAAAAlABEAAQAFAAYAAAA=")
 tile_set = SubResource("TileSet_ilhis")
+
+[node name="StartingPosition" parent="." unique_id=44959152 instance=ExtResource("6_ep78u")]
+position = Vector2(591, 655)
+
+[node name="FinishArea" parent="." unique_id=734912095 instance=ExtResource("7_dfjjl")]
+position = Vector2(594, -17)
+
+[node name="Player" parent="." unique_id=19935492 instance=ExtResource("8_dfjjl")]
 
 [editable path="Pits/Pit"]
 [editable path="Pits/Pit2"]

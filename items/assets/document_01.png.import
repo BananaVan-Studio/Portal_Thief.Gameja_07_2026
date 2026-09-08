@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbn42uixy5mdv"
-path="res://.godot/imported/portal_thief_bg.jpg-e8f00311fab51878b913ab90fcaf98b2.ctex"
+uid="uid://bt3fwhoxevmkw"
+path="res://.godot/imported/document_01.png-babb4d3556b731e890ec8f42ad58ef3f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/portal_thief_bg.jpg"
-dest_files=["res://.godot/imported/portal_thief_bg.jpg-e8f00311fab51878b913ab90fcaf98b2.ctex"]
+source_file="res://items/assets/document_01.png"
+dest_files=["res://.godot/imported/document_01.png-babb4d3556b731e890ec8f42ad58ef3f.ctex"]
 
 [params]
 

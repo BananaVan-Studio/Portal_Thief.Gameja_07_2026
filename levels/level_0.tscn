@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://r366jqq6poq7"]
 
+[ext_resource type="Script" uid="uid://dde04ifuosoc0" path="res://levels/level.gd" id="1_7d3si"]
 [ext_resource type="PackedScene" uid="uid://d3wxl2l71iv02" path="res://obstacles/pit.tscn" id="1_foxie"]
 [ext_resource type="PackedScene" uid="uid://2t08tbg78lrw" path="res://obstacles/alarm_zone.tscn" id="2_7d3si"]
 [ext_resource type="PackedScene" uid="uid://dk0pwi3g46lvl" path="res://levels/modules/base.tscn" id="3_iss0w"]
+[ext_resource type="PackedScene" uid="uid://bpwdupn0ux8hy" path="res://items/collectable.tscn" id="4_yi3jx"]
+[ext_resource type="PackedScene" uid="uid://c0qoh0n6qv8q0" path="res://levels/modules/starting_position.tscn" id="6_jum3j"]
+[ext_resource type="PackedScene" uid="uid://b3yihcwholdbg" path="res://levels/modules/finish_area.tscn" id="7_c4pne"]
+[ext_resource type="PackedScene" uid="uid://byque4w54oowj" path="res://player/player.tscn" id="8_c4pne"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yi3jx"]
 size = Vector2(31, 76)
@@ -13,10 +18,9 @@ size = Vector2(31, 174)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7d3si"]
 size = Vector2(31, 106)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jum3j"]
-size = Vector2(544, 385)
-
 [node name="Level0" type="Node2D" unique_id=1426984095]
+script = ExtResource("1_7d3si")
+next_level = 1
 
 [node name="Pits" type="Node2D" parent="." unique_id=1979701875]
 
@@ -24,86 +28,107 @@ size = Vector2(544, 385)
 position = Vector2(1121, 450)
 rotation = 1.5707964
 
-[node name="ColorRect" parent="Pits/Pit" index="0"]
+[node name="ColorRect" parent="Pits/Pit" index="0" unique_id=1789141283]
 offset_left = -25.0
 offset_top = -37.0
 offset_right = 24.0
 offset_bottom = 35.0
 
-[node name="CollisionShape2D" parent="Pits/Pit" index="1"]
+[node name="CollisionShape2D" parent="Pits/Pit" index="1" unique_id=1875047140]
 shape = SubResource("RectangleShape2D_yi3jx")
 
 [node name="Pit2" parent="Pits" unique_id=7117260 instance=ExtResource("1_foxie")]
 position = Vector2(866, 385)
 
-[node name="ColorRect" parent="Pits/Pit2" index="0"]
+[node name="ColorRect" parent="Pits/Pit2" index="0" unique_id=1789141283]
 offset_left = -25.0
 offset_top = -37.0
 offset_right = 24.0
 offset_bottom = 35.0
 
-[node name="CollisionShape2D" parent="Pits/Pit2" index="1"]
+[node name="CollisionShape2D" parent="Pits/Pit2" index="1" unique_id=1875047140]
 shape = SubResource("RectangleShape2D_yi3jx")
 
 [node name="Pit3" parent="Pits" unique_id=2109683230 instance=ExtResource("1_foxie")]
 position = Vector2(699, 323)
 rotation = 1.5707964
 
-[node name="ColorRect" parent="Pits/Pit3" index="0"]
+[node name="ColorRect" parent="Pits/Pit3" index="0" unique_id=1789141283]
 offset_left = -25.0
 offset_top = -138.086
 offset_right = 24.0
 offset_bottom = 35.0
 
-[node name="CollisionShape2D" parent="Pits/Pit3" index="1"]
+[node name="CollisionShape2D" parent="Pits/Pit3" index="1" unique_id=1875047140]
 position = Vector2(0, -49)
 shape = SubResource("RectangleShape2D_foxie")
 
 [node name="Pit4" parent="Pits" unique_id=858160882 instance=ExtResource("1_foxie")]
 position = Vector2(869, 166)
 
-[node name="ColorRect" parent="Pits/Pit4" index="0"]
+[node name="ColorRect" parent="Pits/Pit4" index="0" unique_id=1789141283]
 offset_left = -25.0
 offset_top = -37.0
 offset_right = 24.0
 offset_bottom = 35.0
 
-[node name="CollisionShape2D" parent="Pits/Pit4" index="1"]
+[node name="CollisionShape2D" parent="Pits/Pit4" index="1" unique_id=1875047140]
 shape = SubResource("RectangleShape2D_yi3jx")
 
 [node name="Pit5" parent="Pits" unique_id=1939590660 instance=ExtResource("1_foxie")]
 position = Vector2(868, 52)
 
-[node name="ColorRect" parent="Pits/Pit5" index="0"]
+[node name="ColorRect" parent="Pits/Pit5" index="0" unique_id=1789141283]
 offset_left = -25.0
 offset_top = -53.0
 offset_right = 24.0
 offset_bottom = 46.0
 
-[node name="CollisionShape2D" parent="Pits/Pit5" index="1"]
+[node name="CollisionShape2D" parent="Pits/Pit5" index="1" unique_id=1875047140]
 shape = SubResource("RectangleShape2D_7d3si")
 
 [node name="Alarms" type="Node2D" parent="." unique_id=1019689923]
 
 [node name="AlarmZone" parent="Alarms" unique_id=843988376 instance=ExtResource("2_7d3si")]
-position = Vector2(360, 539)
-caught_margin = 6.0
+position = Vector2(-17, 270)
+caught_margin = 3.0
 
-[node name="CollisionShape2D" parent="Alarms/AlarmZone" index="0" unique_id=14966428]
-position = Vector2(-104, -76.5)
-shape = SubResource("RectangleShape2D_jum3j")
+[node name="CollisionPolygon2D" parent="Alarms/AlarmZone" index="0" unique_id=1530615776]
+polygon = PackedVector2Array(545, -1, 545, 390, 0, 390, 0, 0)
 
-[node name="ColorRect" parent="Alarms/AlarmZone" index="1" unique_id=228056451]
-offset_left = -376.0
-offset_top = -269.0
-offset_right = 168.0
-offset_bottom = 116.0
+[node name="Polygon2D" parent="Alarms/AlarmZone" index="1" unique_id=798246771]
+polygon = PackedVector2Array(545, -1, 545, 390, 0, 390, 0, 0)
 
 [node name="AlarmTimer" parent="Alarms/AlarmZone" index="2" unique_id=534087450]
-wait_time = 6.0
+wait_time = 3.0
+
+[node name="AlarmZone2" parent="Alarms" unique_id=319096050 instance=ExtResource("2_7d3si")]
+position = Vector2(366, -11)
+caught_margin = 1.0
+
+[node name="CollisionPolygon2D" parent="Alarms/AlarmZone2" index="0" unique_id=1530615776]
+polygon = PackedVector2Array(161, -4, 161, 283, 1, 283, 1, -4)
+
+[node name="Polygon2D" parent="Alarms/AlarmZone2" index="1" unique_id=798246771]
+polygon = PackedVector2Array(161, -4, 161, 283, 1, 283, 1, -4)
 
 [node name="Base" parent="." unique_id=1947313494 instance=ExtResource("3_iss0w")]
-next_level = 1
+position = Vector2(0, -1)
+
+[node name="Collectable" parent="." unique_id=820743229 instance=ExtResource("4_yi3jx")]
+position = Vector2(21, 24)
+num_collectable = 0
+
+[node name="StartingPosition" parent="." unique_id=44959152 instance=ExtResource("6_jum3j")]
+position = Vector2(591, 655)
+
+[node name="FinishArea" parent="." unique_id=734912095 instance=ExtResource("7_c4pne")]
+position = Vector2(594, -17)
+
+[node name="Player" parent="." unique_id=19935492 instance=ExtResource("8_c4pne")]
+position = Vector2(-32, -32)
+
+[connection signal="body_entered" from="FinishArea" to="." method="_on_finish_area_body_entered"]
 
 [editable path="Pits/Pit"]
 [editable path="Pits/Pit2"]
@@ -111,3 +136,4 @@ next_level = 1
 [editable path="Pits/Pit4"]
 [editable path="Pits/Pit5"]
 [editable path="Alarms/AlarmZone"]
+[editable path="Alarms/AlarmZone2"]

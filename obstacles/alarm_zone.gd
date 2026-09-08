@@ -11,14 +11,13 @@ extends Area2D
 var player: MainCharacter = null
 
 @onready var alarm_timer: Timer = $AlarmTimer
-@onready var col_shape: CollisionShape2D = $CollisionShape2D
-@onready var color_rect: ColorRect = $ColorRect
+@onready var col_shape: CollisionPolygon2D = $CollisionPolygon2D
+@onready var polygon_2d: Polygon2D = $Polygon2D
 
 
 func _ready() -> void:
-	color_rect.size = col_shape.shape.size
-	color_rect.position.x = col_shape.position.x - color_rect.size.x / 2
-	color_rect.position.y = col_shape.position.y - color_rect.size.y / 2
+	polygon_2d.polygon = col_shape.polygon
+	polygon_2d.position = col_shape.position
 
 
 func _process(_delta: float) -> void:
@@ -33,7 +32,7 @@ func _process(_delta: float) -> void:
 		alarm_timer.stop()
 
 
-func _get_configuration_warnings():
+func _get_configuration_warnings() -> PackedStringArray:
 	if caught_margin == 100:
 		return ["Alarm time hasn't been set."]
 	else:

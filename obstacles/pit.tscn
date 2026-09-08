@@ -1,20 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3wxl2l71iv02"]
+[gd_scene format=3 uid="uid://d3wxl2l71iv02"]
 
 [ext_resource type="Script" uid="uid://b74ab530v5ibw" path="res://obstacles/pit.gd" id="1_pjhj0"]
 
-[node name="Pit" type="Area2D"]
+[node name="Pit" type="Area2D" unique_id=133011370]
 script = ExtResource("1_pjhj0")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1789141283]
 offset_left = -21.0
 offset_top = -20.0
 offset_right = 19.0
 offset_bottom = 20.0
 color = Color(0, 0, 0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1875047140]
 
-[node name="DeathMargin" type="Timer" parent="."]
+[node name="DeathMargin" type="Timer" parent="." unique_id=540744491]
 wait_time = 0.05
 one_shot = true
 

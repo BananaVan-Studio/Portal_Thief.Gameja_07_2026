@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b3yihcwholdbg"]
+
+[ext_resource type="Script" uid="uid://cfgox3vulgctf" path="res://levels/modules/teleporter.gd" id="1_jprar"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wj3kj"]
+radius = 14.0
+
+[node name="FinishArea" type="Area2D" unique_id=734912095]
+script = ExtResource("1_jprar")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=653505209]
+shape = SubResource("CircleShape2D_wj3kj")
+
+[node name="Teleporter" type="ColorRect" parent="." unique_id=1521920258]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+pivot_offset = Vector2(10, 10)
+color = Color(0, 1, 1, 1)

@@ -5,6 +5,13 @@ signal stopping_alarm
 signal fading_out
 signal fading_in
 
+var collectables: Array[bool] = [
+	false,
+	false,
+	false,
+	false,
+]
+
 
 func update_alarm(value: float) -> void:
 	updating_alarm.emit(value)

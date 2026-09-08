@@ -1,44 +1,48 @@
-extends Marker2D
+@tool
+extends Node2D
 
-## Intro director for a level:
-##   1. Hold on a wide shot of the whole house.
-##   2. The "bad guy" (a black square) runs from the bottom entrance up to the
-##      top gate, tracing the escape route the player is about to follow.
-##   3. Sweep the camera down to the player and spawn them in.
-##
-## On a level RESTART (the "R" key or dying) the intro is skipped: the player
-## just spawns straight away. Set intro_enabled = false to disable it always.
+## Attach this to the root of every level scene. It's the single place a
+## level declares "my house, my rules": just tick the two checkboxes in the
+## inspector. The player reads these through the Game autoload.
 
+@export var allow_sprint := true
+@export var allow_dash := true
+@export var next_level: int = -1:
+	set(value):
+		next_level = value
+		update_configuration_warnings()
+		notify_property_list_changed()
+## Optional short line shown to the player when the house loads,
+## e.g. "This house forbids sprinting."
+@export var rule_announcement := ""
 @export var intro_enabled := true
-
-## When false, spawning the player does NOT switch to the player's camera —
-## the level keeps whatever camera is active (used by the boss fight, which
-## wants a fixed wide view of the whole arena).
 @export var swap_to_player_camera := true
 
 @onready var player: MainCharacter = $Player
-@onready var global_cam: Camera2D = $"../Camera2D"
-@onready var player_cam: Camera2D = $Player/Camera2D
-@onready var teleporter: ColorRect = $Teleporter
+@onready var player_cam: Camera2D = $Player/PlayerCam
+@onready var global_cam: Camera2D = $Base/GlobalCam
+@onready var starting_pos: Area2D = $StartingPosition
 
 
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
+
 	global_cam.enabled = true
 	player_cam.enabled = false
-
-	# Skip the whole show on a restart, or if disabled for this level.
+	player.global_position = starting_pos.global_position
 	if not intro_enabled or SceneManager.consume_intro_skip():
 		finish_transition()
 		return
 
-	_play_intro()
+	Game.set_rules(allow_sprint, allow_dash)
+	SceneManager.enter_level(scene_file_path)
 
+	var text := rule_announcement
+	if text == "":
+		text = _auto_rule_text()
+	SceneManager.show_toast(text)
 
-func _process(delta: float) -> void:
-	teleporter.rotation += delta * 10
-
-
-func _play_intro() -> void:
 	# 1. Wide establishing shot of the full level. The level's Camera2D is
 	#    authored to frame the whole house, so we just hold on it.
 	await get_tree().create_timer(0.9).timeout
@@ -103,3 +107,29 @@ func finish_transition() -> void:
 	if swap_to_player_camera:
 		global_cam.enabled = false
 		player_cam.enabled = true
+
+
+func _get_configuration_warnings():
+	if next_level == 0:
+		return ["Next level hasn't been set."]
+	else:
+		return []
+
+
+func _auto_rule_text() -> String:
+	if not allow_sprint and not allow_dash:
+		return "My house, my rules: no sprinting, no dashing."
+	if not allow_sprint:
+		return "My house, my rules: no sprinting."
+	if not allow_dash:
+		return "My house, my rules: no dashing."
+	return ""
+
+
+func _on_finish_area_body_entered(body: Node2D) -> void:
+	print("Body: ", body.name)
+	if not body.is_in_group("Player"):
+		return
+
+	AudioManager.portal()
+	SceneManager.go_to_level(next_level)

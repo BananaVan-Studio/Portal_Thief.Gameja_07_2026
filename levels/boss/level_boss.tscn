@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dyu0kf830k441"]
 
-[ext_resource type="Script" uid="uid://bf4hw2p10w3gu" path="res://levels/level_boss.gd" id="1_4wxci"]
+[ext_resource type="Script" uid="uid://bf4hw2p10w3gu" path="res://levels/boss/level_boss.gd" id="1_4wxci"]
 [ext_resource type="PackedScene" uid="uid://c0qoh0n6qv8q0" path="res://levels/modules/starting_position.tscn" id="2_iii5r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_side"]

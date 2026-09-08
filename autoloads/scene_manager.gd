@@ -17,10 +17,6 @@ const PAUSE_MENU := preload("res://menu/pause_menu.tscn")
 
 const FADE_TIME := 0.4
 
-var _fade: ColorRect
-var _toast: Label
-var _pause_instance: Control = null
-
 # True while a real gameplay level is active (so "R" / Esc only work in-game).
 var in_level := false
 var current_scene_path := ""
@@ -29,37 +25,19 @@ var current_scene_path := ""
 # escaping thief) is skipped on restart. Consumed once by the level.
 var skip_next_intro := false
 
+var _fade: ColorRect
+var _toast: Label
+var _pause_instance: Control = null
+
 var _transitioning := false
 
 
 func _ready() -> void:
 	# Keep working even while the tree is paused (for the pause menu / reset).
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	layer = 128  # draw above every level UI
+	layer = 128 # draw above every level UI
 
 	_build_overlay()
-
-
-func _build_overlay() -> void:
-	# Full-screen black rectangle used for fades.
-	_fade = ColorRect.new()
-	_fade.color = Color.BLACK
-	_fade.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_fade.set_anchors_preset(Control.PRESET_FULL_RECT)
-	_fade.modulate.a = 0.0
-	add_child(_fade)
-
-	# Centered toast label near the top for rule announcements.
-	_toast = Label.new()
-	_toast.set_anchors_preset(Control.PRESET_TOP_WIDE)
-	_toast.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	_toast.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	_toast.add_theme_font_size_override("font_size", 42)
-	_toast.offset_top = 40
-	_toast.offset_bottom = 140
-	_toast.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_toast.modulate.a = 0.0
-	add_child(_toast)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -71,19 +49,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("Pause"):
 		toggle_pause()
 		get_viewport().set_input_as_handled()
-
-
-# --- Transitions --------------------------------------------------------
-func _fade_to_black() -> void:
-	var tween := create_tween()
-	tween.tween_property(_fade, "modulate:a", 1.0, FADE_TIME)
-	await tween.finished
-
-
-func _fade_from_black() -> void:
-	var tween := create_tween()
-	tween.tween_property(_fade, "modulate:a", 0.0, FADE_TIME)
-	await tween.finished
 
 
 func change_scene(path: String) -> void:
@@ -157,13 +122,6 @@ func toggle_pause() -> void:
 		get_tree().paused = true
 
 
-func _clear_pause() -> void:
-	if _pause_instance:
-		_pause_instance.queue_free()
-		_pause_instance = null
-	get_tree().paused = false
-
-
 # --- Toast (rule announcements) ----------------------------------------
 func show_toast(text: String, duration := 2.0) -> void:
 	if _toast == null:
@@ -173,3 +131,45 @@ func show_toast(text: String, duration := 2.0) -> void:
 	tween.tween_property(_toast, "modulate:a", 1.0, 0.3)
 	tween.tween_interval(duration)
 	tween.tween_property(_toast, "modulate:a", 0.0, 0.6)
+
+
+func _build_overlay() -> void:
+	# Full-screen black rectangle used for fades.
+	_fade = ColorRect.new()
+	_fade.color = Color.BLACK
+	_fade.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_fade.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_fade.modulate.a = 0.0
+	add_child(_fade)
+
+	# Centered toast label near the top for rule announcements.
+	_toast = Label.new()
+	_toast.set_anchors_preset(Control.PRESET_TOP_WIDE)
+	_toast.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_toast.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	_toast.add_theme_font_size_override("font_size", 42)
+	_toast.offset_top = 40
+	_toast.offset_bottom = 140
+	_toast.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_toast.modulate.a = 0.0
+	add_child(_toast)
+
+
+# --- Transitions --------------------------------------------------------
+func _fade_to_black() -> void:
+	var tween := create_tween()
+	tween.tween_property(_fade, "modulate:a", 1.0, FADE_TIME)
+	await tween.finished
+
+
+func _fade_from_black() -> void:
+	var tween := create_tween()
+	tween.tween_property(_fade, "modulate:a", 0.0, FADE_TIME)
+	await tween.finished
+
+
+func _clear_pause() -> void:
+	if _pause_instance:
+		_pause_instance.queue_free()
+		_pause_instance = null
+	get_tree().paused = false

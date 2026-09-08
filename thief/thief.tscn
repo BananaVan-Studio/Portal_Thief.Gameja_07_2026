@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bxhe8mhn1g1ag"]
+
+[ext_resource type="Script" uid="uid://cxc30yd5j7yuv" path="res://thief/thief.gd" id="1_1ljja"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1dw6"]
+
+[node name="Enemy" type="StaticBody2D" unique_id=990185148 node_paths=PackedStringArray("orders")]
+script = ExtResource("1_1ljja")
+orders = [null]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=959497687]
+shape = SubResource("RectangleShape2D_g1dw6")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1496561281]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+pivot_offset = Vector2(10, 10)
+color = Color(1, 0, 0.11372549, 1)

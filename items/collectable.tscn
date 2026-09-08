@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bpwdupn0ux8hy"]
+
+[ext_resource type="Texture2D" uid="uid://bt3fwhoxevmkw" path="res://items/assets/document_01.png" id="1_x27je"]
+[ext_resource type="Script" uid="uid://mbsnn4pr5ery" path="res://items/collectable.gd" id="1_xctlg"]
+[ext_resource type="AudioStream" uid="uid://bq6b6q6c468eh" path="res://items/assets/page.ogg" id="3_wnosx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_laogf"]
+radius = 9.0
+
+[node name="Collectable" type="Area2D" unique_id=820743229]
+script = ExtResource("1_xctlg")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=591353462]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_x27je")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=889587959]
+shape = SubResource("CircleShape2D_laogf")
+
+[node name="SFX" type="AudioStreamPlayer" parent="." unique_id=1392146598]
+stream = ExtResource("3_wnosx")
+volume_db = -5.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
