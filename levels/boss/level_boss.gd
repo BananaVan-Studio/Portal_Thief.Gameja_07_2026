@@ -65,7 +65,7 @@ var _player = null
 
 func _ready() -> void:
 	randomize()
-	SceneManager.()
+	SceneManager.consume_intro_skip()
 	SceneManager.enter_level(scene_file_path)
 
 	_player = get_tree().get_first_node_in_group("Player")

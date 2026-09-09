@@ -38,23 +38,23 @@ func _ready() -> void:
 
 # --- Named effects ------------------------------------------------------
 func portal() -> void:
-	_sfx(S_PORTAL)
+	_sfx(S_PORTAL, 10)
 
 
 func advance() -> void:
-	_sfx(S_ADVANCE)
+	_sfx(S_ADVANCE, 15)
 
 
 func back() -> void:
-	_sfx(S_BACK)
+	_sfx(S_BACK, 15)
 
 
 func run() -> void:
-	_sfx(S_RUN)
+	_sfx(S_RUN, 5)
 
 
 func dash() -> void:
-	_sfx(S_DASH)
+	_sfx(S_DASH, 5)
 
 
 func alarm_siren() -> void:

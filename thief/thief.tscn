@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://bxhe8mhn1g1ag"]
 
 [ext_resource type="Script" uid="uid://cxc30yd5j7yuv" path="res://thief/thief.gd" id="1_1ljja"]
+[ext_resource type="AudioStream" uid="uid://sd4adlodp52g" path="res://audio/portal.ogg" id="2_bac1e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g1dw6"]
 
-[node name="Enemy" type="StaticBody2D" unique_id=990185148 node_paths=PackedStringArray("orders")]
+[node name="Thief" type="StaticBody2D" unique_id=990185148]
 script = ExtResource("1_1ljja")
-orders = [null]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=959497687]
 shape = SubResource("RectangleShape2D_g1dw6")
@@ -18,3 +18,11 @@ offset_right = 10.0
 offset_bottom = 10.0
 pivot_offset = Vector2(10, 10)
 color = Color(1, 0, 0.11372549, 1)
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1360537771]
+color = Color(0.2438044, 0.05928261, 1.2032688e-08, 1)
+polygon = PackedVector2Array(-2, 2, 4, 2, 3, 5, 6, 6, 9, 8, 10, 12, 9, 16, 6, 18, 1, 19, -4, 18, -7, 16, -8, 12, -7, 8, -4, 6, -1, 5)
+
+[node name="SFX" type="AudioStreamPlayer" parent="." unique_id=678003481]
+stream = ExtResource("2_bac1e")
+volume_db = 10.0

@@ -4,6 +4,36 @@
 [ext_resource type="AudioStream" uid="uid://bd8jo3ckdl0cs" path="res://audio/caida.ogg" id="2_rkbax"]
 [ext_resource type="PackedScene" uid="uid://bysxmuso7bk8d" path="res://UI/ui.tscn" id="3_g1dw6"]
 
+[sub_resource type="Curve" id="Curve_qjkh3"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.8422819, 0.59292036), -1.3185838, -1.3185838, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_yw30f"]
+curve = SubResource("Curve_qjkh3")
+
+[sub_resource type="Curve" id="Curve_g1dw6"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99328864, 0.325), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_g1dw6"]
+curve = SubResource("Curve_g1dw6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_laogf"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(10, 10, 10)
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -44.99999
+angle_max = 45.00001
+direction = Vector3(0, 0, 0)
+spread = 15.0
+gravity = Vector3(0, 0, 0)
+scale_min = 5.0
+scale_max = 10.0
+scale_curve = SubResource("CurveTexture_g1dw6")
+color = Color(0.6955033, 0.69550306, 0.6955031, 1)
+alpha_curve = SubResource("CurveTexture_yw30f")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqu6x"]
 
 [sub_resource type="Animation" id="Animation_rkbax"]
@@ -254,6 +284,14 @@ _data = {
 motion_mode = 1
 script = ExtResource("1_oul6g")
 
+[node name="VFX" type="GPUParticles2D" parent="." unique_id=1296079032]
+emitting = false
+amount = 30
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.1
+process_material = SubResource("ParticleProcessMaterial_laogf")
+
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1817341185]
 offset_left = -10.0
 offset_top = -10.0
@@ -271,7 +309,7 @@ position_smoothing_enabled = true
 drag_horizontal_enabled = true
 
 [node name="DashTimer" type="Timer" parent="." unique_id=465214526]
-wait_time = 0.15
+wait_time = 0.2
 one_shot = true
 
 [node name="DashWaitTime" type="Timer" parent="." unique_id=1992353530 groups=["Player"]]

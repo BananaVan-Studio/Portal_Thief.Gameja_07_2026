@@ -12,6 +12,10 @@ extends Area2D
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		set_physics_process(false)
+		return
+
+	if Events.collectables[num_collectable]:
+		queue_free()
 
 
 func _physics_process(_delta: float) -> void:

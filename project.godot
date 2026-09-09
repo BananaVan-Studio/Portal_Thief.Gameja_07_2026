@@ -33,7 +33,7 @@ AudioManager="*res://autoloads/audio_manager.gd"
 
 [display]
 
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
 [editor_plugins]
@@ -48,7 +48,8 @@ folder_colors={
 "res://levels/": "yellow",
 "res://menu/": "green",
 "res://obstacles/": "purple",
-"res://player/": "blue"
+"res://player/": "blue",
+"res://thief/": "pink"
 }
 
 [global_group]
@@ -104,6 +105,11 @@ Pause={
 ]
 }
 
+[physics]
+
+common/physics_ticks_per_second=120
+
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 environment/defaults/default_clear_color=Color(0, 0.15793666, 0.36869326, 1)

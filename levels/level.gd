@@ -11,7 +11,6 @@ extends Node2D
 	set(value):
 		next_level = value
 		update_configuration_warnings()
-		notify_property_list_changed()
 ## Optional short line shown to the player when the house loads,
 ## e.g. "This house forbids sprinting."
 @export var rule_announcement := ""
@@ -22,6 +21,9 @@ extends Node2D
 @onready var player_cam: Camera2D = $Player/PlayerCam
 @onready var global_cam: Camera2D = $Base/GlobalCam
 @onready var starting_pos: Area2D = $StartingPosition
+@onready var finish_area: Area2D = $FinishArea
+@onready var thief: Thief = $Thief
+@onready var atrezzo: Node2D = $Atrezzo
 
 
 func _ready() -> void:
@@ -30,9 +32,13 @@ func _ready() -> void:
 
 	global_cam.enabled = true
 	player_cam.enabled = false
+	finish_area.set_visible(false)
 	player.global_position = starting_pos.global_position
+
 	if not intro_enabled or SceneManager.consume_intro_skip():
 		finish_transition()
+		atrezzo.queue_free()
+		finish_area.set_visible(true)
 		return
 
 	Game.set_rules(allow_sprint, allow_dash)
@@ -48,32 +54,8 @@ func _ready() -> void:
 	await get_tree().create_timer(0.9).timeout
 
 	# 2. The bad guy runs from the bottom entrance up to the top gate.
-	var finish := get_node_or_null("../FinishArea")
-	var start_pos: Vector2 = global_position
-	var end_pos: Vector2 = finish.global_position if finish else start_pos - Vector2(0, 640)
-
-	var thief := ColorRect.new()
-	thief.color = Color(0.85, 0.12, 0.12)
-	thief.size = Vector2(24, 24)
-	thief.global_position = start_pos - thief.size / 2.0
-	get_parent().add_child(thief)
-
-	var run := create_tween()
-	run.tween_property(
-		thief, "global_position", end_pos - thief.size / 2.0, 1.7
-	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	await run.finished
-
-	# Slip through the top gate and vanish.
-	var vanish := create_tween()
-	vanish.set_parallel(true)
-	vanish.tween_property(thief, "global_position:y", thief.global_position.y - 70, 0.5)
-	vanish.tween_property(thief, "modulate:a", 0.0, 0.5)
-	await vanish.finished
-	thief.queue_free()
-
-	await get_tree().create_timer(0.3).timeout
-
+	thief.global_position = starting_pos.global_position
+	await thief.execute_orders_queue()
 	# 3. Sweep down to the player and spawn.
 	start_camera_transition()
 

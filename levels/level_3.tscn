@@ -5,9 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://vfjevfr4ln1y" path="res://levels/assets/tilesheet_complete.png" id="3_l53as"]
 [ext_resource type="PackedScene" uid="uid://dk0pwi3g46lvl" path="res://levels/modules/base.tscn" id="4_bmgug"]
 [ext_resource type="PackedScene" uid="uid://c0qoh0n6qv8q0" path="res://levels/modules/starting_position.tscn" id="6_lfnxh"]
+[ext_resource type="PackedScene" uid="uid://bpwdupn0ux8hy" path="res://items/collectable.tscn" id="6_wj73x"]
+[ext_resource type="Script" uid="uid://dx0x03jq048sm" path="res://thief/order.gd" id="7_0unm6"]
 [ext_resource type="Script" uid="uid://dde04ifuosoc0" path="res://levels/level.gd" id="7_level"]
 [ext_resource type="PackedScene" uid="uid://b3yihcwholdbg" path="res://levels/modules/finish_area.tscn" id="7_ofchu"]
 [ext_resource type="PackedScene" uid="uid://byque4w54oowj" path="res://player/player.tscn" id="8_ofchu"]
+[ext_resource type="Texture2D" uid="uid://btnfjwl47xbtf" path="res://items/assets/AssetPack_V01_FREE.png" id="8_q42ux"]
+[ext_resource type="PackedScene" uid="uid://bxhe8mhn1g1ag" path="res://thief/thief.tscn" id="12_0unm6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aerfg"]
 size = Vector2(31, 76)
@@ -17,9 +21,6 @@ size = Vector2(31, 174)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_betor"]
 size = Vector2(31, 106)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjtdm"]
-size = Vector2(544, 385)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_20opy"]
 texture = ExtResource("3_l53as")
@@ -901,6 +902,14 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.121101804, 0.3633424, 0.75383276, 1)
 sources/1 = SubResource("TileSetAtlasSource_20opy")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_wi0qq"]
+atlas = ExtResource("8_q42ux")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3q8p"]
+atlas = ExtResource("8_q42ux")
+region = Rect2(16, 80, 16, 16)
+
 [node name="Level3" type="Node2D" unique_id=294394513]
 script = ExtResource("7_level")
 allow_sprint = false
@@ -913,38 +922,38 @@ next_level = 4
 position = Vector2(1121, 450)
 rotation = 1.5707964
 
-[node name="ColorRect" parent="Pits/Pit" index="0"]
+[node name="ColorRect" parent="Pits/Pit" index="0" unique_id=1789141283]
 offset_left = -25.0
 offset_top = -37.0
 offset_right = 24.0
 offset_bottom = 35.0
 
-[node name="CollisionShape2D" parent="Pits/Pit" index="1"]
+[node name="CollisionShape2D" parent="Pits/Pit" index="1" unique_id=1875047140]
 shape = SubResource("RectangleShape2D_aerfg")
 
 [node name="Pit2" parent="Pits" unique_id=1214028015 instance=ExtResource("1_btoec")]
 position = Vector2(866, 385)
 
-[node name="ColorRect" parent="Pits/Pit2" index="0"]
+[node name="ColorRect" parent="Pits/Pit2" index="0" unique_id=1789141283]
 offset_left = -25.0
 offset_top = -37.0
 offset_right = 24.0
 offset_bottom = 35.0
 
-[node name="CollisionShape2D" parent="Pits/Pit2" index="1"]
+[node name="CollisionShape2D" parent="Pits/Pit2" index="1" unique_id=1875047140]
 shape = SubResource("RectangleShape2D_aerfg")
 
 [node name="Pit3" parent="Pits" unique_id=1446862400 instance=ExtResource("1_btoec")]
 position = Vector2(699, 323)
 rotation = 1.5707964
 
-[node name="ColorRect" parent="Pits/Pit3" index="0"]
+[node name="ColorRect" parent="Pits/Pit3" index="0" unique_id=1789141283]
 offset_left = -25.0
 offset_top = -138.086
 offset_right = 24.0
 offset_bottom = 35.0
 
-[node name="CollisionShape2D" parent="Pits/Pit3" index="1"]
+[node name="CollisionShape2D" parent="Pits/Pit3" index="1" unique_id=1875047140]
 position = Vector2(0, -49)
 shape = SubResource("RectangleShape2D_nmsli")
 
@@ -952,13 +961,13 @@ shape = SubResource("RectangleShape2D_nmsli")
 position = Vector2(567, 323)
 rotation = 1.5707964
 
-[node name="ColorRect" parent="Pits/Pit6" index="0"]
+[node name="ColorRect" parent="Pits/Pit6" index="0" unique_id=1789141283]
 offset_left = -25.0
 offset_top = -138.086
 offset_right = 24.0
 offset_bottom = 35.0
 
-[node name="CollisionShape2D" parent="Pits/Pit6" index="1"]
+[node name="CollisionShape2D" parent="Pits/Pit6" index="1" unique_id=1875047140]
 position = Vector2(0, -49)
 shape = SubResource("RectangleShape2D_nmsli")
 
@@ -967,13 +976,13 @@ position = Vector2(567, 532)
 rotation = 1.5707964
 scale = Vector2(1.380953, 0.6259542)
 
-[node name="ColorRect" parent="Pits/Pit7" index="0"]
+[node name="ColorRect" parent="Pits/Pit7" index="0" unique_id=1789141283]
 offset_left = -25.0
 offset_top = -138.086
 offset_right = 24.0
 offset_bottom = 35.0
 
-[node name="CollisionShape2D" parent="Pits/Pit7" index="1"]
+[node name="CollisionShape2D" parent="Pits/Pit7" index="1" unique_id=1875047140]
 position = Vector2(0, -49)
 shape = SubResource("RectangleShape2D_nmsli")
 
@@ -982,50 +991,50 @@ position = Vector2(610.00006, 161)
 rotation = 1.5707964
 scale = Vector2(1.380953, 0.6259542)
 
-[node name="ColorRect" parent="Pits/Pit8" index="0"]
+[node name="ColorRect" parent="Pits/Pit8" index="0" unique_id=1789141283]
 offset_left = -25.0
 offset_top = -138.086
 offset_right = 24.0
 offset_bottom = 35.0
 
-[node name="CollisionShape2D" parent="Pits/Pit8" index="1"]
+[node name="CollisionShape2D" parent="Pits/Pit8" index="1" unique_id=1875047140]
 position = Vector2(0, -49)
 shape = SubResource("RectangleShape2D_nmsli")
 
 [node name="Pit4" parent="Pits" unique_id=2139986597 instance=ExtResource("1_btoec")]
 position = Vector2(869, 166)
 
-[node name="ColorRect" parent="Pits/Pit4" index="0"]
+[node name="ColorRect" parent="Pits/Pit4" index="0" unique_id=1789141283]
 offset_left = -25.0
 offset_top = -37.0
 offset_right = 24.0
 offset_bottom = 35.0
 
-[node name="CollisionShape2D" parent="Pits/Pit4" index="1"]
+[node name="CollisionShape2D" parent="Pits/Pit4" index="1" unique_id=1875047140]
 shape = SubResource("RectangleShape2D_aerfg")
 
 [node name="Pit9" parent="Pits" unique_id=1074424808 instance=ExtResource("1_btoec")]
 position = Vector2(368, 221)
 
-[node name="ColorRect" parent="Pits/Pit9" index="0"]
+[node name="ColorRect" parent="Pits/Pit9" index="0" unique_id=1789141283]
 offset_left = -25.0
 offset_top = -37.0
 offset_right = 24.0
 offset_bottom = 35.0
 
-[node name="CollisionShape2D" parent="Pits/Pit9" index="1"]
+[node name="CollisionShape2D" parent="Pits/Pit9" index="1" unique_id=1875047140]
 shape = SubResource("RectangleShape2D_aerfg")
 
 [node name="Pit5" parent="Pits" unique_id=1925512346 instance=ExtResource("1_btoec")]
 position = Vector2(868, 52)
 
-[node name="ColorRect" parent="Pits/Pit5" index="0"]
+[node name="ColorRect" parent="Pits/Pit5" index="0" unique_id=1789141283]
 offset_left = -25.0
 offset_top = -53.0
 offset_right = 24.0
 offset_bottom = 46.0
 
-[node name="CollisionShape2D" parent="Pits/Pit5" index="1"]
+[node name="CollisionShape2D" parent="Pits/Pit5" index="1" unique_id=1875047140]
 shape = SubResource("RectangleShape2D_betor")
 
 [node name="Alarms" type="Node2D" parent="." unique_id=1980146118]
@@ -1033,16 +1042,6 @@ shape = SubResource("RectangleShape2D_betor")
 [node name="AlarmZone" parent="Alarms" unique_id=843988376 instance=ExtResource("2_gwceb")]
 position = Vector2(360, 539)
 caught_margin = 4.0
-
-[node name="CollisionShape2D" parent="Alarms/AlarmZone" index="0" unique_id=14966428]
-position = Vector2(-104, -76.5)
-shape = SubResource("RectangleShape2D_vjtdm")
-
-[node name="ColorRect" parent="Alarms/AlarmZone" index="1" unique_id=228056451]
-offset_left = -376.0
-offset_top = -269.0
-offset_right = 168.0
-offset_bottom = 116.0
 
 [node name="AlarmTimer" parent="Alarms/AlarmZone" index="2" unique_id=534087450]
 wait_time = 4.0
@@ -1055,6 +1054,94 @@ scale = Vector2(0.5, 0.5)
 tile_map_data = PackedByteArray("AAD//woAAQAFAAYAAAD//wkAAQAFAAYAAAD//wgAAQAAAAYAAAD//wcAAQAGAAYAAAD//wYAAQAGAAYAAAD//wUAAQAGAAYAAAD//wQAAQAGAAYAAAD//wMAAQAAAAcAAAD//wIAAQAFAAYAAAD//wEAAQAFAAYAAAD//wAAAQAFAAYAAAD/////AQAAAAYAAAAAAP//AQAFAAcAAAABAP//AQAFAAcAAAACAP//AQAFAAcAAAADAP//AQAFAAcAAAAEAP//AQAFAAcAAAAFAP//AQAFAAcAAAAGAP//AQAFAAcAAAAHAP//AQAFAAcAAAAKAP//AQAFAAcAAAALAP//AQAFAAcAAAAPAP//AQAFAAcAAAAJAP//AQAFAAcAAAAIAP//AQAFAAcAAAAUAP//AQACAAkAAAAVAP//AQAFAAcAAAAWAP//AQAFAAcAAAAXAP//AQAFAAcAAAAYAP//AQAFAAcAAAD//w0AAQAFAAYAAAD//wwAAQAFAAYAAAD//wsAAQAFAAYAAAD//w4AAQAFAAYAAAD//w8AAQAFAAYAAAD//xAAAQAFAAYAAAD//xEAAQAFAAYAAAD//xIAAQAFAAYAAAD//xMAAQAFAAYAAAD//xQAAQAAAAcAAAAAABQAAQAEAAcAAAABABQAAQAEAAcAAAACABQAAQAEAAcAAAADABQAAQAEAAcAAAAEABQAAQAEAAcAAAAFABQAAQAEAAcAAAAGABQAAQAEAAcAAAAHABQAAQAEAAcAAAAIABQAAQAEAAcAAAAJABQAAQAEAAcAAAAKABQAAQAEAAcAAAALABQAAQAEAAcAAAAMABQAAQAEAAcAAAANABQAAQAEAAcAAAAOABQAAQAEAAcAAAAPABQAAQAEAAcAAAAQABQAAQAIAAQAAAAUABQAAQAHAAQAAAAVABQAAQAEAAcAAAAWABQAAQAEAAcAAAAXABQAAQAEAAcAAAAYABQAAQAEAAcAAAAZABQAAQAEAAcAAAAaABQAAQAEAAcAAAAbABQAAQAEAAcAAAAcABQAAQAEAAcAAAAdABQAAQAEAAcAAAAeABQAAQAEAAcAAAAfABQAAQAEAAcAAAAgABQAAQAEAAcAAAAhABQAAQAEAAcAAAAiABQAAQAEAAcAAAAjABQAAQAEAAcAAAAkABQAAQABAAcAAAAkABMAAQAEAAYAAAAkABIAAQAEAAYAAAAkABEAAQAEAAYAAAAZAP//AQAFAAcAAAAaAP//AQAFAAcAAAAbAP//AQAFAAcAAAAcAP//AQAFAAcAAAAdAP//AQAFAAcAAAAeAP//AQAFAAcAAAAfAP//AQAFAAcAAAAgAP//AQAFAAcAAAAhAP//AQAFAAcAAAAiAP//AQAFAAcAAAAjAP//AQAFAAcAAAAkAP//AQABAAYAAAAkAAAAAQAEAAYAAAAkAAEAAQAEAAYAAAAkAAIAAQAEAAYAAAAkAAMAAQAEAAYAAAAkAAQAAQAEAAYAAAAkAAUAAQAEAAYAAAAkAAYAAQAEAAYAAAAkAAcAAQAEAAYAAAAkAAgAAQAEAAYAAAAkAAkAAQAEAAYAAAAkAAoAAQAEAAYAAAAkAAsAAQAEAAYAAAAkAAwAAQAEAAYAAAAkAA0AAQAEAAYAAAAkAA4AAQAEAAYAAAAkAA8AAQAEAAYAAAAkABAAAQAEAAYAAAAOAP//AQAFAAcAAAANAP//AQAFAAcAAAAMAP//AQAFAAcAAAAQAAAAAQACAAUAAAAQAAYAAQAFAAUAAAAQAAcAAQACAAUAAAAQAAgAAQAEAAUAAAAQAAkAAQACAAUAAAAQAAoAAQAGAAQAAAAQAA0AAQAFAAUAAAAQAA4AAQACAAUAAAAQAA8AAQACAAUAAAAQABAAAQADAAgAAAAQABEAAQAIAAUAAAAQAP//AQADAAkAAAAQAAEAAQACAAUAAAAQAAIAAQACAAUAAAALAAIAAQAFAAUAAAALAAMAAQACAAUAAAALAAQAAQACAAUAAAAAAAMAAQAIAAQAAAAAAAQAAQAFAAYAAAAAAAUAAQAFAAYAAAAAAAYAAQAFAAYAAAAAAAcAAQAFAAYAAAADAAMAAQAFAAUAAAADAAQAAQACAAUAAAADAAUAAQACAAUAAAADAAYAAQACAAUAAAADAAcAAQACAAUAAAAPABEAAQAFAAcAAAAOABEAAQAFAAcAAAANABEAAQAFAAcAAAAMABEAAQAFAAcAAAALABEAAQAFAAcAAAALABAAAQAEAAcAAAAKABAAAQAEAAcAAAAJABAAAQAEAAgAAAAIABAAAQACAAQAAAAHABAAAQACAAQAAAAGABAAAQACAAQAAAAFABAAAQACAAQAAAAEABAAAQACAAQAAAADABAAAQACAAQAAAACABAAAQAAAAQAAAACABEAAQAGAAQAAAAMABAAAQAEAAcAAAANABAAAQAEAAcAAAAOABAAAQAEAAcAAAAPABAAAQAEAAcAAAAKABEAAQAFAAcAAAAJABEAAQAHAAUAAAAQAAMAAQAGAAQAAAAUAAYAAQAAAAQAAAAVAAYAAQACAAQAAAAWAAYAAQACAAQAAAAXAAYAAQACAAQAAAAYAAYAAQACAAQAAAAZAAYAAQACAAQAAAAUAAMAAQAAAAUAAAAVAAMAAQACAAQAAAAWAAMAAQACAAQAAAAXAAMAAQACAAQAAAAZAAMAAQACAAQAAAAYAAMAAQACAAQAAAAhAAYAAQAIAAUAAAAhAAUAAQAFAAYAAAAhAAQAAQAFAAYAAAAhAAMAAQAIAAQAAAAgAAMAAQAEAAcAAAAfAAMAAQAEAAcAAAAeAAMAAQAHAAQAAAAUABEAAQAAAAUAAAAVABEAAQACAAQAAAAWABEAAQACAAQAAAAXABEAAQACAAQAAAAYABEAAQACAAQAAAAZABEAAQACAAQAAAAAAAgAAQAIAAUAAAADAAgAAQAAAAUAAAAEAAgAAQACAAQAAAAFAAgAAQACAAQAAAAGAAgAAQACAAQAAAAHAAgAAQACAAQAAAAIAAgAAQACAAQAAAAJAAgAAQACAAQAAAAKAAgAAQACAAQAAAALAAgAAQACAAQAAAAMAAgAAQACAAQAAAANAAgAAQACAAQAAAAOAAgAAQACAAQAAAAPAAgAAQACAAQAAAALAAUAAQAGAAQAAAAeAAQAAQAEAAYAAAAeAAUAAQAEAAYAAAAfAAUAAQAGAAYAAAAgAAUAAQAGAAYAAAAgAAQAAQAGAAYAAAAfAAQAAQAGAAYAAAAfAAYAAQAFAAcAAAAeAAYAAQAHAAUAAAAgAAYAAQAFAAcAAAAUAAAAAQACAAUAAAAUAAEAAQACAAUAAAAUAAIAAQACAAUAAAAUAAcAAQACAAUAAAAUAAgAAQACAAUAAAAUAAkAAQACAAUAAAAUAAoAAQAGAAQAAAAUAA0AAQAFAAUAAAAUAA4AAQACAAUAAAAUAA8AAQACAAUAAAAUABAAAQACAAUAAAAaAAYAAQAEAAgAAAAaAAcAAQAEAAYAAAAaAAgAAQAEAAYAAAAaAAkAAQAEAAYAAAAaAAoAAQAHAAUAAAAaAAMAAQACAAQAAAAaAA0AAQAHAAQAAAAaAA4AAQAHAAUAAAAbAA0AAQAEAAcAAAAcAA0AAQAEAAcAAAAdAA0AAQAEAAcAAAAeAA0AAQAEAAcAAAAfAA0AAQAEAAcAAAAgAA0AAQAEAAcAAAAhAA0AAQAIAAQAAAAbAA4AAQAFAAcAAAAcAA4AAQAFAAcAAAAdAA4AAQAFAAcAAAAeAA4AAQAFAAcAAAAfAA4AAQAFAAcAAAAgAA4AAQAFAAcAAAAhAA4AAQAIAAUAAAAbAAYAAQAIAAQAAAAbAAcAAQAFAAYAAAAbAAgAAQAFAAYAAAAbAAkAAQAFAAYAAAAbAAoAAQAIAAUAAAAbAAMAAQAFAAQAAAAaABEAAQACAAQAAAAbABEAAQAFAAQAAAAQAP7/AQAFAAgAAAARAP7/AQACAAQAAAASAP7/AQACAAQAAAATAP7/AQACAAQAAAAUAP7/AQAEAAgAAAAQABUAAQAFAAkAAAARABUAAQACAAQAAAASABUAAQACAAQAAAATABUAAQACAAQAAAAUABUAAQAEAAkAAAAPABUAAQAFAAcAAAAOABUAAQAFAAcAAAANABUAAQAFAAcAAAAMABUAAQAFAAcAAAALABUAAQAFAAcAAAAKABUAAQAFAAcAAAAJABUAAQAFAAcAAAAIABUAAQAFAAcAAAAHABUAAQAFAAcAAAAGABUAAQAFAAcAAAAFABUAAQAFAAcAAAAEABUAAQAFAAcAAAADABUAAQAFAAcAAAACABUAAQAFAAcAAAABABUAAQAFAAcAAAAAABUAAQAFAAcAAAD//xUAAQAFAAcAAAAVABUAAQAFAAcAAAAWABUAAQAFAAcAAAAXABUAAQAFAAcAAAAYABUAAQAFAAcAAAAZABUAAQAFAAcAAAAaABUAAQAFAAcAAAAbABUAAQAFAAcAAAAcABUAAQAFAAcAAAAdABUAAQAFAAcAAAAeABUAAQAFAAcAAAAfABUAAQAFAAcAAAAgABUAAQAFAAcAAAAhABUAAQAFAAcAAAAiABUAAQAFAAcAAAAjABUAAQAFAAcAAAAkABUAAQAFAAcAAAAPAP7/AQAEAAcAAAAOAP7/AQAEAAcAAAANAP7/AQAEAAcAAAAMAP7/AQAEAAcAAAALAP7/AQAEAAcAAAAKAP7/AQAEAAcAAAAJAP7/AQAEAAcAAAAIAP7/AQAEAAcAAAAHAP7/AQAEAAcAAAAGAP7/AQAEAAcAAAAFAP7/AQAEAAcAAAAEAP7/AQAEAAcAAAADAP7/AQAEAAcAAAACAP7/AQAEAAcAAAABAP7/AQAEAAcAAAAAAP7/AQAEAAcAAAD///7/AQAEAAcAAAD+//7/AQAHAAQAAAD+////AQAEAAYAAAD+/wAAAQAEAAYAAAD+/wEAAQAEAAYAAAD+/wIAAQAEAAYAAAD+/wMAAQAEAAYAAAD+/wQAAQAEAAYAAAD+/wUAAQAEAAYAAAD+/wYAAQAEAAYAAAD+/wcAAQAEAAYAAAD+/wgAAQAEAAYAAAD+/wkAAQAEAAYAAAD+/woAAQAEAAYAAAD+/wsAAQAEAAYAAAD+/wwAAQAEAAYAAAD+/w0AAQAEAAYAAAD+/w4AAQAEAAYAAAD+/w8AAQAEAAYAAAD+/xAAAQAEAAYAAAD+/xEAAQAEAAYAAAD+/xIAAQAEAAYAAAD+/xMAAQAEAAYAAAD+/xQAAQAEAAYAAAD+/xUAAQAHAAUAAAAVAP7/AQAEAAcAAAAWAP7/AQAEAAcAAAAXAP7/AQAEAAcAAAAYAP7/AQAEAAcAAAAZAP7/AQAEAAcAAAAaAP7/AQAEAAcAAAAbAP7/AQAEAAcAAAAcAP7/AQAEAAcAAAAdAP7/AQAEAAcAAAAeAP7/AQAEAAcAAAAfAP7/AQAEAAcAAAAgAP7/AQAEAAcAAAAhAP7/AQAEAAcAAAAiAP7/AQAEAAcAAAAjAP7/AQAEAAcAAAAkAP7/AQAEAAcAAAAlAP7/AQAIAAQAAAAlAP//AQAFAAYAAAAlAAAAAQAFAAYAAAAlAAEAAQAFAAYAAAAlAAIAAQAFAAYAAAAlAAMAAQAFAAYAAAAlAAQAAQAFAAYAAAAlAAUAAQAFAAYAAAAlAAYAAQAFAAYAAAAlAAcAAQAFAAYAAAAlAAgAAQAFAAYAAAAlAAkAAQAFAAYAAAAlAAoAAQAFAAYAAAAlAAsAAQAFAAYAAAAlAAwAAQAFAAYAAAAlAA0AAQAFAAYAAAAlAA4AAQAFAAYAAAAlAA8AAQAFAAYAAAAlABAAAQAFAAYAAAAlABQAAQAFAAYAAAAlABUAAQAIAAUAAAAlABMAAQAFAAYAAAAlABIAAQAFAAYAAAAlABEAAQAFAAYAAAA=")
 tile_set = SubResource("TileSet_8l0e1")
 
+[node name="Collectables" type="Node2D" parent="." unique_id=587848731]
+
+[node name="Collectable" parent="Collectables" unique_id=820743229 instance=ExtResource("6_wj73x")]
+position = Vector2(21, 24)
+num_collectable = 0
+
+[node name="ThiefActions" type="Node2D" parent="." unique_id=1363201191]
+
+[node name="Move" type="Marker2D" parent="ThiefActions" unique_id=815085112]
+position = Vector2(560, 432)
+script = ExtResource("7_0unm6")
+action = 1
+execution_time = 0.5
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Wait" type="Marker2D" parent="ThiefActions" unique_id=749232408]
+position = Vector2(560, 432)
+script = ExtResource("7_0unm6")
+action = 2
+execution_time = 1.0
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Pick" type="Marker2D" parent="ThiefActions" unique_id=1583446734]
+position = Vector2(560, 432)
+script = ExtResource("7_0unm6")
+action = 4
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Move2" type="Marker2D" parent="ThiefActions" unique_id=250240974]
+position = Vector2(623, 333)
+script = ExtResource("7_0unm6")
+action = 1
+execution_time = 0.3
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Wait2" type="Marker2D" parent="ThiefActions" unique_id=1076038036]
+position = Vector2(560, 432)
+script = ExtResource("7_0unm6")
+action = 2
+execution_time = 1.0
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Pick2" type="Marker2D" parent="ThiefActions" unique_id=648230620]
+position = Vector2(560, 432)
+script = ExtResource("7_0unm6")
+action = 4
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Rotate" type="Marker2D" parent="ThiefActions" unique_id=559937437]
+position = Vector2(623, 333)
+script = ExtResource("7_0unm6")
+action = 3
+execution_time = 0.3
+rotation_deg = 45.0
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Wait3" type="Marker2D" parent="ThiefActions" unique_id=615641190]
+position = Vector2(560, 432)
+script = ExtResource("7_0unm6")
+action = 2
+execution_time = 0.5
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Rotate2" type="Marker2D" parent="ThiefActions" unique_id=951536246]
+position = Vector2(624, 333)
+script = ExtResource("7_0unm6")
+action = 3
+execution_time = 0.4
+rotation_deg = -90.0
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Move3" type="Marker2D" parent="ThiefActions" unique_id=1991020548]
+position = Vector2(594, -16)
+script = ExtResource("7_0unm6")
+action = 1
+execution_time = 0.5
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Atrezzo" type="Node2D" parent="." unique_id=441093942]
+
+[node name="Coffe" type="Sprite2D" parent="Atrezzo" unique_id=521147219]
+position = Vector2(555, 422)
+texture = SubResource("AtlasTexture_wi0qq")
+
+[node name="Cake" type="Sprite2D" parent="Atrezzo" unique_id=513947455]
+position = Vector2(633, 322)
+texture = SubResource("AtlasTexture_s3q8p")
+
 [node name="StartingPosition" parent="." unique_id=44959152 instance=ExtResource("6_lfnxh")]
 position = Vector2(591, 655)
 
@@ -1062,6 +1149,8 @@ position = Vector2(591, 655)
 position = Vector2(594, -17)
 
 [node name="Player" parent="." unique_id=19935492 instance=ExtResource("8_ofchu")]
+
+[node name="Thief" parent="." unique_id=990185148 instance=ExtResource("12_0unm6")]
 
 [editable path="Pits/Pit"]
 [editable path="Pits/Pit2"]

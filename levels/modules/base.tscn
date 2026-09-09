@@ -1855,4 +1855,4 @@ tile_set = SubResource("TileSet_kx6l7")
 
 [node name="GlobalCam" type="Camera2D" parent="." unique_id=2041587633]
 position = Vector2(575, 320)
-zoom = Vector2(0.8, 0.8)
+zoom = Vector2(0.9, 0.9)

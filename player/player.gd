@@ -21,6 +21,7 @@ var external_push := Vector2.ZERO
 @onready var camera_2d: Camera2D = $PlayerCam
 @onready var UI: UserInterface = $UI
 @onready var sprite: ColorRect = $ColorRect
+@onready var vfx: GPUParticles2D = $VFX
 
 
 func _ready() -> void:
@@ -56,9 +57,13 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.move_toward(Vector2.ZERO, speed / 7.5)
 
 	if direction.y <= -0.7:
-		camera_2d.drag_vertical_offset = -1
+		if camera_2d.drag_vertical_offset != -1:
+			var tween = get_tree().create_tween()
+			tween.tween_property(camera_2d, "drag_vertical_offset", -1, 0.2)
 	elif direction.y >= 0.7:
-		camera_2d.drag_vertical_offset = 1
+		if camera_2d.drag_vertical_offset != 1:
+			var tween = get_tree().create_tween()
+			tween.tween_property(camera_2d, "drag_vertical_offset", 1, 0.2)
 
 	if Game.allow_dash and Input.is_action_just_pressed("Dash") and dash_wait_time.is_stopped():
 		dash_wait_time.start()
@@ -75,6 +80,8 @@ func _physics_process(delta: float) -> void:
 func start_dash(direction: Vector2) -> void:
 	if direction == Vector2.ZERO:
 		return
+
+	vfx.emitting = true
 
 	if direction.x:
 		sprite.scale = Vector2(1.3, 0.7)
