@@ -21,7 +21,7 @@ size = Vector2(31, 174)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7d3si"]
 size = Vector2(31, 106)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_laogf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_obtcn"]
 atlas = ExtResource("7_obtcn")
 region = Rect2(48, 0, 16, 16)
 
@@ -134,8 +134,8 @@ num_collectable = 0
 
 [node name="ThiefActions" type="Node2D" parent="." unique_id=769910611]
 
-[node name="Wait5" type="Marker2D" parent="ThiefActions" unique_id=1593196116]
-position = Vector2(560, 432)
+[node name="Initial" type="Marker2D" parent="ThiefActions" unique_id=1593196116]
+position = Vector2(591, 655)
 script = ExtResource("10_dm5o4")
 action = 2
 execution_time = 0.5
@@ -242,16 +242,15 @@ action = 1
 execution_time = 0.2
 metadata/_custom_type_script = "uid://dx0x03jq048sm"
 
-[node name="Atrezzo" type="Node2D" parent="." unique_id=1283568940]
-
-[node name="Coffe" type="Sprite2D" parent="Atrezzo" unique_id=962276748]
-position = Vector2(561, 415)
+[node name="Atrezzo" type="Node2D" parent="." unique_id=1032161954]
 scale = Vector2(2, 2)
-texture = SubResource("AtlasTexture_laogf")
 
-[node name="Cake" type="Sprite2D" parent="Atrezzo" unique_id=448135412]
-position = Vector2(622, 319)
-scale = Vector2(2, 2)
+[node name="Coffe" type="Sprite2D" parent="Atrezzo" unique_id=393834682]
+position = Vector2(281, 206.5)
+texture = SubResource("AtlasTexture_obtcn")
+
+[node name="Cake" type="Sprite2D" parent="Atrezzo" unique_id=2865090]
+position = Vector2(311.5, 158)
 texture = SubResource("AtlasTexture_2ro2b")
 
 [node name="StartingPosition" parent="." unique_id=44959152 instance=ExtResource("6_jum3j")]

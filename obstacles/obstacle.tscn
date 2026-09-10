@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://80584str4xqc"]
+
+[node name="Obstacle" type="StaticBody2D" unique_id=179949185]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1178657748]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2016425264]

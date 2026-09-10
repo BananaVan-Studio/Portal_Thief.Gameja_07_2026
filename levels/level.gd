@@ -24,6 +24,7 @@ extends Node2D
 @onready var finish_area: Area2D = $FinishArea
 @onready var thief: Thief = $Thief
 @onready var atrezzo: Node2D = $Atrezzo
+@onready var initial: Order = $ThiefActions/Initial
 
 
 func _ready() -> void:
@@ -54,7 +55,7 @@ func _ready() -> void:
 	await get_tree().create_timer(0.9).timeout
 
 	# 2. The bad guy runs from the bottom entrance up to the top gate.
-	thief.global_position = starting_pos.global_position
+	thief.global_position = initial.global_position
 	await thief.execute_orders_queue()
 	# 3. Sweep down to the player and spawn.
 	start_camera_transition()
