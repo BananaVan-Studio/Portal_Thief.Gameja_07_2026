@@ -22,9 +22,10 @@ extends Node2D
 @onready var global_cam: Camera2D = $Base/GlobalCam
 @onready var starting_pos: Area2D = $StartingPosition
 @onready var finish_area: Area2D = $FinishArea
+@onready var initial: Order = $ThiefActions/Initial
 @onready var thief: Thief = $Thief
 @onready var atrezzo: Node2D = $Atrezzo
-@onready var initial: Order = $ThiefActions/Initial
+@onready var obstacles: Node2D = $Obstacles
 
 
 func _ready() -> void:
@@ -34,11 +35,14 @@ func _ready() -> void:
 	global_cam.enabled = true
 	player_cam.enabled = false
 	finish_area.set_visible(false)
+	thief.global_position = initial.global_position
 	player.global_position = starting_pos.global_position
 
 	if not intro_enabled or SceneManager.consume_intro_skip():
 		finish_transition()
 		atrezzo.queue_free()
+		for i in obstacles.get_children():
+			i.set_visible(true)
 		finish_area.set_visible(true)
 		return
 
@@ -52,10 +56,10 @@ func _ready() -> void:
 
 	# 1. Wide establishing shot of the full level. The level's Camera2D is
 	#    authored to frame the whole house, so we just hold on it.
-	await get_tree().create_timer(0.9).timeout
+	await get_tree().create_timer(0.3).timeout
 
 	# 2. The bad guy runs from the bottom entrance up to the top gate.
-	thief.global_position = initial.global_position
+
 	await thief.execute_orders_queue()
 	# 3. Sweep down to the player and spawn.
 	start_camera_transition()

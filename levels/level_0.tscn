@@ -206,7 +206,7 @@ action = 2
 execution_time = 0.5
 metadata/_custom_type_script = "uid://dx0x03jq048sm"
 
-[node name="Rotate2" type="Marker2D" parent="ThiefActions" unique_id=2096473450]
+[node name="ExitPortal" type="Marker2D" parent="ThiefActions" unique_id=2096473450]
 position = Vector2(624, 333)
 script = ExtResource("10_dm5o4")
 action = 3
@@ -214,28 +214,28 @@ execution_time = 0.4
 rotation_deg = 0.0
 metadata/_custom_type_script = "uid://dx0x03jq048sm"
 
-[node name="Move3" type="Marker2D" parent="ThiefActions" unique_id=1366545501]
+[node name="ExitPortal2" type="Marker2D" parent="ThiefActions" unique_id=1366545501]
 position = Vector2(594, 13)
 script = ExtResource("10_dm5o4")
 action = 1
 execution_time = 0.7
 metadata/_custom_type_script = "uid://dx0x03jq048sm"
 
-[node name="Spawn" type="Marker2D" parent="ThiefActions" unique_id=416895764 node_paths=PackedStringArray("thrown_item")]
+[node name="ExitPortal3" type="Marker2D" parent="ThiefActions" unique_id=416895764 node_paths=PackedStringArray("spawn")]
 position = Vector2(594, 13)
 script = ExtResource("10_dm5o4")
-action = 5
-thrown_item = NodePath("../../FinishArea")
+action = 6
+spawn = NodePath("../../FinishArea")
 metadata/_custom_type_script = "uid://dx0x03jq048sm"
 
-[node name="Wait4" type="Marker2D" parent="ThiefActions" unique_id=573556153]
+[node name="ExitPortal4" type="Marker2D" parent="ThiefActions" unique_id=573556153]
 position = Vector2(560, 432)
 script = ExtResource("10_dm5o4")
 action = 2
 execution_time = 0.5
 metadata/_custom_type_script = "uid://dx0x03jq048sm"
 
-[node name="Move4" type="Marker2D" parent="ThiefActions" unique_id=1654699456]
+[node name="ExitPortal5" type="Marker2D" parent="ThiefActions" unique_id=1654699456]
 position = Vector2(594, -17)
 script = ExtResource("10_dm5o4")
 action = 1

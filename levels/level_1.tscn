@@ -155,10 +155,168 @@ num_collectable = 1
 [node name="ThiefActions" type="Node2D" parent="." unique_id=1811664547]
 
 [node name="Initial" type="Marker2D" parent="ThiefActions" unique_id=110820044]
-position = Vector2(1034, 374)
+position = Vector2(1039, 374)
 script = ExtResource("7_5ot28")
 action = 2
 execution_time = 1.0
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Rotate" type="Marker2D" parent="ThiefActions" unique_id=588335035]
+position = Vector2(1039, 374)
+script = ExtResource("7_5ot28")
+action = 3
+execution_time = 0.2
+rotation_deg = 135.0
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Pick" type="Marker2D" parent="ThiefActions" unique_id=507612156 node_paths=PackedStringArray("picked_item")]
+position = Vector2(1039, 374)
+script = ExtResource("7_5ot28")
+action = 4
+picked_item = NodePath("../../Atrezzo/Coffe")
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Wait" type="Marker2D" parent="ThiefActions" unique_id=625224552 node_paths=PackedStringArray("picked_item")]
+position = Vector2(1039, 374)
+script = ExtResource("7_5ot28")
+action = 2
+execution_time = 0.1
+picked_item = NodePath("../../Atrezzo/Cake")
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Rotate2" type="Marker2D" parent="ThiefActions" unique_id=1668805302]
+position = Vector2(1039, 374)
+script = ExtResource("7_5ot28")
+action = 3
+execution_time = 0.2
+rotation_deg = 255.0
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Move" type="Marker2D" parent="ThiefActions" unique_id=1331613429]
+position = Vector2(956, 385)
+script = ExtResource("7_5ot28")
+action = 1
+execution_time = 0.5
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Pick2" type="Marker2D" parent="ThiefActions" unique_id=802168505 node_paths=PackedStringArray("picked_item")]
+position = Vector2(1039, 374)
+script = ExtResource("7_5ot28")
+action = 4
+picked_item = NodePath("../../Atrezzo/Cake")
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Wait2" type="Marker2D" parent="ThiefActions" unique_id=1920373973 node_paths=PackedStringArray("picked_item")]
+position = Vector2(1039, 374)
+script = ExtResource("7_5ot28")
+action = 2
+execution_time = 0.3
+picked_item = NodePath("../../Atrezzo/Cake")
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Rotate6" type="Marker2D" parent="ThiefActions" unique_id=1286116855]
+position = Vector2(1039, 374)
+script = ExtResource("7_5ot28")
+action = 3
+execution_time = 0.5
+rotation_deg = 270.0
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Move2" type="Marker2D" parent="ThiefActions" unique_id=253424043]
+position = Vector2(623, 393)
+script = ExtResource("7_5ot28")
+action = 1
+execution_time = 0.7
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Rotate3" type="Marker2D" parent="ThiefActions" unique_id=1170152805]
+position = Vector2(1039, 374)
+script = ExtResource("7_5ot28")
+action = 3
+execution_time = 0.3
+rotation_deg = 180.0
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Move3" type="Marker2D" parent="ThiefActions" unique_id=505091449]
+position = Vector2(573, 494)
+script = ExtResource("7_5ot28")
+action = 1
+execution_time = 0.5
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Throw" type="Marker2D" parent="ThiefActions" unique_id=359299596 node_paths=PackedStringArray("picked_item", "thrown_item")]
+position = Vector2(1039, 374)
+script = ExtResource("7_5ot28")
+action = 5
+picked_item = NodePath("../../Atrezzo/CupboardTop")
+thrown_item = NodePath("../../Obstacles/CupboardFloor")
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Rotate4" type="Marker2D" parent="ThiefActions" unique_id=1492692946]
+position = Vector2(1039, 374)
+script = ExtResource("7_5ot28")
+action = 3
+execution_time = 0.5
+rotation_deg = 0.0
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Move4" type="Marker2D" parent="ThiefActions" unique_id=2104551334]
+position = Vector2(606, 89)
+script = ExtResource("7_5ot28")
+action = 1
+execution_time = 1.0
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Rotate5" type="Marker2D" parent="ThiefActions" unique_id=1838596490]
+position = Vector2(1039, 374)
+script = ExtResource("7_5ot28")
+action = 3
+execution_time = 0.5
+rotation_deg = -90.0
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Throw2" type="Marker2D" parent="ThiefActions" unique_id=1734687011 node_paths=PackedStringArray("picked_item", "thrown_item")]
+position = Vector2(1039, 374)
+script = ExtResource("7_5ot28")
+action = 5
+picked_item = NodePath("../../Atrezzo/CupboardTop2")
+thrown_item = NodePath("../../Obstacles/CupboardFloor2")
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="ExitPortal" type="Marker2D" parent="ThiefActions" unique_id=360878509]
+position = Vector2(1663, 707)
+script = ExtResource("7_5ot28")
+action = 3
+execution_time = 0.4
+rotation_deg = 0.0
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="ExitPortal2" type="Marker2D" parent="ThiefActions" unique_id=82610741]
+position = Vector2(594, 7)
+script = ExtResource("7_5ot28")
+action = 1
+execution_time = 0.7
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="ExitPortal3" type="Marker2D" parent="ThiefActions" unique_id=912062627 node_paths=PackedStringArray("spawn")]
+position = Vector2(1633, 387)
+script = ExtResource("7_5ot28")
+action = 6
+spawn = NodePath("../../FinishArea")
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="ExitPortal4" type="Marker2D" parent="ThiefActions" unique_id=1997649923]
+position = Vector2(1599, 806)
+script = ExtResource("7_5ot28")
+action = 2
+execution_time = 0.5
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="ExitPortal5" type="Marker2D" parent="ThiefActions" unique_id=1106050835]
+position = Vector2(594, -16)
+script = ExtResource("7_5ot28")
+action = 1
+execution_time = 0.2
 metadata/_custom_type_script = "uid://dx0x03jq048sm"
 
 [node name="Atrezzo" type="Node2D" parent="." unique_id=1426604198]
@@ -172,18 +330,26 @@ texture = SubResource("AtlasTexture_nmsli")
 position = Vector2(465.5, 198.5)
 texture = SubResource("AtlasTexture_betor")
 
-[node name="Obstacles" type="Node2D" parent="." unique_id=2052995538]
-
-[node name="CupboardTop" type="Sprite2D" parent="Obstacles" unique_id=579073559]
-position = Vector2(561, 538.00006)
+[node name="CupboardTop" type="Sprite2D" parent="Atrezzo" unique_id=579073559]
+position = Vector2(280.5, 269.00003)
 rotation = -1.5707964
-scale = Vector2(1.5, 1.5)
+scale = Vector2(0.75, 0.75)
 texture = SubResource("AtlasTexture_o81gp")
 
+[node name="CupboardTop2" type="Sprite2D" parent="Atrezzo" unique_id=1756215794]
+position = Vector2(283, 46)
+rotation = -1.5707964
+scale = Vector2(0.75, 0.75)
+texture = SubResource("AtlasTexture_o81gp")
+
+[node name="Obstacles" type="Node2D" parent="." unique_id=2052995538]
+
 [node name="CupboardFloor" parent="Obstacles" unique_id=179949185 instance=ExtResource("8_nmsli")]
+visible = false
 position = Vector2(557, 552)
 
 [node name="Sprite2D" parent="Obstacles/CupboardFloor" index="0" unique_id=1178657748]
+visible = true
 position = Vector2(34, -1)
 rotation = 1.5742375
 texture = SubResource("AtlasTexture_jfml3")
@@ -192,17 +358,13 @@ texture = SubResource("AtlasTexture_jfml3")
 position = Vector2(34.5, -1.5)
 shape = SubResource("RectangleShape2D_o81gp")
 
-[node name="CupboardTop2" type="Sprite2D" parent="Obstacles" unique_id=1756215794]
-position = Vector2(566, 92)
-rotation = -1.5707964
-scale = Vector2(1.5, 1.5)
-texture = SubResource("AtlasTexture_o81gp")
-
 [node name="CupboardFloor2" parent="Obstacles" unique_id=1136330250 instance=ExtResource("8_nmsli")]
+visible = false
 position = Vector2(564, 140.99998)
 rotation = 0.5094024
 
 [node name="Sprite2D" parent="Obstacles/CupboardFloor2" index="0" unique_id=1178657748]
+visible = true
 position = Vector2(34, -1)
 rotation = 1.5742375
 texture = SubResource("AtlasTexture_jfml3")
@@ -222,6 +384,8 @@ position = Vector2(-111, -95)
 
 [node name="Thief" parent="." unique_id=990185148 instance=ExtResource("12_aerfg")]
 position = Vector2(-111, -95)
+
+[connection signal="body_entered" from="FinishArea" to="." method="_on_finish_area_body_entered"]
 
 [editable path="Pits/Pit"]
 [editable path="Pits/Pit2"]
