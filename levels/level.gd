@@ -39,11 +39,15 @@ func _ready() -> void:
 	player.global_position = starting_pos.global_position
 
 	if not intro_enabled or SceneManager.consume_intro_skip():
+		thief.queue_free()
 		finish_transition()
 		atrezzo.queue_free()
-		for i in obstacles.get_children():
-			i.set_visible(true)
 		finish_area.set_visible(true)
+
+		if obstacles:
+			for i in obstacles.get_children():
+				i.set_visible(true)
+
 		return
 
 	Game.set_rules(allow_sprint, allow_dash)
@@ -54,14 +58,7 @@ func _ready() -> void:
 		text = _auto_rule_text()
 	SceneManager.show_toast(text)
 
-	# 1. Wide establishing shot of the full level. The level's Camera2D is
-	#    authored to frame the whole house, so we just hold on it.
-	await get_tree().create_timer(0.3).timeout
-
-	# 2. The bad guy runs from the bottom entrance up to the top gate.
-
 	await thief.execute_orders_queue()
-	# 3. Sweep down to the player and spawn.
 	start_camera_transition()
 
 

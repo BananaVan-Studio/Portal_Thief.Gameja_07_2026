@@ -20,7 +20,7 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	var time = Time.get_unix_time_from_system()
-	position.y = position.y + sin(time * 2) / 5
+	position.y = position.y + sin(time * 2) / 6
 
 
 func _get_configuration_warnings() -> PackedStringArray:
