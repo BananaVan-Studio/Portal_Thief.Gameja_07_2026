@@ -2,12 +2,13 @@ class_name MainCharacter
 extends CharacterBody2D
 
 @export var SPEED := 175.0
-@export var SPRINT_SPEED := 350.0
+@export var SPRINT_SPEED := 300.0
 
 @export var DASH_SPEED := 700.0
 @export var DASH_DURATION := 0.15
 
-var is_dashing := false
+var is_dashing: bool = false
+var is_sprinting: bool = false
 var dash_direction := Vector2.ZERO
 
 ## Extra velocity applied by outside forces (the boss walls). Set from outside
@@ -38,8 +39,8 @@ func _physics_process(delta: float) -> void:
 			move_and_collide(external_push * delta)
 		return
 
-	var wants_sprint := Game.allow_sprint and Input.is_action_pressed("Sprint")
-	var speed := SPRINT_SPEED if wants_sprint else SPEED
+	is_sprinting = Game.allow_sprint and Input.is_action_pressed("Sprint")
+	var speed := SPRINT_SPEED if is_sprinting else SPEED
 
 	if Game.allow_sprint and Input.is_action_just_pressed("Sprint"):
 		AudioManager.run()

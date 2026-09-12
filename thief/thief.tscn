@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bxhe8mhn1g1ag"]
 
 [ext_resource type="Script" uid="uid://cxc30yd5j7yuv" path="res://thief/thief.gd" id="1_1ljja"]
+[ext_resource type="PackedScene" uid="uid://d3oeagqfwayk8" path="res://thief/bag.tscn" id="2_6w7j0"]
 [ext_resource type="AudioStream" uid="uid://sd4adlodp52g" path="res://audio/portal.ogg" id="2_bac1e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g1dw6"]
@@ -19,9 +20,8 @@ offset_bottom = 10.0
 pivot_offset = Vector2(10, 10)
 color = Color(1, 0, 0.11372549, 1)
 
-[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1360537771]
-color = Color(0.2438044, 0.05928261, 1.2032688e-08, 1)
-polygon = PackedVector2Array(-2, 2, 4, 2, 3, 5, 6, 6, 9, 8, 10, 12, 9, 16, 6, 18, 1, 19, -4, 18, -7, 16, -8, 12, -7, 8, -4, 6, -1, 5)
+[node name="Bag" parent="." unique_id=873017112 instance=ExtResource("2_6w7j0")]
+position = Vector2(0, 0)
 
 [node name="SFX" type="AudioStreamPlayer" parent="." unique_id=678003481]
 stream = ExtResource("2_bac1e")

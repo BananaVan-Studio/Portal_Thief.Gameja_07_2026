@@ -7,6 +7,7 @@ extends Area2D
 		if is_instance_valid(alarm_timer):
 			alarm_timer.wait_time = value
 		update_configuration_warnings()
+@export var detect_slow: bool  = false
 
 var player: MainCharacter = null
 
@@ -31,6 +32,7 @@ func _process(_delta: float) -> void:
 		_on_alarm_timer_timeout()
 		alarm_timer.stop()
 
+	if player.is
 
 func _get_configuration_warnings() -> PackedStringArray:
 	if caught_margin == 100:
