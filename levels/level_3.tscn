@@ -31,6 +31,21 @@ size = Vector2(114.999985, 130.99998)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_betor"]
 size = Vector2(31, 106)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4kh1"]
+atlas = ExtResource("10_s3q8p")
+region = Rect2(0, 416, 48, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_svivd"]
+size = Vector2(95, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wi0qq"]
+atlas = ExtResource("8_q42ux")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3q8p"]
+atlas = ExtResource("8_q42ux")
+region = Rect2(16, 80, 16, 16)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u4kh1"]
 texture = ExtResource("3_l53as")
 texture_region_size = Vector2i(64, 64)
@@ -572,20 +587,11 @@ size = Vector2(123, 180)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_46211"]
 size = Vector2(256, 118)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wi0qq"]
-atlas = ExtResource("8_q42ux")
-region = Rect2(48, 0, 16, 16)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t5hu4"]
+size = Vector2(149, 129)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s3q8p"]
-atlas = ExtResource("8_q42ux")
-region = Rect2(16, 80, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u4kh1"]
-atlas = ExtResource("10_s3q8p")
-region = Rect2(0, 416, 48, 96)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_svivd"]
-size = Vector2(95, 47)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eg35p"]
+size = Vector2(24, 276)
 
 [node name="Level3" type="Node2D" unique_id=294394513]
 script = ExtResource("7_level")
@@ -712,73 +718,234 @@ wait_time = 2.0
 
 [node name="Base" parent="." unique_id=1947313494 instance=ExtResource("4_bmgug")]
 
+[node name="Obstacles" type="Node2D" parent="." unique_id=2003472136]
+
+[node name="CupboardFloor" parent="Obstacles" unique_id=179949185 instance=ExtResource("9_wi0qq")]
+position = Vector2(263, 628)
+rotation = -1.5707964
+
+[node name="Sprite2D" parent="Obstacles/CupboardFloor" index="0" unique_id=1178657748]
+visible = true
+position = Vector2(34, -1)
+rotation = 1.5742375
+texture = SubResource("AtlasTexture_u4kh1")
+
+[node name="CollisionShape2D" parent="Obstacles/CupboardFloor" index="1" unique_id=2016425264]
+position = Vector2(34.5, -1.5)
+shape = SubResource("RectangleShape2D_svivd")
+
+[node name="CupboardFloor2" parent="Obstacles" unique_id=2074330289 instance=ExtResource("9_wi0qq")]
+position = Vector2(119, 303)
+rotation = 1.5707964
+
+[node name="Sprite2D" parent="Obstacles/CupboardFloor2" index="0" unique_id=1178657748]
+visible = true
+position = Vector2(34, -1)
+rotation = 1.5742375
+texture = SubResource("AtlasTexture_u4kh1")
+
+[node name="CollisionShape2D" parent="Obstacles/CupboardFloor2" index="1" unique_id=2016425264]
+position = Vector2(34.5, -1.5)
+shape = SubResource("RectangleShape2D_svivd")
+
 [node name="Collectables" type="Node2D" parent="." unique_id=587848731]
 
 [node name="Collectable" parent="Collectables" unique_id=820743229 instance=ExtResource("6_wj73x")]
 position = Vector2(590, 647)
 num_collectable = 0
 
-[node name="FakeWall" type="Area2D" parent="Collectables" unique_id=237736696]
-position = Vector2(639, 448)
-script = ExtResource("7_s3q8p")
-
-[node name="Sprite2D" type="TileMapLayer" parent="Collectables/FakeWall" unique_id=1390951660]
-scale = Vector2(0.5, 0.5)
-tile_map_data = PackedByteArray("AAD+////AAAEAAcAAAD+/wAAAAAGAAYAAAD//wAAAAAGAAYAAAD/////AAAEAAcAAAD8////AAAHAAQAAAD8/wAAAAAEAAYAAAD9////AAAEAAcAAAD9/wAAAAAGAAYAAAAAAP//AAAIAAQAAAAAAAAAAAAFAAYAAAAAAAEAAAAFAAYAAAAAAAIAAAAFAAYAAAD8/wEAAAAEAAYAAAD8/wIAAAABAAcAAAD8/wMAAAAFAAcAAAD9/wMAAAAFAAcAAAD+/wMAAAAFAAcAAAD//wMAAAAFAAcAAAAAAAMAAAAFAAkAAAD9/wEAAAAGAAYAAAD9/wIAAAAGAAYAAAD+/wIAAAAGAAYAAAD+/wEAAAAGAAYAAAD//wEAAAAGAAYAAAD//wIAAAAGAAYAAAA=")
-tile_set = SubResource("TileSet_svivd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectables/FakeWall" unique_id=291982717]
-position = Vector2(-48, 47.5)
-shape = SubResource("RectangleShape2D_u4kh1")
-
-[node name="FakeWall2" type="Area2D" parent="Collectables" unique_id=1801128099]
-position = Vector2(96, 128)
-script = ExtResource("7_s3q8p")
-
-[node name="Sprite2D" type="TileMapLayer" parent="Collectables/FakeWall2" unique_id=120249935]
-scale = Vector2(0.5, 0.5)
-tile_map_data = PackedByteArray("AAAAAP//AAAIAAQAAAD9////AAAEAAcAAAD+////AAAEAAcAAAD/////AAAEAAcAAAD9/wQAAAAFAAcAAAD+/wQAAAAFAAcAAAD//wQAAAAFAAcAAAAAAAQAAAAFAAkAAAD9/wMAAAAGAAYAAAD9/wIAAAAGAAYAAAD9/wEAAAAGAAYAAAD9/wAAAAAGAAYAAAD+/wAAAAAGAAYAAAD+/wEAAAAGAAYAAAD+/wIAAAAGAAYAAAD+/wMAAAAGAAYAAAD//wMAAAAGAAYAAAD//wIAAAAGAAYAAAD//wEAAAAGAAYAAAD//wAAAAAGAAYAAAAAAAAAAAAFAAYAAAAAAAEAAAAFAAYAAAAAAAIAAAAFAAYAAAAAAAMAAAAFAAYAAAA=")
-tile_set = SubResource("TileSet_svivd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectables/FakeWall2" unique_id=431946061]
-position = Vector2(-35.5, 64)
-shape = SubResource("RectangleShape2D_yafm2")
-
-[node name="FakeWall3" type="Area2D" parent="Collectables" unique_id=238592404]
-position = Vector2(960, 128)
-script = ExtResource("7_s3q8p")
-
-[node name="Sprite2D" type="TileMapLayer" parent="Collectables/FakeWall3" unique_id=1253366000]
-scale = Vector2(0.5, 0.5)
-tile_map_data = PackedByteArray("AAD+////AAAEAAgAAAD9////AAACAAQAAAD/////AAAEAAcAAAAAAP//AAAEAAcAAAABAP//AAAEAAcAAAACAP//AAAEAAcAAAADAP//AAAEAAcAAAAEAP//AAAEAAcAAAAFAP//AAAEAAcAAAAGAP//AAABAAcAAAD+/wIAAAAEAAkAAAD//wIAAAAFAAcAAAAAAAIAAAAFAAcAAAABAAIAAAAFAAcAAAACAAIAAAAFAAcAAAADAAIAAAAFAAcAAAAEAAIAAAAFAAcAAAAFAAIAAAAFAAcAAAAGAAIAAAABAAYAAAD+/wAAAAAEAAYAAAD+/wEAAAAEAAYAAAD//wAAAAAGAAYAAAAAAAAAAAAGAAYAAAABAAAAAAAGAAYAAAACAAAAAAAGAAYAAAADAAAAAAAGAAYAAAAEAAAAAAAGAAYAAAAFAAAAAAAGAAYAAAAFAAEAAAAGAAYAAAAEAAEAAAAGAAYAAAADAAEAAAAGAAYAAAACAAEAAAAGAAYAAAABAAEAAAAGAAYAAAAAAAEAAAAGAAYAAAD//wEAAAAGAAYAAAAGAAEAAAAGAAYAAAAGAAAAAAAGAAYAAAD9/wIAAAAFAAgAAAA=")
-tile_set = SubResource("TileSet_svivd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectables/FakeWall3" unique_id=430424218]
-position = Vector2(65, 31)
-shape = SubResource("RectangleShape2D_46211")
-
 [node name="ThiefActions" type="Node2D" parent="." unique_id=1363201191]
 
 [node name="Initial" type="Marker2D" parent="ThiefActions" unique_id=296125686]
-position = Vector2(570, 436)
+position = Vector2(206, 607)
 script = ExtResource("7_0unm6")
 action = 2
 execution_time = 1.0
 metadata/_custom_type_script = "uid://dx0x03jq048sm"
 
-[node name="ExitPortal" type="Marker2D" parent="ThiefActions" unique_id=1762055732]
-position = Vector2(1663, 707)
+[node name="Rotate" type="Marker2D" parent="ThiefActions" unique_id=667405793]
+position = Vector2(206, 607)
 script = ExtResource("7_0unm6")
 action = 3
-execution_time = 0.4
+execution_time = 0.1
+rotation_deg = -90.0
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Move" type="Marker2D" parent="ThiefActions" unique_id=747672590]
+position = Vector2(37, 604)
+script = ExtResource("7_0unm6")
+action = 1
+execution_time = 1.5
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Rotate2" type="Marker2D" parent="ThiefActions" unique_id=929785055]
+position = Vector2(206, 607)
+script = ExtResource("7_0unm6")
+action = 3
+execution_time = 0.1
 rotation_deg = 0.0
 metadata/_custom_type_script = "uid://dx0x03jq048sm"
 
-[node name="ExitPortal2" type="Marker2D" parent="ThiefActions" unique_id=1773001887]
-position = Vector2(594, 7)
+[node name="Move2" type="Marker2D" parent="ThiefActions" unique_id=1144287004]
+position = Vector2(19, 542)
+script = ExtResource("7_0unm6")
+action = 1
+execution_time = 0.5
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Rotate3" type="Marker2D" parent="ThiefActions" unique_id=828880306]
+position = Vector2(206, 607)
+script = ExtResource("7_0unm6")
+action = 3
+execution_time = 0.1
+rotation_deg = 30.0
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Move3" type="Marker2D" parent="ThiefActions" unique_id=2012322658]
+position = Vector2(93, 443)
+script = ExtResource("7_0unm6")
+action = 1
+execution_time = 0.3
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Rotate4" type="Marker2D" parent="ThiefActions" unique_id=1725812666]
+position = Vector2(206, 607)
+script = ExtResource("7_0unm6")
+action = 3
+execution_time = 0.1
+rotation_deg = 90.0
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Move4" type="Marker2D" parent="ThiefActions" unique_id=643492532]
+position = Vector2(438, 442)
 script = ExtResource("7_0unm6")
 action = 1
 execution_time = 0.7
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Pick" type="Marker2D" parent="ThiefActions" unique_id=1097539921 node_paths=PackedStringArray("picked_item")]
+position = Vector2(438, 442)
+script = ExtResource("7_0unm6")
+action = 4
+picked_item = NodePath("../../Atrezzo/Coffe")
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Wait" type="Marker2D" parent="ThiefActions" unique_id=821881545]
+position = Vector2(438, 442)
+script = ExtResource("7_0unm6")
+action = 2
+execution_time = 0.5
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Rotate5" type="Marker2D" parent="ThiefActions" unique_id=1867678732]
+position = Vector2(206, 607)
+script = ExtResource("7_0unm6")
+action = 3
+execution_time = 0.2
+rotation_deg = 30.0
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Move5" type="Marker2D" parent="ThiefActions" unique_id=1783407768]
+position = Vector2(518, 382)
+script = ExtResource("7_0unm6")
+action = 1
+execution_time = 0.5
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Rotate6" type="Marker2D" parent="ThiefActions" unique_id=1840465184]
+position = Vector2(206, 607)
+script = ExtResource("7_0unm6")
+action = 3
+execution_time = 0.2
+rotation_deg = 90.0
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Move6" type="Marker2D" parent="ThiefActions" unique_id=703115710]
+position = Vector2(680, 382)
+script = ExtResource("7_0unm6")
+action = 1
+execution_time = 0.5
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Rotate7" type="Marker2D" parent="ThiefActions" unique_id=1530471954]
+position = Vector2(206, 607)
+script = ExtResource("7_0unm6")
+action = 3
+execution_time = 0.2
+rotation_deg = 135.0
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Pick2" type="Marker2D" parent="ThiefActions" unique_id=84190197 node_paths=PackedStringArray("picked_item")]
+position = Vector2(206, 607)
+script = ExtResource("7_0unm6")
+action = 4
+picked_item = NodePath("../../Atrezzo/Cake")
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Move7" type="Marker2D" parent="ThiefActions" unique_id=1392764813]
+position = Vector2(596, 374)
+script = ExtResource("7_0unm6")
+action = 1
+execution_time = 0.7
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Rotate8" type="Marker2D" parent="ThiefActions" unique_id=1591583537]
+position = Vector2(206, 607)
+script = ExtResource("7_0unm6")
+action = 3
+execution_time = 0.6
+rotation_deg = 0.0
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Move8" type="Marker2D" parent="ThiefActions" unique_id=629529530]
+position = Vector2(596, 383)
+script = ExtResource("7_0unm6")
+action = 1
+execution_time = 0.5
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Move9" type="Marker2D" parent="ThiefActions" unique_id=83876944]
+position = Vector2(594, 171)
+script = ExtResource("7_0unm6")
+action = 1
+execution_time = 0.3
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Wait2" type="Marker2D" parent="ThiefActions" unique_id=236262020]
+position = Vector2(438, 442)
+script = ExtResource("7_0unm6")
+action = 2
+execution_time = 0.2
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Rotate9" type="Marker2D" parent="ThiefActions" unique_id=796528073]
+position = Vector2(206, 607)
+script = ExtResource("7_0unm6")
+action = 3
+execution_time = 0.6
+rotation_deg = 180.0
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Wait3" type="Marker2D" parent="ThiefActions" unique_id=1441894682]
+position = Vector2(438, 442)
+script = ExtResource("7_0unm6")
+action = 2
+execution_time = 0.3
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Rotate10" type="Marker2D" parent="ThiefActions" unique_id=2095409815]
+position = Vector2(206, 607)
+script = ExtResource("7_0unm6")
+action = 3
+execution_time = 0.3
+rotation_deg = 0.0
+metadata/_custom_type_script = "uid://dx0x03jq048sm"
+
+[node name="Move10" type="Marker2D" parent="ThiefActions" unique_id=2044713649]
+position = Vector2(594, 7)
+script = ExtResource("7_0unm6")
+action = 1
+execution_time = 0.6
 metadata/_custom_type_script = "uid://dx0x03jq048sm"
 
 [node name="ExitPortal3" type="Marker2D" parent="ThiefActions" unique_id=1973347330 node_paths=PackedStringArray("spawn")]
@@ -813,36 +980,6 @@ texture = SubResource("AtlasTexture_wi0qq")
 position = Vector2(349, 214.5)
 texture = SubResource("AtlasTexture_s3q8p")
 
-[node name="Obstacles" type="Node2D" parent="." unique_id=2003472136]
-
-[node name="CupboardFloor" parent="Obstacles" unique_id=179949185 instance=ExtResource("9_wi0qq")]
-position = Vector2(263, 628)
-rotation = -1.5707964
-
-[node name="Sprite2D" parent="Obstacles/CupboardFloor" index="0" unique_id=1178657748]
-visible = true
-position = Vector2(34, -1)
-rotation = 1.5742375
-texture = SubResource("AtlasTexture_u4kh1")
-
-[node name="CollisionShape2D" parent="Obstacles/CupboardFloor" index="1" unique_id=2016425264]
-position = Vector2(34.5, -1.5)
-shape = SubResource("RectangleShape2D_svivd")
-
-[node name="CupboardFloor2" parent="Obstacles" unique_id=2074330289 instance=ExtResource("9_wi0qq")]
-position = Vector2(119, 303)
-rotation = 1.5707964
-
-[node name="Sprite2D" parent="Obstacles/CupboardFloor2" index="0" unique_id=1178657748]
-visible = true
-position = Vector2(34, -1)
-rotation = 1.5742375
-texture = SubResource("AtlasTexture_u4kh1")
-
-[node name="CollisionShape2D" parent="Obstacles/CupboardFloor2" index="1" unique_id=2016425264]
-position = Vector2(34.5, -1.5)
-shape = SubResource("RectangleShape2D_svivd")
-
 [node name="StartingPosition" parent="." unique_id=44959152 instance=ExtResource("6_lfnxh")]
 position = Vector2(719, 48)
 
@@ -855,13 +992,84 @@ position = Vector2(-113, -89)
 [node name="Thief" parent="." unique_id=990185148 instance=ExtResource("12_0unm6")]
 position = Vector2(-113, -89)
 
-[connection signal="body_entered" from="Collectables/FakeWall" to="Collectables/FakeWall" method="_on_body_entered"]
-[connection signal="body_exited" from="Collectables/FakeWall" to="Collectables/FakeWall" method="_on_body_exited"]
-[connection signal="body_entered" from="Collectables/FakeWall2" to="Collectables/FakeWall2" method="_on_body_entered"]
-[connection signal="body_exited" from="Collectables/FakeWall2" to="Collectables/FakeWall2" method="_on_body_exited"]
-[connection signal="body_entered" from="Collectables/FakeWall3" to="Collectables/FakeWall3" method="_on_body_entered"]
-[connection signal="body_exited" from="Collectables/FakeWall3" to="Collectables/FakeWall3" method="_on_body_exited"]
+[node name="FakeWalls" type="Node2D" parent="." unique_id=162604068]
+
+[node name="FakeWall" type="Area2D" parent="FakeWalls" unique_id=237736696]
+position = Vector2(639, 448)
+script = ExtResource("7_s3q8p")
+
+[node name="Sprite2D" type="TileMapLayer" parent="FakeWalls/FakeWall" unique_id=1390951660]
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAD+////AAAEAAcAAAD+/wAAAAAGAAYAAAD//wAAAAAGAAYAAAD/////AAAEAAcAAAD8////AAAHAAQAAAD8/wAAAAAEAAYAAAD9////AAAEAAcAAAD9/wAAAAAGAAYAAAAAAP//AAAIAAQAAAAAAAAAAAAFAAYAAAAAAAEAAAAFAAYAAAAAAAIAAAAFAAYAAAD8/wEAAAAEAAYAAAD8/wIAAAABAAcAAAD8/wMAAAAFAAcAAAD9/wMAAAAFAAcAAAD+/wMAAAAFAAcAAAD//wMAAAAFAAcAAAAAAAMAAAAFAAkAAAD9/wEAAAAGAAYAAAD9/wIAAAAGAAYAAAD+/wIAAAAGAAYAAAD+/wEAAAAGAAYAAAD//wEAAAAGAAYAAAD//wIAAAAGAAYAAAA=")
+tile_set = SubResource("TileSet_svivd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FakeWalls/FakeWall" unique_id=291982717]
+position = Vector2(-48, 47.5)
+shape = SubResource("RectangleShape2D_u4kh1")
+
+[node name="FakeWall2" type="Area2D" parent="FakeWalls" unique_id=1801128099]
+position = Vector2(96, 128)
+script = ExtResource("7_s3q8p")
+
+[node name="Sprite2D" type="TileMapLayer" parent="FakeWalls/FakeWall2" unique_id=120249935]
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAAAAP//AAAIAAQAAAD9////AAAEAAcAAAD+////AAAEAAcAAAD/////AAAEAAcAAAD9/wQAAAAFAAcAAAD+/wQAAAAFAAcAAAD//wQAAAAFAAcAAAAAAAQAAAAFAAkAAAD9/wMAAAAGAAYAAAD9/wIAAAAGAAYAAAD9/wEAAAAGAAYAAAD9/wAAAAAGAAYAAAD+/wAAAAAGAAYAAAD+/wEAAAAGAAYAAAD+/wIAAAAGAAYAAAD+/wMAAAAGAAYAAAD//wMAAAAGAAYAAAD//wIAAAAGAAYAAAD//wEAAAAGAAYAAAD//wAAAAAGAAYAAAAAAAAAAAAFAAYAAAAAAAEAAAAFAAYAAAAAAAIAAAAFAAYAAAAAAAMAAAAFAAYAAAA=")
+tile_set = SubResource("TileSet_svivd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FakeWalls/FakeWall2" unique_id=431946061]
+position = Vector2(-35.5, 64)
+shape = SubResource("RectangleShape2D_yafm2")
+
+[node name="FakeWall3" type="Area2D" parent="FakeWalls" unique_id=238592404]
+position = Vector2(960, 128)
+script = ExtResource("7_s3q8p")
+
+[node name="Sprite2D" type="TileMapLayer" parent="FakeWalls/FakeWall3" unique_id=1253366000]
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAD+////AAAEAAgAAAD9////AAACAAQAAAD/////AAAEAAcAAAAAAP//AAAEAAcAAAABAP//AAAEAAcAAAACAP//AAAEAAcAAAADAP//AAAEAAcAAAAEAP//AAAEAAcAAAAFAP//AAAEAAcAAAAGAP//AAABAAcAAAD+/wIAAAAEAAkAAAD//wIAAAAFAAcAAAAAAAIAAAAFAAcAAAABAAIAAAAFAAcAAAACAAIAAAAFAAcAAAADAAIAAAAFAAcAAAAEAAIAAAAFAAcAAAAFAAIAAAAFAAcAAAAGAAIAAAABAAYAAAD+/wAAAAAEAAYAAAD+/wEAAAAEAAYAAAD//wAAAAAGAAYAAAAAAAAAAAAGAAYAAAABAAAAAAAGAAYAAAACAAAAAAAGAAYAAAADAAAAAAAGAAYAAAAEAAAAAAAGAAYAAAAFAAAAAAAGAAYAAAAFAAEAAAAGAAYAAAAEAAEAAAAGAAYAAAADAAEAAAAGAAYAAAACAAEAAAAGAAYAAAABAAEAAAAGAAYAAAAAAAEAAAAGAAYAAAD//wEAAAAGAAYAAAAGAAEAAAAGAAYAAAAGAAAAAAAGAAYAAAD9/wIAAAAFAAgAAAA=")
+tile_set = SubResource("TileSet_svivd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FakeWalls/FakeWall3" unique_id=430424218]
+position = Vector2(65, 31)
+shape = SubResource("RectangleShape2D_46211")
+
+[node name="FakeWall4" type="Area2D" parent="FakeWalls" unique_id=465532945]
+position = Vector2(237, 544)
+script = ExtResource("7_s3q8p")
+
+[node name="Sprite2D" type="TileMapLayer" parent="FakeWalls/FakeWall4" unique_id=148525644]
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAD+////AAAEAAgAAAD9////AAACAAQAAAD/////AAAEAAcAAAAAAP//AAAEAAcAAAABAP//AAAEAAcAAAACAP//AAAEAAcAAAD//wIAAAAGAAYAAAAAAAIAAAAGAAYAAAABAAIAAAAGAAYAAAACAAIAAAAFAAYAAAD+/wAAAAAEAAYAAAD+/wEAAAAEAAYAAAD//wAAAAAGAAYAAAAAAAAAAAAGAAYAAAABAAAAAAAGAAYAAAACAAAAAAAAAAYAAAACAAEAAAAFAAYAAAABAAEAAAAGAAYAAAAAAAEAAAAGAAYAAAD//wEAAAAGAAYAAAD+/wIAAAAEAAYAAAACAAMAAAAAAAcAAAD+/wMAAAABAAcAAAABAAMAAAAGAAYAAAAAAAMAAAAGAAYAAAD//wMAAAAGAAYAAAA=")
+tile_set = SubResource("TileSet_svivd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FakeWalls/FakeWall4" unique_id=1207375586]
+position = Vector2(15.5, 53.5)
+shape = SubResource("RectangleShape2D_t5hu4")
+
+[node name="FakeWall5" type="Area2D" parent="FakeWalls" unique_id=94383535]
+position = Vector2(352, 96)
+script = ExtResource("7_s3q8p")
+
+[node name="Sprite2D" type="TileMapLayer" parent="FakeWalls/FakeWall5" unique_id=1715011179]
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAAAAP3/AAACAAUAAAAAAP7/AAACAAUAAAAAAP//AAACAAUAAAAAAAAAAAACAAUAAAAAAAEAAAACAAUAAAAAAAIAAAACAAUAAAAAAAMAAAACAAUAAAAAAAQAAAACAAUAAAAAAPz/AAACAAYAAAAAAAUAAAAEAAQAAAA=")
+tile_set = SubResource("TileSet_svivd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FakeWalls/FakeWall5" unique_id=1795905442]
+position = Vector2(16, 35)
+shape = SubResource("RectangleShape2D_eg35p")
+
 [connection signal="body_entered" from="FinishArea" to="." method="_on_finish_area_body_entered"]
+[connection signal="body_entered" from="FakeWalls/FakeWall" to="FakeWalls/FakeWall" method="_on_body_entered"]
+[connection signal="body_exited" from="FakeWalls/FakeWall" to="FakeWalls/FakeWall" method="_on_body_exited"]
+[connection signal="body_entered" from="FakeWalls/FakeWall2" to="FakeWalls/FakeWall2" method="_on_body_entered"]
+[connection signal="body_exited" from="FakeWalls/FakeWall2" to="FakeWalls/FakeWall2" method="_on_body_exited"]
+[connection signal="body_entered" from="FakeWalls/FakeWall3" to="FakeWalls/FakeWall3" method="_on_body_entered"]
+[connection signal="body_exited" from="FakeWalls/FakeWall3" to="FakeWalls/FakeWall3" method="_on_body_exited"]
+[connection signal="body_entered" from="FakeWalls/FakeWall4" to="FakeWalls/FakeWall4" method="_on_body_entered"]
+[connection signal="body_exited" from="FakeWalls/FakeWall4" to="FakeWalls/FakeWall4" method="_on_body_exited"]
+[connection signal="body_entered" from="FakeWalls/FakeWall5" to="FakeWalls/FakeWall5" method="_on_body_entered"]
+[connection signal="body_exited" from="FakeWalls/FakeWall5" to="FakeWalls/FakeWall5" method="_on_body_exited"]
 
 [editable path="Pits/Pit2"]
 [editable path="Pits/Pit6"]

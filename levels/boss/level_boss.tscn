@@ -1,88 +1,34 @@
 [gd_scene format=3 uid="uid://dyu0kf830k441"]
 
-[ext_resource type="Script" uid="uid://bf4hw2p10w3gu" path="res://levels/boss/level_boss.gd" id="1_4wxci"]
+[ext_resource type="PackedScene" uid="uid://dk0pwi3g46lvl" path="res://levels/modules/base.tscn" id="1_2iqtg"]
 [ext_resource type="PackedScene" uid="uid://c0qoh0n6qv8q0" path="res://levels/modules/starting_position.tscn" id="2_iii5r"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_side"]
-size = Vector2(40, 1020)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_top"]
-size = Vector2(600, 40)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_boss"]
-size = Vector2(56, 56)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fall"]
-size = Vector2(600, 140)
+[ext_resource type="Texture2D" uid="uid://bymntujipx8at" path="res://levels/assets/pc.png" id="3_msnig"]
+[ext_resource type="PackedScene" uid="uid://d3oeagqfwayk8" path="res://thief/bag.tscn" id="4_h0v32"]
+[ext_resource type="PackedScene" uid="uid://7dwmx0o6uk82" path="res://thief/boss_thief.tscn" id="4_yqa65"]
 
 [node name="LevelBoss" type="Node2D" unique_id=851839930]
-script = ExtResource("1_4wxci")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1803413615]
-position = Vector2(300, 110)
-zoom = Vector2(1.1, 1.1)
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=72608400]
+modulate = Color(1, 1, 1, 0.20392157)
+polygon = PackedVector2Array(200, 308, 191, 301, 191, 162, 110, 49, 525, 36, 417, 129, 416.3518, 160.43462, 291, 304)
 
-[node name="Arena" type="StaticBody2D" parent="." unique_id=1789708585]
-
-[node name="LeftWallVisual" type="ColorRect" parent="Arena" unique_id=28452664]
-offset_right = 40.0
-offset_bottom = 1020.0
-color = Color(0.32, 0.32, 0.32, 1)
-
-[node name="RightWallVisual" type="ColorRect" parent="Arena" unique_id=1546478435]
-offset_left = 560.0
-offset_right = 600.0
-offset_bottom = 1020.0
-color = Color(0.32, 0.32, 0.32, 1)
-
-[node name="TopWallVisual" type="ColorRect" parent="Arena" unique_id=1493382423]
-offset_top = -30.0
-offset_right = 600.0
-offset_bottom = 10.0
-color = Color(0.32, 0.32, 0.32, 1)
-
-[node name="LeftWall" type="CollisionShape2D" parent="Arena" unique_id=1651155815]
-position = Vector2(20, 510)
-shape = SubResource("RectangleShape2D_side")
-
-[node name="RightWall" type="CollisionShape2D" parent="Arena" unique_id=2106411817]
-position = Vector2(580, 510)
-shape = SubResource("RectangleShape2D_side")
-
-[node name="TopWall" type="CollisionShape2D" parent="Arena" unique_id=1581125567]
-position = Vector2(300, -10)
-shape = SubResource("RectangleShape2D_top")
-
-[node name="BossCore" type="Area2D" parent="." unique_id=114716483]
-position = Vector2(300, 60)
-
-[node name="Visual" type="ColorRect" parent="BossCore" unique_id=1637295403]
-offset_left = -12.0
-offset_top = -12.0
-offset_right = 12.0
-offset_bottom = 12.0
-color = Color(0.85, 0.12, 0.12, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BossCore" unique_id=1530863005]
-shape = SubResource("RectangleShape2D_boss")
-
-[node name="FallZone" type="Area2D" parent="." unique_id=222173565]
-
-[node name="Visual" type="ColorRect" parent="FallZone" unique_id=339686732]
-offset_top = 860.0
-offset_right = 600.0
-offset_bottom = 1000.0
-color = Color(0.05, 0.05, 0.07, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FallZone" unique_id=92728690]
-position = Vector2(300, 930)
-shape = SubResource("RectangleShape2D_fall")
-
-[node name="Walls" type="Node2D" parent="." unique_id=1217442359]
-
-[node name="SpawnTimer" type="Timer" parent="." unique_id=807266578]
-
-[node name="RuleTimer" type="Timer" parent="." unique_id=1760290448]
+[node name="Base" parent="." unique_id=1947313494 instance=ExtResource("1_2iqtg")]
+position = Vector2(64, 64)
 
 [node name="StartPosition" parent="." unique_id=44959152 instance=ExtResource("2_iii5r")]
-position = Vector2(297, 831)
+position = Vector2(331, 631)
+
+[node name="Pc" type="Sprite2D" parent="." unique_id=1624962205]
+position = Vector2(247, 293)
+rotation = 3.1415925
+scale = Vector2(0.098709814, 0.09870983)
+texture = ExtResource("3_msnig")
+
+[node name="Bag" parent="." unique_id=873017112 instance=ExtResource("4_h0v32")]
+position = Vector2(225, 252.00003)
+rotation = 1.4819353
+scale = Vector2(1.5882354, 1.5882353)
+
+[node name="BossThief" parent="." unique_id=508703989 instance=ExtResource("4_yqa65")]
+position = Vector2(246.00002, 263)
+scale = Vector2(0.9999999, 0.99999994)

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://7dwmx0o6uk82"]
+
+[ext_resource type="AudioStream" uid="uid://ciji1040uo73s" path="res://thief/assets/gaming_sounds.ogg" id="1_j5ua2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7kua1"]
+
+[node name="BossThief" type="Area2D" unique_id=508703989]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1809973815]
+shape = SubResource("RectangleShape2D_7kua1")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1597134720]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+pivot_offset = Vector2(10, 10)
+color = Color(1, 0, 0.11372549, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1257334159]
+stream = ExtResource("1_j5ua2")
+autoplay = true

@@ -25,6 +25,25 @@ size = Vector2(31, 87.00001)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ourt"]
 size = Vector2(31, 130)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5orea"]
+atlas = ExtResource("8_wcjpl")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ourt"]
+atlas = ExtResource("8_wcjpl")
+region = Rect2(16, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uo0vl"]
+atlas = ExtResource("14_0ourt")
+region = Rect2(288, 362.6886, 48, 25.120758)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w200a"]
+atlas = ExtResource("14_0ourt")
+region = Rect2(0, 416, 48, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uo0vl"]
+size = Vector2(95, 47)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_laogf"]
 size = Vector2(256, 64)
 
@@ -560,25 +579,6 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_hbb88")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5orea"]
-atlas = ExtResource("8_wcjpl")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0ourt"]
-atlas = ExtResource("8_wcjpl")
-region = Rect2(16, 80, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uo0vl"]
-atlas = ExtResource("14_0ourt")
-region = Rect2(288, 362.6886, 48, 25.120758)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w200a"]
-atlas = ExtResource("14_0ourt")
-region = Rect2(0, 416, 48, 96)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uo0vl"]
-size = Vector2(95, 47)
-
 [node name="Level2" type="Node2D" unique_id=2008740827]
 script = ExtResource("7_level")
 next_level = 3
@@ -712,18 +712,6 @@ wait_time = 0.6
 [node name="Collectable" parent="Collectables" unique_id=820743229 instance=ExtResource("6_vm7no")]
 position = Vector2(277, 386.05)
 num_collectable = 0
-
-[node name="FakeWall" type="Area2D" parent="Collectables" unique_id=1189705710]
-position = Vector2(277, 387)
-script = ExtResource("6_wcjpl")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectables/FakeWall" unique_id=1053925543]
-shape = SubResource("RectangleShape2D_laogf")
-
-[node name="Sprite2D" type="TileMapLayer" parent="Collectables/FakeWall" unique_id=778818514]
-scale = Vector2(0.5, 0.5)
-tile_map_data = PackedByteArray("AAD+////AAAEAAcAAAABAP//AAAEAAcAAAABAAAAAAAFAAcAAAD+/wAAAAAFAAcAAAD//wAAAAAFAAcAAAAAAAAAAAAFAAcAAAD/////AAAEAAcAAAAAAP//AAAEAAcAAAACAAAAAAAFAAcAAAADAAAAAAAIAAUAAAACAP//AAAEAAcAAAADAP//AAAIAAQAAAD8////AAAHAAQAAAD8/wAAAAAHAAUAAAD9////AAAEAAcAAAD9/wAAAAAFAAcAAAA=")
-tile_set = SubResource("TileSet_laogf")
 
 [node name="ThiefActions" type="Node2D" parent="." unique_id=1252376215]
 
@@ -1050,9 +1038,23 @@ position = Vector2(-106, -83)
 [node name="Thief" parent="." unique_id=990185148 instance=ExtResource("12_hbb88")]
 position = Vector2(-106, -83)
 
-[connection signal="body_entered" from="Collectables/FakeWall" to="Collectables/FakeWall" method="_on_body_entered"]
-[connection signal="body_exited" from="Collectables/FakeWall" to="Collectables/FakeWall" method="_on_body_exited"]
+[node name="FakeWalls" type="Node2D" parent="." unique_id=1381599678]
+
+[node name="FakeWall" type="Area2D" parent="FakeWalls" unique_id=1189705710]
+position = Vector2(277, 387)
+script = ExtResource("6_wcjpl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FakeWalls/FakeWall" unique_id=1053925543]
+shape = SubResource("RectangleShape2D_laogf")
+
+[node name="Sprite2D" type="TileMapLayer" parent="FakeWalls/FakeWall" unique_id=778818514]
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAD+////AAAEAAcAAAABAP//AAAEAAcAAAABAAAAAAAFAAcAAAD+/wAAAAAFAAcAAAD//wAAAAAFAAcAAAAAAAAAAAAFAAcAAAD/////AAAEAAcAAAAAAP//AAAEAAcAAAACAAAAAAAFAAcAAAADAAAAAAAIAAUAAAACAP//AAAEAAcAAAADAP//AAAIAAQAAAD8////AAAHAAQAAAD8/wAAAAAHAAUAAAD9////AAAEAAcAAAD9/wAAAAAFAAcAAAA=")
+tile_set = SubResource("TileSet_laogf")
+
 [connection signal="body_entered" from="FinishArea" to="." method="_on_finish_area_body_entered"]
+[connection signal="body_entered" from="FakeWalls/FakeWall" to="FakeWalls/FakeWall" method="_on_body_entered"]
+[connection signal="body_exited" from="FakeWalls/FakeWall" to="FakeWalls/FakeWall" method="_on_body_exited"]
 
 [editable path="Pits/Pit2"]
 [editable path="Pits/Pit3"]
