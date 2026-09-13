@@ -22,6 +22,7 @@ func _ready() -> void:
 
 
 func _on_play() -> void:
+	Game.reset_coins()
 	AudioManager.advance()
 	SceneManager.start_game()
 

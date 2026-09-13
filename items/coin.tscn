@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://q21wht55wyvw"]
+
+[ext_resource type="Texture2D" uid="uid://vfjevfr4ln1y" path="res://levels/assets/tilesheet_complete.png" id="1_1lg1i"]
+[ext_resource type="Script" uid="uid://b5d8a4vwhc6oh" path="res://items/coin.gd" id="1_6dw85"]
+[ext_resource type="AudioStream" uid="uid://8y7u4p8hvpuk" path="res://items/assets/coin.ogg" id="3_qr5ih"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suasx"]
+atlas = ExtResource("1_1lg1i")
+region = Rect2(1552, 464, 32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1lg1i"]
+radius = 17.0
+
+[node name="Coin" type="Area2D" unique_id=1927659458]
+script = ExtResource("1_6dw85")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2123023292]
+modulate = Color(1, 0.7137255, 0, 1)
+texture = SubResource("AtlasTexture_suasx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=802565503]
+shape = SubResource("CircleShape2D_1lg1i")
+
+[node name="SFX" type="AudioStreamPlayer" parent="." unique_id=1095059248]
+stream = ExtResource("3_qr5ih")
+volume_db = -5.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

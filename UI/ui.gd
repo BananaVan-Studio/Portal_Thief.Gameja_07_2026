@@ -2,11 +2,15 @@ class_name UserInterface
 extends CanvasLayer
 
 var time_tween: Tween
+var current_coins: int = 0
+var max_coins: int = 0
 
 @onready var alarm_popup: RichTextLabel = $AlarmPopUp
 @onready var black_fade: ColorRect = $BlackFade
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var death_label: RichTextLabel = $DeathLabel
+
+@onready var coins_label: Label = $MarginContainer/HBoxContainer/CoinsLabel
 
 
 func _ready() -> void:
@@ -21,6 +25,25 @@ func _ready() -> void:
 	Events.connect("stopping_alarm", _stopping_alarm)
 	Events.connect("fading_out", _fading_out)
 	Events.connect("fading_in", _fading_in)
+
+
+func update_coins() -> void:
+	coins_label.text = str(current_coins) + "/" + str(max_coins)
+
+
+func initialize_coins(new_max: int) -> void:
+	current_coins = 0
+	max_coins = new_max
+	update_coins()
+
+
+func add_coin() -> void:
+	current_coins += 1
+	update_coins()
+
+
+func get_current_coins() -> int:
+	return current_coins
 
 
 func game_over_popup() -> void:

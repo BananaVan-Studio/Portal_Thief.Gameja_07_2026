@@ -4,6 +4,7 @@ signal updating_alarm(value: float)
 signal stopping_alarm
 signal fading_out
 signal fading_in
+signal switch_alarms
 
 var collectables: Array[bool] = [
 	false,
@@ -11,6 +12,10 @@ var collectables: Array[bool] = [
 	false,
 	false,
 ]
+
+
+func trigger_switch() -> void:
+	switch_alarms.emit()
 
 
 func update_alarm(value: float) -> void:

@@ -7,7 +7,7 @@ extends Area2D
 		if is_instance_valid(alarm_timer):
 			alarm_timer.wait_time = value
 		update_configuration_warnings()
-@export var detect_slow: bool  = false
+@export var detect_sprint: bool = false
 
 var player: MainCharacter = null
 
@@ -17,9 +17,13 @@ var player: MainCharacter = null
 
 
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
+	Events.switch_alarms.connect(_on_switch_alarms)
 	polygon_2d.polygon = col_shape.polygon
 	polygon_2d.position = col_shape.position
-
+	if detect_sprint:
+		polygon_2d.color = Color(Color.GOLD, 0.25)
 
 func _process(_delta: float) -> void:
 	if not player:
@@ -32,7 +36,22 @@ func _process(_delta: float) -> void:
 		_on_alarm_timer_timeout()
 		alarm_timer.stop()
 
-	if player.is
+	if not detect_sprint:
+		return
+
+	if player.is_sprinting:
+		player.is_sprinting = false
+		_on_alarm_timer_timeout()
+		alarm_timer.stop()
+
+
+func _on_switch_alarms() -> void:
+	detect_sprint = !detect_sprint
+	if detect_sprint:
+		polygon_2d.color = Color(Color.GOLD, 0.25)
+	else:
+		polygon_2d.color = Color(Color.RED, 0.25)
+
 
 func _get_configuration_warnings() -> PackedStringArray:
 	if caught_margin == 100:

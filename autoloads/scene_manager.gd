@@ -97,6 +97,12 @@ func go_to_level(number: int) -> void:
 		change_scene(WIN_SCREEN)
 
 
+func go_to_boss_level() -> void:
+	var path := "res://levels/boss/level_boss.tscn"
+	if ResourceLoader.exists(path):
+		change_scene(path)
+
+
 func go_to_main_menu() -> void:
 	in_level = false
 	change_scene(MAIN_MENU)

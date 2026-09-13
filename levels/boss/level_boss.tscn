@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://dyu0kf830k441"]
 
 [ext_resource type="PackedScene" uid="uid://dk0pwi3g46lvl" path="res://levels/modules/base.tscn" id="1_2iqtg"]
+[ext_resource type="Script" uid="uid://r8tarfpbnrga" path="res://levels/boss/boss_level.gd" id="1_rxnc0"]
 [ext_resource type="PackedScene" uid="uid://c0qoh0n6qv8q0" path="res://levels/modules/starting_position.tscn" id="2_iii5r"]
 [ext_resource type="Texture2D" uid="uid://bymntujipx8at" path="res://levels/assets/pc.png" id="3_msnig"]
 [ext_resource type="PackedScene" uid="uid://d3oeagqfwayk8" path="res://thief/bag.tscn" id="4_h0v32"]
@@ -8,19 +9,98 @@
 [ext_resource type="PackedScene" uid="uid://7dwmx0o6uk82" path="res://thief/boss_thief.tscn" id="4_yqa65"]
 [ext_resource type="PackedScene" uid="uid://2t08tbg78lrw" path="res://obstacles/alarm_zone.tscn" id="5_idnpr"]
 [ext_resource type="Texture2D" uid="uid://btnfjwl47xbtf" path="res://items/assets/AssetPack_V01_FREE.png" id="6_eh7y6"]
+[ext_resource type="PackedScene" uid="uid://q21wht55wyvw" path="res://items/coin.tscn" id="6_hqbke"]
 [ext_resource type="Script" uid="uid://dgghwerjqg3vy" path="res://levels/modules/fake_wall.gd" id="7_ctywb"]
+[ext_resource type="Texture2D" uid="uid://cmntl1b4fpeou" path="res://levels/boss/assets/skull.png" id="8_hqbke"]
 [ext_resource type="Texture2D" uid="uid://vfjevfr4ln1y" path="res://levels/assets/tilesheet_complete.png" id="8_rxnc0"]
+[ext_resource type="PackedScene" uid="uid://byque4w54oowj" path="res://player/player.tscn" id="11_idnpr"]
+[ext_resource type="PackedScene" uid="uid://bcaqbuxvgtuax" path="res://levels/boss/switch.tscn" id="13_ctywb"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ctywb"]
+load_path = "res://.godot/imported/AssetPack_V01_FREE.png-377e93b5b0d4bf064891909ab64f94a0.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxnc0"]
+atlas = SubResource("CompressedTexture2D_ctywb")
+region = Rect2(0, 80, 16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqbke"]
-size = Vector2(31, 87.00001)
+size = Vector2(31, 185.456)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqbke"]
+atlas = ExtResource("6_eh7y6")
+region = Rect2(48, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qgylc"]
 atlas = ExtResource("6_eh7y6")
-region = Rect2(48, 0, 16, 16)
+region = Rect2(32, 48, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hargl"]
-atlas = ExtResource("6_eh7y6")
-region = Rect2(16, 80, 16, 16)
+atlas = SubResource("CompressedTexture2D_ctywb")
+region = Rect2(64, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lubaq"]
+atlas = SubResource("CompressedTexture2D_ctywb")
+region = Rect2(64, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27xu2"]
+atlas = SubResource("CompressedTexture2D_ctywb")
+region = Rect2(64, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wx237"]
+atlas = SubResource("CompressedTexture2D_ctywb")
+region = Rect2(16, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3y6qa"]
+atlas = SubResource("CompressedTexture2D_ctywb")
+region = Rect2(64, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0du7"]
+atlas = SubResource("CompressedTexture2D_ctywb")
+region = Rect2(64, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtq8a"]
+atlas = SubResource("CompressedTexture2D_ctywb")
+region = Rect2(32, 96, 16, 16)
+
+[sub_resource type="Curve" id="Curve_rxnc0"]
+_data = [Vector2(0, 0.9646018), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ctywb"]
+curve = SubResource("Curve_rxnc0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ctywb"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(37.86, 21.475, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+scale_min = 0.19999999
+scale_max = 0.5
+alpha_curve = SubResource("CurveTexture_ctywb")
+
+[sub_resource type="Curve" id="Curve_qgylc"]
+_data = [Vector2(0, 0.9646018), 0.0, 0.0, 0, 0, Vector2(0.7315436, 0.64601773), -1.2809099, -1.2809099, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_hargl"]
+curve = SubResource("Curve_qgylc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lubaq"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(30, 20, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+orbit_velocity_min = -0.049999908
+orbit_velocity_max = 0.050000098
+gravity = Vector3(0, 98, 0)
+linear_accel_min = 24.999998
+linear_accel_max = 49.999996
+scale_min = 4.0
+scale_max = 8.0
+alpha_curve = SubResource("CurveTexture_hargl")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_laogf"]
+size = Vector2(80, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lubaq"]
 texture = ExtResource("8_rxnc0")
@@ -555,97 +635,284 @@ tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_lubaq")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wx237"]
-size = Vector2(246, 373)
+size = Vector2(246, 371)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eh7y6"]
+size = Vector2(246, 67)
 
 [node name="LevelBoss" type="Node2D" unique_id=851839930]
+script = ExtResource("1_rxnc0")
 
 [node name="Pc" type="Sprite2D" parent="." unique_id=1624962205]
 position = Vector2(247, 293)
 rotation = 3.1415925
-scale = Vector2(0.098709814, 0.09870983)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_msnig")
 
-[node name="Bag" parent="Pc" unique_id=873017112 instance=ExtResource("4_h0v32")]
-position = Vector2(222.87549, 415.35864)
-rotation = -1.6596572
-scale = Vector2(16.08994, 16.089941)
+[node name="Cake5" type="Sprite2D" parent="Pc" unique_id=1251772379]
+position = Vector2(324.18262, 314.05176)
+rotation = -3.1415925
+scale = Vector2(20, 20)
+texture = SubResource("AtlasTexture_rxnc0")
 
 [node name="Polygon2D" type="Polygon2D" parent="Pc" unique_id=72608400]
 modulate = Color(1, 1, 1, 0.20392157)
-position = Vector2(2502.2834, 2968.2964)
+position = Vector2(2489.9995, 2970.0002)
 rotation = -3.1415925
-scale = Vector2(10.130704, 10.130702)
-polygon = PackedVector2Array(200, 308, 191, 301, 191, 162, 110, 49, 525, 36, 417, 129, 416.3518, 160.43462, 291, 304)
+scale = Vector2(10, 10)
+polygon = PackedVector2Array(205, 308, 191, 300, 191, 162, 106, 42.000004, 492.00003, 43.000004, 417, 129, 416.3518, 160.43462, 291, 306)
 
-[node name="Base" parent="." unique_id=1947313494 instance=ExtResource("1_2iqtg")]
+[node name="Pits" type="Node2D" parent="." unique_id=276926550]
 position = Vector2(64, 64)
 
-[node name="Pits" type="Node2D" parent="Base" unique_id=276926550]
-
-[node name="Pit" parent="Base/Pits" unique_id=133011370 instance=ExtResource("4_tsiy0")]
-position = Vector2(558.00006, 546)
+[node name="Pit" parent="Pits" unique_id=133011370 instance=ExtResource("4_tsiy0")]
+position = Vector2(591, 544)
 rotation = 1.5707964
 scale = Vector2(1.2054666, 0.60243475)
 
-[node name="ColorRect" parent="Base/Pits/Pit" index="0" unique_id=1789141283]
+[node name="ColorRect" parent="Pits/Pit" index="0" unique_id=1789141283]
 offset_left = -25.0
-offset_top = -138.086
-offset_right = 24.0
-offset_bottom = 35.0
+offset_top = -100.0
+offset_right = 25.0
+offset_bottom = 100.0
 
-[node name="CollisionShape2D" parent="Base/Pits/Pit" index="1" unique_id=1875047140]
-position = Vector2(0, -48.99994)
+[node name="CollisionShape2D" parent="Pits/Pit" index="1" unique_id=1875047140]
+position = Vector2(0, 0.22802734)
 shape = SubResource("RectangleShape2D_hqbke")
 
-[node name="Alarms" type="Node2D" parent="Base" unique_id=1284449507]
+[node name="Pit2" parent="Pits" unique_id=2056616993 instance=ExtResource("4_tsiy0")]
+position = Vector2(591.00006, 279)
+rotation = 1.5707964
+scale = Vector2(1.2054666, 0.60243475)
 
-[node name="AlarmZone" parent="Base/Alarms" unique_id=843988376 instance=ExtResource("5_idnpr")]
+[node name="ColorRect" parent="Pits/Pit2" index="0" unique_id=1789141283]
+offset_left = -25.0
+offset_top = -100.0
+offset_right = 25.0
+offset_bottom = 100.0
+
+[node name="CollisionShape2D" parent="Pits/Pit2" index="1" unique_id=1875047140]
+position = Vector2(0, 0.22802734)
+shape = SubResource("RectangleShape2D_hqbke")
+
+[node name="Alarms" type="Node2D" parent="." unique_id=1284449507]
+position = Vector2(64, 64)
+
+[node name="AlarmZone" parent="Alarms" unique_id=843988376 instance=ExtResource("5_idnpr")]
 position = Vector2(79, 259)
+caught_margin = 2.0
+detect_sprint = true
+
+[node name="CollisionPolygon2D" parent="Alarms/AlarmZone" index="0" unique_id=1530615776]
+polygon = PackedVector2Array(-108, -150, 34, -151, 34, 15, 210, 15, 210, 264, -108, 266)
+
+[node name="Polygon2D" parent="Alarms/AlarmZone" index="1" unique_id=798246771]
+polygon = PackedVector2Array(-108, -151, 34, -151, 34, 15, 210, 15, 210, 264, -108, 266)
+
+[node name="AlarmTimer" parent="Alarms/AlarmZone" index="2" unique_id=534087450]
+wait_time = 2.0
+
+[node name="AlarmZone2" parent="Alarms" unique_id=1849933081 instance=ExtResource("5_idnpr")]
+position = Vector2(301, 604)
 caught_margin = 1.0
-detect_slow = null
 
-[node name="CollisionPolygon2D" parent="Base/Alarms/AlarmZone" index="0" unique_id=1530615776]
-polygon = PackedVector2Array(-108, -150, 34, -151, 34, 15, 262, 15, 262, 266, -108, 266)
+[node name="CollisionPolygon2D" parent="Alarms/AlarmZone2" index="0" unique_id=1530615776]
+polygon = PackedVector2Array(-109, -75, 209, -76, 209, 80, -109, 80)
 
-[node name="Polygon2D" parent="Base/Alarms/AlarmZone" index="1" unique_id=798246771]
-polygon = PackedVector2Array(-108, -150, 34, -151, 34, 15, 262, 15, 262, 266, -108, 266)
+[node name="Polygon2D" parent="Alarms/AlarmZone2" index="1" unique_id=798246771]
+polygon = PackedVector2Array(-109, -75, 209, -76, 209, 80, -109, 80)
 
-[node name="Atrezzo" type="Node2D" parent="Base" unique_id=1118000750]
+[node name="AlarmZone3" parent="Alarms" unique_id=613329683 instance=ExtResource("5_idnpr")]
+position = Vector2(596, 160)
+caught_margin = 0.7
+
+[node name="CollisionPolygon2D" parent="Alarms/AlarmZone3" index="0" unique_id=1530615776]
+polygon = PackedVector2Array(-68, -86, 60, -86, 60, -49, 125, -49, 125, 47, 57, 48, 57, 119, -68, 119)
+
+[node name="Polygon2D" parent="Alarms/AlarmZone3" index="1" unique_id=798246771]
+polygon = PackedVector2Array(-68, -85, 58, -85, 58, -49, 125, -49, 125, 47, 60, 47, 60, 120, -68, 120)
+
+[node name="Obstacles" type="Node2D" parent="Alarms/AlarmZone3/Polygon2D" index="0" unique_id=1695222182]
+position = Vector2(624, 333)
+
+[node name="AlarmTimer" parent="Alarms/AlarmZone3" index="2" unique_id=534087450]
+wait_time = 0.7
+
+[node name="AlarmZone4" parent="Alarms" unique_id=1507652013 instance=ExtResource("5_idnpr")]
+position = Vector2(920, 223)
+caught_margin = 2.0
+detect_sprint = true
+
+[node name="CollisionPolygon2D" parent="Alarms/AlarmZone4" index="0" unique_id=1530615776]
+polygon = PackedVector2Array(-112, -115, 141, -114, 141, -20, 248, -20, 248, 221, -34, 221, -34, -16, -112, -16)
+
+[node name="Polygon2D" parent="Alarms/AlarmZone4" index="1" unique_id=798246771]
+antialiased = true
+polygon = PackedVector2Array(-112, -113, 141, -113, 141, -20, 248, -20, 248, 221, -56, 221, -56, -16, -112, -16)
+
+[node name="AlarmTimer" parent="Alarms/AlarmZone4" index="2" unique_id=534087450]
+wait_time = 2.0
+
+[node name="Base" parent="." unique_id=1947313494 instance=ExtResource("1_2iqtg")]
+position = Vector2(64, 63)
+
+[node name="Coins" type="Node2D" parent="." unique_id=1586944838]
+
+[node name="Coin" parent="Coins" unique_id=1927659458 instance=ExtResource("6_hqbke")]
+position = Vector2(830, 224)
+
+[node name="Coin2" parent="Coins" unique_id=350821068 instance=ExtResource("6_hqbke")]
+position = Vector2(379, 673)
+
+[node name="Coin3" parent="Coins" unique_id=849431078 instance=ExtResource("6_hqbke")]
+position = Vector2(129, 252)
+
+[node name="Coin4" parent="Coins" unique_id=794243497 instance=ExtResource("6_hqbke")]
+position = Vector2(819, 575)
+
+[node name="Coin5" parent="Coins" unique_id=59813647 instance=ExtResource("6_hqbke")]
+position = Vector2(658, 678)
+
+[node name="Coin6" parent="Coins" unique_id=874539142 instance=ExtResource("6_hqbke")]
+position = Vector2(1184, 229)
+
+[node name="Coin7" parent="Coins" unique_id=1233970072 instance=ExtResource("6_hqbke")]
+position = Vector2(658, 83)
+
+[node name="Coin8" parent="Coins" unique_id=569946211 instance=ExtResource("6_hqbke")]
+position = Vector2(514, 112)
+
+[node name="Coin9" parent="Coins" unique_id=1703407995 instance=ExtResource("6_hqbke")]
+position = Vector2(926, 448)
+
+[node name="Coin10" parent="Coins" unique_id=100752897 instance=ExtResource("6_hqbke")]
+position = Vector2(316, 490)
+
+[node name="Atrezzo" type="Node2D" parent="." unique_id=1118000750]
+modulate = Color(0.34055206, 0.63689363, 0, 1)
+position = Vector2(64, 64)
 scale = Vector2(2, 2)
 
-[node name="Coffe" type="Sprite2D" parent="Base/Atrezzo" unique_id=1472517224]
-position = Vector2(357, 131)
+[node name="Polygon2D" type="Polygon2D" parent="Atrezzo" unique_id=867857169]
+color = Color(1, 1, 1, 0.39215687)
+polygon = PackedVector2Array(334, 110.5, 417.5, 110.5, 417.5, 239, 334, 239.5)
+
+[node name="Bag" parent="Atrezzo" unique_id=873017112 instance=ExtResource("4_h0v32")]
+position = Vector2(353, 139.5)
+rotation = 1.4819353
+scale = Vector2(0.79411757, 0.7941175)
+
+[node name="Coffe" type="Sprite2D" parent="Atrezzo" unique_id=1472517224]
+position = Vector2(348, 124)
+texture = SubResource("AtlasTexture_hqbke")
+
+[node name="Cake" type="Sprite2D" parent="Atrezzo" unique_id=904420415]
+position = Vector2(407, 122.5)
 texture = SubResource("AtlasTexture_qgylc")
 
-[node name="Cake" type="Sprite2D" parent="Base/Atrezzo" unique_id=904420415]
-position = Vector2(349, 125)
+[node name="Coffe2" type="Sprite2D" parent="Atrezzo" unique_id=755071736]
+position = Vector2(361, 145.5)
 texture = SubResource("AtlasTexture_hargl")
 
-[node name="FakeWalls" type="Node2D" parent="Base" unique_id=813401787]
-position = Vector2(491, -162)
+[node name="Cake2" type="Sprite2D" parent="Atrezzo" unique_id=1754824122]
+position = Vector2(374, 124.5)
+texture = SubResource("AtlasTexture_lubaq")
 
-[node name="FakeWall" type="Area2D" parent="Base/FakeWalls" unique_id=1831785712]
-position = Vector2(277, 386)
+[node name="Coffe3" type="Sprite2D" parent="Atrezzo" unique_id=2101093679]
+position = Vector2(373.5, 135.5)
+texture = SubResource("AtlasTexture_27xu2")
+
+[node name="Cake3" type="Sprite2D" parent="Atrezzo" unique_id=556262596]
+position = Vector2(356.5, 130.5)
+texture = SubResource("AtlasTexture_wx237")
+
+[node name="Coffe4" type="Sprite2D" parent="Atrezzo" unique_id=1654933585]
+position = Vector2(385, 141)
+texture = SubResource("AtlasTexture_3y6qa")
+
+[node name="Cake4" type="Sprite2D" parent="Atrezzo" unique_id=2078666728]
+position = Vector2(391.5, 122)
+texture = SubResource("AtlasTexture_v0du7")
+
+[node name="Coffe5" type="Sprite2D" parent="Atrezzo" unique_id=2064921447]
+position = Vector2(394, 134.5)
+texture = SubResource("AtlasTexture_mtq8a")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Atrezzo" unique_id=573576178]
+position = Vector2(376.5, 134)
+amount = 10
+texture = ExtResource("8_hqbke")
+lifetime = 0.5
+speed_scale = 0.7
+explosiveness = 0.29
+process_material = SubResource("ParticleProcessMaterial_ctywb")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="Atrezzo" unique_id=2021801495]
+position = Vector2(376, 139.5)
+amount = 100
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_lubaq")
+
+[node name="RotCloud" type="Area2D" parent="Atrezzo" unique_id=1266231874]
+position = Vector2(374.5, 151.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Atrezzo/RotCloud" unique_id=1249267819]
+position = Vector2(1.5, 24)
+shape = SubResource("RectangleShape2D_laogf")
+
+[node name="FakeWalls" type="Node2D" parent="." unique_id=813401787]
+position = Vector2(555, -98)
+
+[node name="FakeWall" type="Area2D" parent="FakeWalls" unique_id=1831785712]
+position = Vector2(277, 385)
 script = ExtResource("7_ctywb")
 
-[node name="Sprite2D" type="TileMapLayer" parent="Base/FakeWalls/FakeWall" unique_id=2087543044]
+[node name="Sprite2D" type="TileMapLayer" parent="FakeWalls/FakeWall" unique_id=2087543044]
 scale = Vector2(0.5, 0.5)
 tile_map_data = PackedByteArray("AAD+////AAAEAAcAAAABAP//AAAEAAcAAAABAAAAAAAGAAYAAAD+/wAAAAAGAAYAAAD//wAAAAAGAAYAAAAAAAAAAAAGAAYAAAD/////AAAEAAcAAAAAAP//AAAEAAcAAAACAAAAAAAGAAYAAAADAAAAAAAFAAYAAAACAP//AAAEAAcAAAADAP//AAAIAAQAAAD8////AAAHAAQAAAD8/wAAAAAEAAYAAAD9////AAAEAAcAAAD9/wAAAAAGAAYAAAD9/wEAAAAGAAYAAAD+/wEAAAAGAAYAAAD//wEAAAAGAAYAAAACAAEAAAAGAAYAAAACAAIAAAAGAAYAAAACAAMAAAAGAAYAAAAAAAMAAAAGAAYAAAD//wMAAAAGAAYAAAD+/wMAAAAGAAYAAAD9/wMAAAAGAAYAAAD9/wIAAAAGAAYAAAD+/wIAAAAGAAYAAAD//wIAAAAGAAYAAAAAAAIAAAAGAAYAAAABAAIAAAAGAAYAAAABAAEAAAAGAAYAAAAAAAEAAAAGAAYAAAADAAEAAAAFAAYAAAADAAIAAAAFAAYAAAADAAMAAAAFAAYAAAADAAQAAAAFAAYAAAADAAUAAAAFAAYAAAADAAYAAAAAAAcAAAD8/wEAAAAEAAYAAAD8/wIAAAAEAAYAAAD8/wMAAAAEAAYAAAD8/wQAAAAEAAYAAAD8/wUAAAAEAAYAAAD8/wYAAAAEAAYAAAADAAgAAAAFAAYAAAADAAkAAAAFAAYAAAADAAoAAAAIAAUAAAACAAkAAAAGAAYAAAABAAkAAAAGAAYAAAAAAAkAAAAGAAYAAAD//wkAAAAGAAYAAAD+/wkAAAAGAAYAAAD9/wkAAAAGAAYAAAD9/woAAAAFAAcAAAD+/woAAAAFAAcAAAD//woAAAAFAAcAAAAAAAoAAAAFAAcAAAABAAoAAAAFAAcAAAACAAoAAAAFAAcAAAD8/woAAAAHAAUAAAD8/wkAAAAEAAYAAAD8/wgAAAAEAAYAAAD8/wcAAAAEAAYAAAACAAgAAAAGAAYAAAACAAcAAAAGAAYAAAACAAYAAAAGAAYAAAACAAUAAAAGAAYAAAACAAQAAAAGAAYAAAAAAAQAAAAGAAYAAAABAAQAAAAGAAYAAAABAAUAAAAGAAYAAAABAAYAAAAGAAYAAAABAAcAAAAGAAYAAAABAAgAAAAGAAYAAAAAAAUAAAAGAAYAAAAAAAYAAAAGAAYAAAD//wYAAAAGAAYAAAD//wcAAAAGAAYAAAAAAAcAAAAGAAYAAAD//wQAAAAGAAYAAAD+/wQAAAAGAAYAAAD9/wQAAAAGAAYAAAD9/wUAAAAGAAYAAAD9/wYAAAAGAAYAAAD9/wcAAAAGAAYAAAD9/wgAAAAGAAYAAAD+/wcAAAAGAAYAAAD+/wYAAAAGAAYAAAD//wUAAAAGAAYAAAD+/wUAAAAGAAYAAAD+/wgAAAAGAAYAAAD//wgAAAAGAAYAAAAAAAgAAAAGAAYAAAADAAcAAAAAAAYAAAABAAMAAAAGAAYAAAA=")
 tile_set = SubResource("TileSet_27xu2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Base/FakeWalls/FakeWall" unique_id=1213711121]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FakeWalls/FakeWall" unique_id=1213711121]
 position = Vector2(0, 159.5)
 shape = SubResource("RectangleShape2D_wx237")
 
-[node name="StartPosition" parent="." unique_id=44959152 instance=ExtResource("2_iii5r")]
-position = Vector2(331, 631)
+[node name="FakeWall2" type="Area2D" parent="FakeWalls" unique_id=1086381388]
+position = Vector2(277, 764)
+script = ExtResource("7_ctywb")
+
+[node name="Sprite2D" type="TileMapLayer" parent="FakeWalls/FakeWall2" unique_id=179501880]
+position = Vector2(0, 5)
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAD8////AAAEAAYAAAD8/wAAAAAEAAYAAAD8/wEAAAAEAAYAAAADAP//AAAFAAYAAAADAAAAAAAFAAYAAAADAAEAAAAAAAcAAAD9////AAAGAAYAAAD+////AAAGAAYAAAD/////AAAGAAYAAAAAAP//AAAGAAYAAAABAP//AAAGAAYAAAACAP//AAAGAAYAAAACAAAAAAAGAAYAAAABAAAAAAAGAAYAAAAAAAAAAAAGAAYAAAD//wAAAAAGAAYAAAD+/wAAAAAGAAYAAAD9/wAAAAAGAAYAAAD9/wEAAAAGAAYAAAD+/wEAAAAGAAYAAAD//wEAAAAGAAYAAAAAAAEAAAAGAAYAAAABAAEAAAAGAAYAAAACAAEAAAAGAAYAAAD8//7/AAAEAAYAAAADAP7/AAAFAAYAAAD9//7/AAAGAAYAAAD+//7/AAAGAAYAAAD///7/AAAGAAYAAAAAAP7/AAAGAAYAAAABAP7/AAAGAAYAAAACAP7/AAAGAAYAAAA=")
+tile_set = SubResource("TileSet_27xu2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FakeWalls/FakeWall2" unique_id=534983082]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_eh7y6")
+
+[node name="StartingPosition" parent="." unique_id=1016504268 instance=ExtResource("2_iii5r")]
+position = Vector2(180, 627)
 
 [node name="BossThief" parent="." unique_id=508703989 instance=ExtResource("4_yqa65")]
 position = Vector2(246.00002, 263)
 scale = Vector2(0.9999999, 0.99999994)
 
-[connection signal="body_entered" from="Base/FakeWalls/FakeWall" to="Base/FakeWalls/FakeWall" method="_on_body_entered"]
-[connection signal="body_exited" from="Base/FakeWalls/FakeWall" to="Base/FakeWalls/FakeWall" method="_on_body_exited"]
+[node name="Player" parent="." unique_id=19935492 instance=ExtResource("11_idnpr")]
+position = Vector2(-32, -20)
 
-[editable path="Base/Pits/Pit"]
-[editable path="Base/Alarms/AlarmZone"]
+[node name="Switch" parent="." unique_id=742769273 instance=ExtResource("13_ctywb")]
+position = Vector2(740, 112)
+
+[connection signal="body_entered" from="Atrezzo/RotCloud" to="." method="_on_rot_cloud_body_entered"]
+[connection signal="body_entered" from="FakeWalls/FakeWall" to="FakeWalls/FakeWall" method="_on_body_entered"]
+[connection signal="body_exited" from="FakeWalls/FakeWall" to="FakeWalls/FakeWall" method="_on_body_exited"]
+[connection signal="body_entered" from="FakeWalls/FakeWall2" to="FakeWalls/FakeWall2" method="_on_body_entered"]
+[connection signal="body_exited" from="FakeWalls/FakeWall2" to="FakeWalls/FakeWall2" method="_on_body_exited"]
+[connection signal="body_entered" from="BossThief" to="." method="_on_boss_thief_body_entered"]
+
+[editable path="Pits/Pit"]
+[editable path="Pits/Pit2"]
+[editable path="Alarms/AlarmZone"]
+[editable path="Alarms/AlarmZone2"]
+[editable path="Alarms/AlarmZone3"]
+[editable path="Alarms/AlarmZone4"]

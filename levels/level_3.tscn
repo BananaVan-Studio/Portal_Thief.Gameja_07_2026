@@ -7,11 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://c0qoh0n6qv8q0" path="res://levels/modules/starting_position.tscn" id="6_lfnxh"]
 [ext_resource type="PackedScene" uid="uid://bpwdupn0ux8hy" path="res://items/collectable.tscn" id="6_wj73x"]
 [ext_resource type="Script" uid="uid://dx0x03jq048sm" path="res://thief/order.gd" id="7_0unm6"]
-[ext_resource type="Script" uid="uid://dde04ifuosoc0" path="res://levels/level.gd" id="7_level"]
+[ext_resource type="Script" uid="uid://d28ue4frq8uht" path="res://levels/level.gd" id="7_level"]
 [ext_resource type="PackedScene" uid="uid://b3yihcwholdbg" path="res://levels/modules/finish_area.tscn" id="7_ofchu"]
 [ext_resource type="Script" uid="uid://dgghwerjqg3vy" path="res://levels/modules/fake_wall.gd" id="7_s3q8p"]
 [ext_resource type="PackedScene" uid="uid://byque4w54oowj" path="res://player/player.tscn" id="8_ofchu"]
 [ext_resource type="Texture2D" uid="uid://btnfjwl47xbtf" path="res://items/assets/AssetPack_V01_FREE.png" id="8_q42ux"]
+[ext_resource type="PackedScene" uid="uid://q21wht55wyvw" path="res://items/coin.tscn" id="8_u4kh1"]
 [ext_resource type="PackedScene" uid="uid://80584str4xqc" path="res://obstacles/obstacle.tscn" id="9_wi0qq"]
 [ext_resource type="Texture2D" uid="uid://38c7rpp10vch" path="res://obstacles/assets/cupboards.png" id="10_s3q8p"]
 [ext_resource type="PackedScene" uid="uid://bxhe8mhn1g1ag" path="res://thief/thief.tscn" id="12_0unm6"]
@@ -44,7 +45,7 @@ region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s3q8p"]
 atlas = ExtResource("8_q42ux")
-region = Rect2(16, 80, 16, 16)
+region = Rect2(16, 64, 16, 16)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u4kh1"]
 texture = ExtResource("3_l53as")
@@ -593,9 +594,10 @@ size = Vector2(149, 129)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eg35p"]
 size = Vector2(24, 276)
 
-[node name="Level3" type="Node2D" unique_id=294394513]
+[node name="Level3" type="Node2D" unique_id=294394513 node_paths=PackedStringArray("finish_area")]
 script = ExtResource("7_level")
 next_level = 4
+finish_area = NodePath("FinishArea")
 
 [node name="Pits" type="Node2D" parent="." unique_id=722415050]
 
@@ -651,7 +653,7 @@ position = Vector2(0, -3.0517578e-05)
 shape = SubResource("RectangleShape2D_wi0qq")
 
 [node name="Pit9" parent="Pits" unique_id=1074424808 instance=ExtResource("1_btoec")]
-position = Vector2(63, 191)
+position = Vector2(63, 150)
 rotation = 1.5707964
 
 [node name="ColorRect" parent="Pits/Pit9" index="0" unique_id=1789141283]
@@ -679,7 +681,7 @@ shape = SubResource("RectangleShape2D_betor")
 
 [node name="AlarmZone" parent="Alarms" unique_id=843988376 instance=ExtResource("2_gwceb")]
 position = Vector2(805, 122)
-caught_margin = 2.0
+caught_margin = 2.2
 
 [node name="CollisionPolygon2D" parent="Alarms/AlarmZone" index="0" unique_id=1530615776]
 polygon = PackedVector2Array(-3, -8, 379, -7, 380, 318, 62, 318, 62, 83, -3, 83)
@@ -688,11 +690,11 @@ polygon = PackedVector2Array(-3, -8, 379, -7, 380, 318, 62, 318, 62, 83, -3, 83)
 polygon = PackedVector2Array(-3, -8, 379, -7, 380, 318, 62, 318, 62, 83, -3, 83)
 
 [node name="AlarmTimer" parent="Alarms/AlarmZone" index="2" unique_id=534087450]
-wait_time = 2.0
+wait_time = 2.2
 
 [node name="AlarmZone2" parent="Alarms" unique_id=1102063552 instance=ExtResource("2_gwceb")]
 position = Vector2(644, 570)
-caught_margin = 0.5
+caught_margin = 0.7
 
 [node name="CollisionPolygon2D" parent="Alarms/AlarmZone2" index="0" unique_id=1530615776]
 polygon = PackedVector2Array(-4, -9, 252, -9, 252, 88, -4, 88)
@@ -701,11 +703,11 @@ polygon = PackedVector2Array(-4, -9, 252, -9, 252, 88, -4, 88)
 polygon = PackedVector2Array(-4, -9, 252, -9, 252, 88, -4, 88)
 
 [node name="AlarmTimer" parent="Alarms/AlarmZone2" index="2" unique_id=534087450]
-wait_time = 0.5
+wait_time = 0.7
 
 [node name="AlarmZone3" parent="Alarms" unique_id=1589599883 instance=ExtResource("2_gwceb")]
 position = Vector2(108, 315)
-caught_margin = 2.0
+caught_margin = 2.5
 
 [node name="CollisionPolygon2D" parent="Alarms/AlarmZone3" index="0" unique_id=1530615776]
 polygon = PackedVector2Array(-130, -46, 298, -46, 298, 214, -130, 214)
@@ -714,7 +716,7 @@ polygon = PackedVector2Array(-130, -46, 298, -46, 298, 214, -130, 214)
 polygon = PackedVector2Array(-130, -46, 298, -46, 298, 214, -130, 214)
 
 [node name="AlarmTimer" parent="Alarms/AlarmZone3" index="2" unique_id=534087450]
-wait_time = 2.0
+wait_time = 2.5
 
 [node name="Base" parent="." unique_id=1947313494 instance=ExtResource("4_bmgug")]
 
@@ -753,6 +755,29 @@ shape = SubResource("RectangleShape2D_svivd")
 [node name="Collectable" parent="Collectables" unique_id=820743229 instance=ExtResource("6_wj73x")]
 position = Vector2(590, 647)
 num_collectable = 0
+
+[node name="Coins" type="Node2D" parent="." unique_id=485240536]
+
+[node name="Coin" parent="Coins" unique_id=1927659458 instance=ExtResource("8_u4kh1")]
+position = Vector2(377, 609)
+
+[node name="Coin2" parent="Coins" unique_id=1276483861 instance=ExtResource("8_u4kh1")]
+position = Vector2(1097, 50)
+
+[node name="Coin3" parent="Coins" unique_id=1033706909 instance=ExtResource("8_u4kh1")]
+position = Vector2(833, 611)
+
+[node name="Coin4" parent="Coins" unique_id=1648785083 instance=ExtResource("8_u4kh1")]
+position = Vector2(871, 161)
+
+[node name="Coin5" parent="Coins" unique_id=1357981782 instance=ExtResource("8_u4kh1")]
+position = Vector2(135, 609)
+
+[node name="Coin6" parent="Coins" unique_id=1414949728 instance=ExtResource("8_u4kh1")]
+position = Vector2(64, 221)
+
+[node name="Coin7" parent="Coins" unique_id=2084970478 instance=ExtResource("8_u4kh1")]
+position = Vector2(368, 227)
 
 [node name="ThiefActions" type="Node2D" parent="." unique_id=1363201191]
 

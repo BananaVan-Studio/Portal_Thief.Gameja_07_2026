@@ -78,6 +78,14 @@ func _physics_process(delta: float) -> void:
 		move_and_collide(external_push * delta)
 
 
+func add_coin_UI() -> void:
+	UI.add_coin()
+
+
+func initialize_coins_UI(new_max: int) -> void:
+	UI.initialize_coins(new_max)
+
+
 func start_dash(direction: Vector2) -> void:
 	if direction == Vector2.ZERO:
 		return

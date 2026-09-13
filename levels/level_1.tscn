@@ -3,15 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://d3wxl2l71iv02" path="res://obstacles/pit.tscn" id="1_btoec"]
 [ext_resource type="PackedScene" uid="uid://2t08tbg78lrw" path="res://obstacles/alarm_zone.tscn" id="2_gwceb"]
 [ext_resource type="PackedScene" uid="uid://dk0pwi3g46lvl" path="res://levels/modules/base.tscn" id="2_jirdo"]
+[ext_resource type="PackedScene" uid="uid://q21wht55wyvw" path="res://items/coin.tscn" id="6_betor"]
 [ext_resource type="PackedScene" uid="uid://c0qoh0n6qv8q0" path="res://levels/modules/starting_position.tscn" id="6_gwceb"]
 [ext_resource type="Script" uid="uid://dx0x03jq048sm" path="res://thief/order.gd" id="7_5ot28"]
 [ext_resource type="PackedScene" uid="uid://b3yihcwholdbg" path="res://levels/modules/finish_area.tscn" id="7_l53as"]
-[ext_resource type="Script" uid="uid://dde04ifuosoc0" path="res://levels/level.gd" id="7_level"]
 [ext_resource type="Texture2D" uid="uid://btnfjwl47xbtf" path="res://items/assets/AssetPack_V01_FREE.png" id="8_aerfg"]
 [ext_resource type="PackedScene" uid="uid://byque4w54oowj" path="res://player/player.tscn" id="8_l53as"]
 [ext_resource type="PackedScene" uid="uid://80584str4xqc" path="res://obstacles/obstacle.tscn" id="8_nmsli"]
 [ext_resource type="PackedScene" uid="uid://bpwdupn0ux8hy" path="res://items/collectable.tscn" id="9_3sk1a"]
 [ext_resource type="Texture2D" uid="uid://38c7rpp10vch" path="res://obstacles/assets/cupboards.png" id="9_betor"]
+[ext_resource type="Script" uid="uid://d28ue4frq8uht" path="res://levels/level.gd" id="9_vjtdm"]
 [ext_resource type="PackedScene" uid="uid://bxhe8mhn1g1ag" path="res://thief/thief.tscn" id="12_aerfg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aerfg"]
@@ -28,11 +29,11 @@ size = Vector2(31, 106)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nmsli"]
 atlas = ExtResource("8_aerfg")
-region = Rect2(48, 0, 16, 16)
+region = Rect2(16, 112, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_betor"]
 atlas = ExtResource("8_aerfg")
-region = Rect2(16, 80, 16, 16)
+region = Rect2(0, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o81gp"]
 atlas = ExtResource("9_betor")
@@ -45,9 +46,10 @@ region = Rect2(0, 416, 48, 96)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o81gp"]
 size = Vector2(95, 47)
 
-[node name="level_1" type="Node2D" unique_id=1033354817]
-script = ExtResource("7_level")
+[node name="level_1" type="Node2D" unique_id=1033354817 node_paths=PackedStringArray("finish_area")]
+script = ExtResource("9_vjtdm")
 next_level = 2
+finish_area = NodePath("FinishArea")
 
 [node name="Pits" type="Node2D" parent="." unique_id=809382541]
 
@@ -131,18 +133,18 @@ wait_time = 4.0
 
 [node name="AlarmZone2" parent="Alarms" unique_id=418658393 instance=ExtResource("2_gwceb")]
 position = Vector2(834, 562)
-caught_margin = 3.0
+caught_margin = 2.5
 
 [node name="CollisionPolygon2D" parent="Alarms/AlarmZone2" index="0" unique_id=1530615776]
 position = Vector2(22, 2)
-polygon = PackedVector2Array(-181, -1, -181, 91, 317, 91, 317, -129, -199, -129, -199, -1)
+polygon = PackedVector2Array(-181, -5, -181, 91, 317, 91, 317, -129, 10, -129, 10, -5)
 
 [node name="Polygon2D" parent="Alarms/AlarmZone2" index="1" unique_id=798246771]
 position = Vector2(22, 2)
 polygon = PackedVector2Array(-181, -1, -181, 91, 317, 91, 317, -129, -199, -129, -199, -1)
 
 [node name="AlarmTimer" parent="Alarms/AlarmZone2" index="2" unique_id=534087450]
-wait_time = 3.0
+wait_time = 2.5
 
 [node name="Base" parent="." unique_id=1947313494 instance=ExtResource("2_jirdo")]
 
@@ -151,6 +153,35 @@ wait_time = 3.0
 [node name="Collectable" parent="Collectables" unique_id=746112066 instance=ExtResource("9_3sk1a")]
 position = Vector2(1128, 619)
 num_collectable = 1
+
+[node name="Coins" type="Node2D" parent="." unique_id=204292073]
+
+[node name="Coin" parent="Coins" unique_id=1927659458 instance=ExtResource("6_betor")]
+position = Vector2(848, 611)
+
+[node name="Coin2" parent="Coins" unique_id=1569343429 instance=ExtResource("6_betor")]
+position = Vector2(66, 399)
+
+[node name="Coin3" parent="Coins" unique_id=137127917 instance=ExtResource("6_betor")]
+position = Vector2(345, 399)
+
+[node name="Coin4" parent="Coins" unique_id=1887560981 instance=ExtResource("6_betor")]
+position = Vector2(592, 467)
+
+[node name="Coin5" parent="Coins" unique_id=472657148 instance=ExtResource("6_betor")]
+position = Vector2(756, 261)
+
+[node name="Coin6" parent="Coins" unique_id=1280112878 instance=ExtResource("6_betor")]
+position = Vector2(751, 48)
+
+[node name="Coin7" parent="Coins" unique_id=160196697 instance=ExtResource("6_betor")]
+position = Vector2(866, 510)
+
+[node name="Coin8" parent="Coins" unique_id=1250260578 instance=ExtResource("6_betor")]
+position = Vector2(1120, 156)
+
+[node name="Coin9" parent="Coins" unique_id=2120103678 instance=ExtResource("6_betor")]
+position = Vector2(1120, 156)
 
 [node name="ThiefActions" type="Node2D" parent="." unique_id=1811664547]
 
@@ -380,7 +411,7 @@ position = Vector2(592, 655)
 position = Vector2(594, -17)
 
 [node name="Player" parent="." unique_id=19935492 instance=ExtResource("8_l53as")]
-position = Vector2(-111, -95)
+position = Vector2(-105, -94)
 
 [node name="Thief" parent="." unique_id=990185148 instance=ExtResource("12_aerfg")]
 position = Vector2(-111, -95)

@@ -19,4 +19,5 @@ color = Color(1, 0, 0.11372549, 1)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1257334159]
 stream = ExtResource("1_j5ua2")
+volume_db = -10.0
 autoplay = true

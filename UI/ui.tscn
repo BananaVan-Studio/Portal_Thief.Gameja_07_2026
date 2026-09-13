@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bysxmuso7bk8d"]
 
 [ext_resource type="Script" uid="uid://cv6jlqhwrjv6n" path="res://UI/ui.gd" id="1_2fwl4"]
+[ext_resource type="Texture2D" uid="uid://vfjevfr4ln1y" path="res://levels/assets/tilesheet_complete.png" id="2_dajm1"]
 
 [sub_resource type="Animation" id="Animation_dajm1"]
 length = 0.001
@@ -56,6 +57,10 @@ _data = {
 &"fade_out": SubResource("Animation_2fwl4")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fwl4"]
+atlas = ExtResource("2_dajm1")
+region = Rect2(1552, 464, 32, 32)
+
 [node name="UI" type="CanvasLayer" unique_id=2038278792]
 script = ExtResource("1_2fwl4")
 
@@ -96,3 +101,29 @@ vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=695105416]
 libraries/ = SubResource("AnimationLibrary_e6gg6")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1457515151]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1903248300]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="CoinsIcon" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=244024931]
+modulate = Color(1, 0.7137255, 0, 1)
+layout_mode = 2
+texture = SubResource("AtlasTexture_2fwl4")
+expand_mode = 2
+
+[node name="CoinsLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=2106959958]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "10/10"

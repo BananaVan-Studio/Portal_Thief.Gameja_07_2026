@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bcaqbuxvgtuax"]
+
+[ext_resource type="Script" uid="uid://xyjfkqbi0w7n" path="res://levels/boss/switch.gd" id="1_q3s3f"]
+[ext_resource type="AudioStream" uid="uid://dcll06fdq3g41" path="res://levels/boss/assets/button_click.ogg" id="2_8uq8q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_laogf"]
+radius = 10.049875
+
+[node name="Switch" type="Area2D" unique_id=742769273]
+script = ExtResource("1_q3s3f")
+
+[node name="Button" type="Polygon2D" parent="." unique_id=1293753028]
+position = Vector2(4, 0)
+color = Color(1, 0, 0, 1)
+polygon = PackedVector2Array(0, -9, 4, -5, 4, 5, 0, 9)
+
+[node name="ButtonBase" type="Polygon2D" parent="." unique_id=1711115083]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-4, -12, 4, -12, 4, 12, -4, 12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=195927778]
+position = Vector2(14, 0)
+shape = SubResource("CircleShape2D_laogf")
+
+[node name="SFX" type="AudioStreamPlayer" parent="." unique_id=1502706818]
+stream = ExtResource("2_8uq8q")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

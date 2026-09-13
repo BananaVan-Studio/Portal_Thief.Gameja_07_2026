@@ -1,27 +1,28 @@
 extends Node
 
-## Global game state: the movement "rules" for the current house and the
-## user's persistent settings. Each level pushes its own rules here on _ready
-## (see levels/level.gd), and the player reads them every physics frame.
-
-# --- Rules ("my house, my rules") ---------------------------------------
 var allow_sprint := true
 var allow_dash := true
 
-# --- Settings -----------------------------------------------------------
-## Master = overall volume. Music and SFX are sub-buses that feed into Master,
-## so Master scales both; Music/SFX let the player balance them independently.
 var master_volume := 1.0
 var music_volume := 1.0
 var sfx_volume := 1.0
 var fullscreen := false
+
+var current_coins: int = 0
 
 
 func _ready() -> void:
 	set_master_volume(master_volume) # Master bus always exists
 	set_fullscreen(fullscreen)
 
-	# Music/SFX buses are created by AudioManager; it applies those once ready.
+
+func reset_coins() -> void:
+	current_coins = 0
+
+
+func add_coins(new_qtt: int) -> void:
+	print("Quantity added: ", new_qtt)
+	current_coins += new_qtt
 
 
 func set_rules(sprint: bool, dash: bool) -> void:

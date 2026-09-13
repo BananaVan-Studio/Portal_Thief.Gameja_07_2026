@@ -1,5 +1,7 @@
 extends Control
 
+@onready var completion: Label = $Center/VBox/Completion
+
 
 func _ready() -> void:
 	SceneManager.in_level = false
@@ -13,6 +15,9 @@ func _ready() -> void:
 	UiStyle.subtitle($Center/VBox/Subtitle)
 	UiStyle.button(menu)
 
+	print("Current coins: ", Game.current_coins)
+	var percentage: float = snapped(Game.current_coins / 42.0 * 100, 0.01)
+	completion.text = "You completed the game picking " + str(percentage) + "% of the coins!"
 	menu.grab_focus()
 
 
