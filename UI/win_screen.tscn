@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bmarrg8lodvlg"]
 
-[ext_resource type="Script" uid="uid://be8xh3cteu7s0" path="res://menu/win_screen.gd" id="1_win"]
+[ext_resource type="Script" uid="uid://be8xh3cteu7s0" path="res://UI/win_screen.gd" id="1_qri7q"]
 
 [node name="WinScreen" type="Control" unique_id=474932434]
 layout_mode = 3
@@ -9,7 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_win")
+script = ExtResource("1_qri7q")
 
 [node name="BG" type="ColorRect" parent="." unique_id=1505495453]
 layout_mode = 1

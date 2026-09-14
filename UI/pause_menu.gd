@@ -1,5 +1,7 @@
 extends Control
 
+const SETTINGS_MENU = preload("uid://bduoje8alkrc7")
+
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -34,11 +36,13 @@ func _on_restart() -> void:
 
 func _on_settings() -> void:
 	AudioManager.advance()
-	var settings := preload("res://menu/settings_menu.tscn").instantiate()
+	var settings := SETTINGS_MENU.instantiate()
 	add_child(settings)
 	settings.closed.connect(settings.queue_free)
 
 
 func _on_menu() -> void:
 	AudioManager.back()
+	Game.in_level = false
+	Game.hide_notes()
 	SceneManager.go_to_main_menu()

@@ -15,6 +15,7 @@ func _ready() -> void:
 	UiStyle.plain($Center/VBox/Move, 32)
 	UiStyle.plain($Center/VBox/Run, 32)
 	UiStyle.plain($Center/VBox/Dash, 32)
+	UiStyle.plain($Center/VBox/Notes, 32)
 	UiStyle.subtitle($Center/VBox/Extra, 22)
 	UiStyle.button(back)
 	back.grab_focus()

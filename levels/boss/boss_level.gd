@@ -7,6 +7,7 @@ func _on_boss_thief_body_entered(body: Node2D) -> void:
 		return
 
 	Game.add_coins(player.UI.get_current_coins())
+	Game.in_level = false
 	SceneManager.go_to_level(next_level)
 
 

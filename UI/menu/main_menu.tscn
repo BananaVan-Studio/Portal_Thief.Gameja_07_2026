@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cyc8taatpyiuq"]
 
-[ext_resource type="Script" uid="uid://cecubbxm1oybg" path="res://menu/main_menu.gd" id="1_main"]
+[ext_resource type="Script" uid="uid://cecubbxm1oybg" path="res://UI/menu/main_menu.gd" id="1_main"]
 [ext_resource type="Texture2D" uid="uid://bbn42uixy5mdv" path="res://UI/assets/portal_thief_bg.jpg" id="2_bg"]
 
 [node name="MainMenu" type="Control" unique_id=948531290]

@@ -10,10 +10,10 @@ extends CanvasLayer
 ## overlay covers the gap while the next scene loads (the classic pattern from
 ## the tutorial you linked).
 
-const MAIN_MENU := "res://menu/main_menu.tscn"
-const WIN_SCREEN := "res://menu/win_screen.tscn"
 const LEVEL_PATH := "res://levels/level_%d.tscn"
-const PAUSE_MENU := preload("res://menu/pause_menu.tscn")
+const PAUSE_MENU = "uid://b4bi0f3d0rm3y"
+const WIN_SCREEN = "uid://bmarrg8lodvlg"
+const MAIN_MENU = "uid://cyc8taatpyiuq"
 
 const FADE_TIME := 0.4
 
@@ -43,6 +43,10 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if not in_level:
 		return
+
+	if Game.open_notes:
+		return
+
 	if event.is_action_pressed("Reset"):
 		reload_level()
 		get_viewport().set_input_as_handled()
@@ -123,7 +127,7 @@ func toggle_pause() -> void:
 	if _pause_instance:
 		_clear_pause()
 	else:
-		_pause_instance = PAUSE_MENU.instantiate()
+		_pause_instance = preload(PAUSE_MENU).instantiate()
 		add_child(_pause_instance)
 		get_tree().paused = true
 

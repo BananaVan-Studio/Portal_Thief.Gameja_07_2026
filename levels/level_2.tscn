@@ -713,7 +713,7 @@ wait_time = 0.7
 
 [node name="Collectable" parent="Collectables" unique_id=820743229 instance=ExtResource("6_vm7no")]
 position = Vector2(277, 386.05)
-num_collectable = 0
+num_collectable = 2
 
 [node name="Coins" type="Node2D" parent="." unique_id=907894690]
 

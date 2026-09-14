@@ -19,6 +19,10 @@
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ctywb"]
 load_path = "res://.godot/imported/AssetPack_V01_FREE.png-377e93b5b0d4bf064891909ab64f94a0.ctex"
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_lubaq"]
+atlas = SubResource("CompressedTexture2D_ctywb")
+region = Rect2(64, 64, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_rxnc0"]
 atlas = SubResource("CompressedTexture2D_ctywb")
 region = Rect2(0, 80, 16, 16)
@@ -35,10 +39,6 @@ atlas = ExtResource("6_eh7y6")
 region = Rect2(32, 48, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hargl"]
-atlas = SubResource("CompressedTexture2D_ctywb")
-region = Rect2(64, 64, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lubaq"]
 atlas = SubResource("CompressedTexture2D_ctywb")
 region = Rect2(64, 64, 16, 16)
 
@@ -649,10 +649,15 @@ rotation = 3.1415925
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_msnig")
 
-[node name="Cake5" type="Sprite2D" parent="Pc" unique_id=1251772379]
-position = Vector2(324.18262, 314.05176)
+[node name="Cake2" type="Sprite2D" parent="Pc" unique_id=1754824122]
+position = Vector2(339.99997, 350.00003)
 rotation = -3.1415925
-scale = Vector2(20, 20)
+scale = Vector2(19.999996, 19.999996)
+texture = SubResource("AtlasTexture_lubaq")
+
+[node name="Cake5" type="Sprite2D" parent="Pc" unique_id=1251772379]
+position = Vector2(-340, 350.00003)
+scale = Vector2(19.999994, -19.999994)
 texture = SubResource("AtlasTexture_rxnc0")
 
 [node name="Polygon2D" type="Polygon2D" parent="Pc" unique_id=72608400]
@@ -714,7 +719,7 @@ wait_time = 2.0
 
 [node name="AlarmZone2" parent="Alarms" unique_id=1849933081 instance=ExtResource("5_idnpr")]
 position = Vector2(301, 604)
-caught_margin = 1.0
+caught_margin = 1.2
 
 [node name="CollisionPolygon2D" parent="Alarms/AlarmZone2" index="0" unique_id=1530615776]
 polygon = PackedVector2Array(-109, -75, 209, -76, 209, 80, -109, 80)
@@ -722,9 +727,12 @@ polygon = PackedVector2Array(-109, -75, 209, -76, 209, 80, -109, 80)
 [node name="Polygon2D" parent="Alarms/AlarmZone2" index="1" unique_id=798246771]
 polygon = PackedVector2Array(-109, -75, 209, -76, 209, 80, -109, 80)
 
+[node name="AlarmTimer" parent="Alarms/AlarmZone2" index="2" unique_id=534087450]
+wait_time = 1.2
+
 [node name="AlarmZone3" parent="Alarms" unique_id=613329683 instance=ExtResource("5_idnpr")]
 position = Vector2(596, 160)
-caught_margin = 0.7
+caught_margin = 0.8
 
 [node name="CollisionPolygon2D" parent="Alarms/AlarmZone3" index="0" unique_id=1530615776]
 polygon = PackedVector2Array(-68, -86, 60, -86, 60, -49, 125, -49, 125, 47, 57, 48, 57, 119, -68, 119)
@@ -736,11 +744,11 @@ polygon = PackedVector2Array(-68, -85, 58, -85, 58, -49, 125, -49, 125, 47, 60, 
 position = Vector2(624, 333)
 
 [node name="AlarmTimer" parent="Alarms/AlarmZone3" index="2" unique_id=534087450]
-wait_time = 0.7
+wait_time = 0.8
 
 [node name="AlarmZone4" parent="Alarms" unique_id=1507652013 instance=ExtResource("5_idnpr")]
 position = Vector2(920, 223)
-caught_margin = 2.0
+caught_margin = 2.2
 detect_sprint = true
 
 [node name="CollisionPolygon2D" parent="Alarms/AlarmZone4" index="0" unique_id=1530615776]
@@ -751,7 +759,7 @@ antialiased = true
 polygon = PackedVector2Array(-112, -113, 141, -113, 141, -20, 248, -20, 248, 221, -56, 221, -56, -16, -112, -16)
 
 [node name="AlarmTimer" parent="Alarms/AlarmZone4" index="2" unique_id=534087450]
-wait_time = 2.0
+wait_time = 2.2
 
 [node name="Base" parent="." unique_id=1947313494 instance=ExtResource("1_2iqtg")]
 position = Vector2(64, 63)
@@ -813,10 +821,6 @@ texture = SubResource("AtlasTexture_qgylc")
 [node name="Coffe2" type="Sprite2D" parent="Atrezzo" unique_id=755071736]
 position = Vector2(361, 145.5)
 texture = SubResource("AtlasTexture_hargl")
-
-[node name="Cake2" type="Sprite2D" parent="Atrezzo" unique_id=1754824122]
-position = Vector2(374, 124.5)
-texture = SubResource("AtlasTexture_lubaq")
 
 [node name="Coffe3" type="Sprite2D" parent="Atrezzo" unique_id=2101093679]
 position = Vector2(373.5, 135.5)

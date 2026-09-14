@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cxc30yd5j7yuv" path="res://thief/thief.gd" id="1_1ljja"]
 [ext_resource type="PackedScene" uid="uid://d3oeagqfwayk8" path="res://thief/bag.tscn" id="2_6w7j0"]
-[ext_resource type="AudioStream" uid="uid://sd4adlodp52g" path="res://audio/portal.ogg" id="2_bac1e"]
+[ext_resource type="AudioStream" uid="uid://sd4adlodp52g" path="res://levels/assets/portal.ogg" id="2_bac1e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g1dw6"]
 

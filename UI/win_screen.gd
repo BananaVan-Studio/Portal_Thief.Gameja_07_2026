@@ -13,6 +13,7 @@ func _ready() -> void:
 	UiStyle.paint_bg($BG)
 	UiStyle.title($Center/VBox/Title, 80)
 	UiStyle.subtitle($Center/VBox/Subtitle)
+	UiStyle.subtitle($Center/VBox/Completion)
 	UiStyle.button(menu)
 
 	print("Current coins: ", Game.current_coins)

@@ -30,6 +30,7 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 
+	Game.in_level = true
 	global_cam.enabled = true
 	player_cam.enabled = false
 

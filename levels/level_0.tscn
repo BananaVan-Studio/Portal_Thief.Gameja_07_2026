@@ -3,13 +3,27 @@
 [ext_resource type="PackedScene" uid="uid://d3wxl2l71iv02" path="res://obstacles/pit.tscn" id="1_foxie"]
 [ext_resource type="PackedScene" uid="uid://2t08tbg78lrw" path="res://obstacles/alarm_zone.tscn" id="2_7d3si"]
 [ext_resource type="PackedScene" uid="uid://dk0pwi3g46lvl" path="res://levels/modules/base.tscn" id="3_iss0w"]
+[ext_resource type="Texture2D" uid="uid://xwueow7q2afi" path="res://obstacles/assets/laser_mid01.png" id="3_owf05"]
+[ext_resource type="Texture2D" uid="uid://xcyk50mmfcnk" path="res://obstacles/assets/laser_culo01.png" id="3_vfwqd"]
+[ext_resource type="Texture2D" uid="uid://uurok0qbqaua" path="res://obstacles/assets/laser_culo02.png" id="4_juy1h"]
+[ext_resource type="Texture2D" uid="uid://c8ti6h7cjfel6" path="res://obstacles/assets/laser_mid02.png" id="4_uuq13"]
 [ext_resource type="PackedScene" uid="uid://bpwdupn0ux8hy" path="res://items/collectable.tscn" id="4_yi3jx"]
+[ext_resource type="Texture2D" uid="uid://qrehp55sdtj8" path="res://obstacles/assets/laser_culo03.png" id="5_7di2q"]
+[ext_resource type="Texture2D" uid="uid://dyu4fbjrm0qrq" path="res://obstacles/assets/laser_mid03.png" id="5_58gyl"]
 [ext_resource type="Script" uid="uid://d28ue4frq8uht" path="res://levels/level.gd" id="6_2ro2b"]
+[ext_resource type="Texture2D" uid="uid://dyli8rok2vtcl" path="res://obstacles/assets/laser_culo04.png" id="6_2sfss"]
 [ext_resource type="PackedScene" uid="uid://q21wht55wyvw" path="res://items/coin.tscn" id="6_fj15s"]
+[ext_resource type="Texture2D" uid="uid://dl6nwlsgcv12t" path="res://obstacles/assets/laser_mid04.png" id="6_ggct0"]
 [ext_resource type="PackedScene" uid="uid://c0qoh0n6qv8q0" path="res://levels/modules/starting_position.tscn" id="6_jum3j"]
+[ext_resource type="Texture2D" uid="uid://d0qutbdh5e230" path="res://obstacles/assets/laser_mid05.png" id="7_8mki0"]
 [ext_resource type="PackedScene" uid="uid://b3yihcwholdbg" path="res://levels/modules/finish_area.tscn" id="7_c4pne"]
 [ext_resource type="Texture2D" uid="uid://btnfjwl47xbtf" path="res://items/assets/AssetPack_V01_FREE.png" id="7_obtcn"]
+[ext_resource type="Texture2D" uid="uid://deciiuboh6osi" path="res://obstacles/assets/laser_culo05.png" id="7_x1db4"]
 [ext_resource type="PackedScene" uid="uid://byque4w54oowj" path="res://player/player.tscn" id="8_c4pne"]
+[ext_resource type="Texture2D" uid="uid://bqwiu57cx5xna" path="res://obstacles/assets/laser_mid06.png" id="8_gxks1"]
+[ext_resource type="Texture2D" uid="uid://cqc0uslt0lg5j" path="res://obstacles/assets/laser_culo06.png" id="8_x8hdd"]
+[ext_resource type="Texture2D" uid="uid://bmq2uh4ejqo6o" path="res://obstacles/assets/laser_culo07.png" id="9_jwc5o"]
+[ext_resource type="Texture2D" uid="uid://68ddadivyxy3" path="res://obstacles/assets/laser_mid07.png" id="9_osodt"]
 [ext_resource type="PackedScene" uid="uid://bxhe8mhn1g1ag" path="res://thief/thief.tscn" id="9_tfamw"]
 [ext_resource type="Script" uid="uid://dx0x03jq048sm" path="res://thief/order.gd" id="10_dm5o4"]
 
@@ -21,6 +35,89 @@ size = Vector2(31, 174)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7d3si"]
 size = Vector2(31, 106)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vfwqd"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("3_vfwqd")
+}, {
+"duration": 3.0,
+"texture": ExtResource("4_juy1h")
+}, {
+"duration": 3.0,
+"texture": ExtResource("5_7di2q")
+}, {
+"duration": 3.0,
+"texture": ExtResource("6_2sfss")
+}, {
+"duration": 3.0,
+"texture": ExtResource("7_x1db4")
+}, {
+"duration": 3.0,
+"texture": ExtResource("8_x8hdd")
+}, {
+"duration": 3.0,
+"texture": ExtResource("9_jwc5o")
+}],
+"loop": 2,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_laogf"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("3_owf05")
+}, {
+"duration": 3.0,
+"texture": ExtResource("4_uuq13")
+}, {
+"duration": 3.0,
+"texture": ExtResource("5_58gyl")
+}, {
+"duration": 3.0,
+"texture": ExtResource("6_ggct0")
+}, {
+"duration": 3.0,
+"texture": ExtResource("7_8mki0")
+}, {
+"duration": 3.0,
+"texture": ExtResource("8_gxks1")
+}, {
+"duration": 3.0,
+"texture": ExtResource("9_osodt")
+}],
+"loop": 2,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="Animation" id="Animation_vfwqd"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_juy1h"]
+resource_name = "lasers"
+length = 1.875
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LaseBeam:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7di2q"]
+_data = {
+&"RESET": SubResource("Animation_vfwqd"),
+&"lasers": SubResource("Animation_juy1h")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_obtcn"]
 atlas = ExtResource("7_obtcn")
@@ -100,6 +197,25 @@ offset_bottom = 46.0
 [node name="CollisionShape2D" parent="Pits/Pit5" index="1" unique_id=1875047140]
 shape = SubResource("RectangleShape2D_7d3si")
 
+[node name="LaserBase2" type="AnimatedSprite2D" parent="Pits" unique_id=135273210]
+position = Vector2(655, 600)
+scale = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_vfwqd")
+autoplay = "default"
+
+[node name="LaserBase3" type="AnimatedSprite2D" parent="Pits" unique_id=894912567]
+position = Vector2(527, 600)
+sprite_frames = SubResource("SpriteFrames_vfwqd")
+autoplay = "default"
+
+[node name="LaseBeam" type="AnimatedSprite2D" parent="Pits" unique_id=399447355]
+position = Vector2(591, 600)
+sprite_frames = SubResource("SpriteFrames_laogf")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pits" unique_id=645340790]
+libraries/ = SubResource("AnimationLibrary_7di2q")
+
 [node name="Alarms" type="Node2D" parent="." unique_id=1019689923]
 
 [node name="AlarmZone" parent="Alarms" unique_id=843988376 instance=ExtResource("2_7d3si")]
@@ -131,7 +247,7 @@ position = Vector2(0, -1)
 [node name="Collectables" type="Node2D" parent="." unique_id=661122506]
 
 [node name="Collectable" parent="Collectables" unique_id=820743229 instance=ExtResource("4_yi3jx")]
-position = Vector2(21, 24)
+position = Vector2(21, 30)
 num_collectable = 0
 
 [node name="Coins" type="Node2D" parent="." unique_id=637293912]

@@ -11,6 +11,7 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 
+	Game.in_level = true
 	global_cam.enabled = true
 	player_cam.enabled = false
 	finish_area.set_visible(false)
@@ -47,6 +48,7 @@ func _on_finish_area_body_entered(body: Node2D) -> void:
 		return
 
 	AudioManager.portal()
+	Game.in_level = false
 	Game.add_coins(player.UI.get_current_coins())
 	if next_level == 4:
 		SceneManager.go_to_boss_level()

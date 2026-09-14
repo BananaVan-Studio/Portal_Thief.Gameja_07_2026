@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://du2art0yggjax"]
+
+[ext_resource type="Script" uid="uid://5u2m6ohycmx7" path="res://items/floating_text.gd" id="1_s8gvd"]
+
+[node name="FloatingText" type="Label" unique_id=1338732633]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "You found note 0
+Press E to open notes."
+horizontal_alignment = 1
+script = ExtResource("1_s8gvd")

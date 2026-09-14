@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctutorial00001"]
+[gd_scene format=3 uid="uid://ctujr812lkrc7"]
 
-[ext_resource type="Script" path="res://menu/tutorial.gd" id="1_tut"]
+[ext_resource type="Script" uid="uid://8iy52siub1h7" path="res://UI/menu/tutorial.gd" id="1_tut"]
 
-[node name="Tutorial" type="Control"]
+[node name="Tutorial" type="Control" unique_id=1970813971]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tut")
 
-[node name="Dim" type="ColorRect" parent="."]
+[node name="Dim" type="ColorRect" parent="." unique_id=2088704567]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,7 +20,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.02, 0.06, 0.16, 0.82)
 
-[node name="Center" type="CenterContainer" parent="."]
+[node name="Center" type="CenterContainer" parent="." unique_id=1562921864]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,41 +28,47 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBox" type="VBoxContainer" parent="Center"]
+[node name="VBox" type="VBoxContainer" parent="Center" unique_id=673360257]
 layout_mode = 2
 theme_override_constants/separation = 18
 
-[node name="Title" type="Label" parent="Center/VBox"]
+[node name="Title" type="Label" parent="Center/VBox" unique_id=1935523034]
 layout_mode = 2
 theme_override_font_sizes/font_size = 56
 text = "HOW TO PLAY"
 horizontal_alignment = 1
 
-[node name="Move" type="Label" parent="Center/VBox"]
+[node name="Move" type="Label" parent="Center/VBox" unique_id=2121300310]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Move  —  WASD or Arrow Keys"
 horizontal_alignment = 1
 
-[node name="Run" type="Label" parent="Center/VBox"]
+[node name="Run" type="Label" parent="Center/VBox" unique_id=226089779]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Run  —  Shift"
 horizontal_alignment = 1
 
-[node name="Dash" type="Label" parent="Center/VBox"]
+[node name="Dash" type="Label" parent="Center/VBox" unique_id=776473775]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Dash  —  Space"
 horizontal_alignment = 1
 
-[node name="Extra" type="Label" parent="Center/VBox"]
+[node name="Notes" type="Label" parent="Center/VBox" unique_id=1310234123]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Open Notes  —  E"
+horizontal_alignment = 1
+
+[node name="Extra" type="Label" parent="Center/VBox" unique_id=1170935760]
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "R — restart level      Esc — pause"
 horizontal_alignment = 1
 
-[node name="BackButton" type="Button" parent="Center/VBox"]
+[node name="BackButton" type="Button" parent="Center/VBox" unique_id=1161643372]
 custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30

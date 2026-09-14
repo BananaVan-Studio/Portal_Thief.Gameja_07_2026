@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpausemenu0001"]
+[gd_scene format=3 uid="uid://b4bi0f3d0rm3y"]
 
-[ext_resource type="Script" path="res://menu/pause_menu.gd" id="1_pause"]
+[ext_resource type="Script" uid="uid://0ewajro8g0mu" path="res://UI/pause_menu.gd" id="1_pause"]
 
-[node name="PauseMenu" type="Control"]
+[node name="PauseMenu" type="Control" unique_id=1984203980]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -12,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pause")
 
-[node name="Dim" type="ColorRect" parent="."]
+[node name="Dim" type="ColorRect" parent="." unique_id=1149939905]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,7 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.6)
 
-[node name="Center" type="CenterContainer" parent="."]
+[node name="Center" type="CenterContainer" parent="." unique_id=882836067]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,36 +29,36 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBox" type="VBoxContainer" parent="Center"]
+[node name="VBox" type="VBoxContainer" parent="Center" unique_id=951257230]
 custom_minimum_size = Vector2(280, 0)
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="Title" type="Label" parent="Center/VBox"]
+[node name="Title" type="Label" parent="Center/VBox" unique_id=586006623]
 layout_mode = 2
 theme_override_font_sizes/font_size = 56
 text = "PAUSED"
 horizontal_alignment = 1
 
-[node name="ResumeButton" type="Button" parent="Center/VBox"]
+[node name="ResumeButton" type="Button" parent="Center/VBox" unique_id=1677120293]
 custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Resume"
 
-[node name="RestartButton" type="Button" parent="Center/VBox"]
+[node name="RestartButton" type="Button" parent="Center/VBox" unique_id=1436321767]
 custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Restart level"
 
-[node name="SettingsButton" type="Button" parent="Center/VBox"]
+[node name="SettingsButton" type="Button" parent="Center/VBox" unique_id=1783479169]
 custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Settings"
 
-[node name="MenuButton" type="Button" parent="Center/VBox"]
+[node name="MenuButton" type="Button" parent="Center/VBox" unique_id=2016561778]
 custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30

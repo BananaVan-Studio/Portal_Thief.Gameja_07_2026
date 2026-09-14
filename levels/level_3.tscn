@@ -754,7 +754,7 @@ shape = SubResource("RectangleShape2D_svivd")
 
 [node name="Collectable" parent="Collectables" unique_id=820743229 instance=ExtResource("6_wj73x")]
 position = Vector2(590, 647)
-num_collectable = 0
+num_collectable = 3
 
 [node name="Coins" type="Node2D" parent="." unique_id=485240536]
 
@@ -1083,6 +1083,11 @@ tile_set = SubResource("TileSet_svivd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FakeWalls/FakeWall5" unique_id=1795905442]
 position = Vector2(16, 35)
 shape = SubResource("RectangleShape2D_eg35p")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1698335189]
+position = Vector2(808, 249)
+color = Color(0.22352941, 0.35686275, 0, 1)
+polygon = PackedVector2Array(3, -9, -9, -11, -24, -8, -30, 0, -30, 11, -20, 17, -10, 26, -7, 29, 7, 29, 11, 16, 16, 7, 13, 0, 8.744736, -3.8297348)
 
 [connection signal="body_entered" from="FinishArea" to="." method="_on_finish_area_body_entered"]
 [connection signal="body_entered" from="FakeWalls/FakeWall" to="FakeWalls/FakeWall" method="_on_body_entered"]

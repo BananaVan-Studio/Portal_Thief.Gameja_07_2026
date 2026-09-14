@@ -1,5 +1,7 @@
 extends Node
 
+const NOTES = preload("uid://c4ryf1iguxsr4")
+
 var allow_sprint := true
 var allow_dash := true
 
@@ -7,13 +9,40 @@ var master_volume := 1.0
 var music_volume := 1.0
 var sfx_volume := 1.0
 var fullscreen := false
+var in_level: bool = false
 
 var current_coins: int = 0
+var notes: Notes
+var open_notes: bool = false
 
 
 func _ready() -> void:
 	set_master_volume(master_volume) # Master bus always exists
 	set_fullscreen(fullscreen)
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	notes = NOTES.instantiate()
+	add_child(notes)
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if not in_level:
+		return
+
+	if SceneManager._pause_instance:
+		return
+
+	if event.is_action_pressed("Action"):
+		get_tree().paused = !get_tree().paused
+		notes.call_deferred("set_visible", get_tree().paused)
+		open_notes = get_tree().paused
+
+
+func hide_notes() -> void:
+	notes.call_deferred("set_visible", false)
+
+
+func reset_notes() -> void:
+	notes.reset_buttons()
 
 
 func reset_coins() -> void:
@@ -21,7 +50,6 @@ func reset_coins() -> void:
 
 
 func add_coins(new_qtt: int) -> void:
-	print("Quantity added: ", new_qtt)
 	current_coins += new_qtt
 
 

@@ -1,5 +1,8 @@
 extends Control
 
+const SETTINGS_MENU = preload("uid://bduoje8alkrc7")
+const TUTORIAL = preload("uid://ctujr812lkrc7")
+
 
 func _ready() -> void:
 	SceneManager.in_level = false
@@ -23,20 +26,22 @@ func _ready() -> void:
 
 func _on_play() -> void:
 	Game.reset_coins()
+	Game.reset_notes()
+	Events.reset_collectables()
 	AudioManager.advance()
 	SceneManager.start_game()
 
 
 func _on_tutorial() -> void:
 	AudioManager.advance()
-	var tutorial := preload("res://menu/tutorial.tscn").instantiate()
+	var tutorial := TUTORIAL.instantiate()
 	add_child(tutorial)
 	tutorial.closed.connect(tutorial.queue_free)
 
 
 func _on_settings() -> void:
 	AudioManager.advance()
-	var settings := preload("res://menu/settings_menu.tscn").instantiate()
+	var settings := SETTINGS_MENU.instantiate()
 	add_child(settings)
 	settings.closed.connect(settings.queue_free)
 
