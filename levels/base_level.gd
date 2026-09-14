@@ -49,7 +49,7 @@ func _ready() -> void:
 		text = _auto_rule_text()
 	SceneManager.show_toast(text)
 
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(3).timeout
 	start_camera_transition()
 
 

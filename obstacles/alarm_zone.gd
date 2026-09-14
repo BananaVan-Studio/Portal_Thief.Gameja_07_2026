@@ -25,6 +25,7 @@ func _ready() -> void:
 	if detect_sprint:
 		polygon_2d.color = Color(Color.GOLD, 0.25)
 
+
 func _process(_delta: float) -> void:
 	if not player:
 		return
@@ -33,7 +34,7 @@ func _process(_delta: float) -> void:
 
 	if player.is_dashing:
 		player._on_dash_timer_timeout()
-		_on_alarm_timer_timeout()
+		alarm_triggered("caught_alarm")
 		alarm_timer.stop()
 
 	if not detect_sprint:
@@ -41,8 +42,13 @@ func _process(_delta: float) -> void:
 
 	if player.is_sprinting:
 		player.is_sprinting = false
-		_on_alarm_timer_timeout()
+		alarm_triggered("caught_alarm_slow")
 		alarm_timer.stop()
+
+
+func alarm_triggered(reason: String) -> void:
+	AudioManager.alarm_siren()
+	player.take_player_control(reason)
 
 
 func _on_switch_alarms() -> void:
@@ -81,4 +87,4 @@ func _on_body_exited(body: Node2D) -> void:
 
 func _on_alarm_timer_timeout() -> void:
 	AudioManager.alarm_siren()
-	player.take_player_control("caught_alarm")
+	player.take_player_control("alarm_time_off")

@@ -97,6 +97,7 @@ theme_override_constants/margin_bottom = 20
 [node name="NoteText" type="RichTextLabel" parent="Note/VBoxContainer/ColorRect/MarginContainer" unique_id=1966125721]
 layout_mode = 2
 theme = ExtResource("2_m78sq")
+bbcode_enabled = true
 text = "Sweetheart, if you've triggered an alarm, don't worry. It's just a new alarm system I've installed with the help of this neighbor. He told me he make this systems himself and he pack them with a lot of non-gov functionalities!"
 
 [node name="HSeparator" type="HSeparator" parent="Note/VBoxContainer" unique_id=1142489960]

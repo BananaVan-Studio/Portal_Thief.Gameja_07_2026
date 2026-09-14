@@ -26,3 +26,4 @@ position = Vector2(0, 0)
 [node name="SFX" type="AudioStreamPlayer" parent="." unique_id=678003481]
 stream = ExtResource("2_bac1e")
 volume_db = 10.0
+bus = &"SFX"

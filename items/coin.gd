@@ -30,6 +30,7 @@ func _on_body_entered(body: Node2D) -> void:
 	body.add_coin_UI()
 	create_floating_text()
 
+	sfx.pitch_scale = randf_range(0.8, 1.2)
 	sfx.play()
 	await sfx.finished
 	queue_free()

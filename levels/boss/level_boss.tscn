@@ -644,7 +644,7 @@ size = Vector2(246, 67)
 script = ExtResource("1_rxnc0")
 
 [node name="Pc" type="Sprite2D" parent="." unique_id=1624962205]
-position = Vector2(247, 293)
+position = Vector2(183, 230)
 rotation = 3.1415925
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_msnig")
@@ -668,7 +668,7 @@ scale = Vector2(10, 10)
 polygon = PackedVector2Array(205, 308, 191, 300, 191, 162, 106, 42.000004, 492.00003, 43.000004, 417, 129, 416.3518, 160.43462, 291, 306)
 
 [node name="Pits" type="Node2D" parent="." unique_id=276926550]
-position = Vector2(64, 64)
+position = Vector2(0, 1)
 
 [node name="Pit" parent="Pits" unique_id=133011370 instance=ExtResource("4_tsiy0")]
 position = Vector2(591, 544)
@@ -701,7 +701,7 @@ position = Vector2(0, 0.22802734)
 shape = SubResource("RectangleShape2D_hqbke")
 
 [node name="Alarms" type="Node2D" parent="." unique_id=1284449507]
-position = Vector2(64, 64)
+position = Vector2(0, 1)
 
 [node name="AlarmZone" parent="Alarms" unique_id=843988376 instance=ExtResource("5_idnpr")]
 position = Vector2(79, 259)
@@ -719,16 +719,13 @@ wait_time = 2.0
 
 [node name="AlarmZone2" parent="Alarms" unique_id=1849933081 instance=ExtResource("5_idnpr")]
 position = Vector2(301, 604)
-caught_margin = 1.2
+caught_margin = 1.0
 
 [node name="CollisionPolygon2D" parent="Alarms/AlarmZone2" index="0" unique_id=1530615776]
 polygon = PackedVector2Array(-109, -75, 209, -76, 209, 80, -109, 80)
 
 [node name="Polygon2D" parent="Alarms/AlarmZone2" index="1" unique_id=798246771]
 polygon = PackedVector2Array(-109, -75, 209, -76, 209, 80, -109, 80)
-
-[node name="AlarmTimer" parent="Alarms/AlarmZone2" index="2" unique_id=534087450]
-wait_time = 1.2
 
 [node name="AlarmZone3" parent="Alarms" unique_id=613329683 instance=ExtResource("5_idnpr")]
 position = Vector2(596, 160)
@@ -762,9 +759,9 @@ polygon = PackedVector2Array(-112, -113, 141, -113, 141, -20, 248, -20, 248, 221
 wait_time = 2.2
 
 [node name="Base" parent="." unique_id=1947313494 instance=ExtResource("1_2iqtg")]
-position = Vector2(64, 63)
 
 [node name="Coins" type="Node2D" parent="." unique_id=1586944838]
+position = Vector2(-64, -63)
 
 [node name="Coin" parent="Coins" unique_id=1927659458 instance=ExtResource("6_hqbke")]
 position = Vector2(830, 224)
@@ -798,7 +795,7 @@ position = Vector2(316, 490)
 
 [node name="Atrezzo" type="Node2D" parent="." unique_id=1118000750]
 modulate = Color(0.34055206, 0.63689363, 0, 1)
-position = Vector2(64, 64)
+position = Vector2(0, 1)
 scale = Vector2(2, 2)
 
 [node name="Polygon2D" type="Polygon2D" parent="Atrezzo" unique_id=867857169]
@@ -865,7 +862,7 @@ position = Vector2(1.5, 24)
 shape = SubResource("RectangleShape2D_laogf")
 
 [node name="FakeWalls" type="Node2D" parent="." unique_id=813401787]
-position = Vector2(555, -98)
+position = Vector2(491, -161)
 
 [node name="FakeWall" type="Area2D" parent="FakeWalls" unique_id=1831785712]
 position = Vector2(277, 385)
@@ -895,17 +892,17 @@ position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_eh7y6")
 
 [node name="StartingPosition" parent="." unique_id=1016504268 instance=ExtResource("2_iii5r")]
-position = Vector2(180, 627)
+position = Vector2(116, 564)
 
 [node name="BossThief" parent="." unique_id=508703989 instance=ExtResource("4_yqa65")]
-position = Vector2(246.00002, 263)
+position = Vector2(182.00002, 200)
 scale = Vector2(0.9999999, 0.99999994)
 
 [node name="Player" parent="." unique_id=19935492 instance=ExtResource("11_idnpr")]
-position = Vector2(-32, -20)
+position = Vector2(-96, -83)
 
 [node name="Switch" parent="." unique_id=742769273 instance=ExtResource("13_ctywb")]
-position = Vector2(740, 112)
+position = Vector2(676, 49)
 
 [connection signal="body_entered" from="Atrezzo/RotCloud" to="." method="_on_rot_cloud_body_entered"]
 [connection signal="body_entered" from="FakeWalls/FakeWall" to="FakeWalls/FakeWall" method="_on_body_entered"]

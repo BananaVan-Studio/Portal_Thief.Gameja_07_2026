@@ -60,11 +60,11 @@ func _physics_process(delta: float) -> void:
 	if direction.y <= -0.7:
 		if camera_2d.drag_vertical_offset != -1:
 			var tween = get_tree().create_tween()
-			tween.tween_property(camera_2d, "drag_vertical_offset", -1, 0.2)
+			tween.tween_property(camera_2d, "drag_vertical_offset", -1, 0.3)
 	elif direction.y >= 0.7:
 		if camera_2d.drag_vertical_offset != 1:
 			var tween = get_tree().create_tween()
-			tween.tween_property(camera_2d, "drag_vertical_offset", 1, 0.2)
+			tween.tween_property(camera_2d, "drag_vertical_offset", 1, 0.3)
 
 	if Game.allow_dash and Input.is_action_just_pressed("Dash") and dash_wait_time.is_stopped():
 		dash_wait_time.start()
@@ -121,8 +121,8 @@ func take_player_control(animation: String) -> void:
 	await anim_player.animation_finished
 
 
-func game_over() -> void:
-	await UI.game_over_popup()
+func game_over(busted_reason: String) -> void:
+	await UI.game_over_popup(busted_reason)
 	SceneManager.reload_level()
 
 
